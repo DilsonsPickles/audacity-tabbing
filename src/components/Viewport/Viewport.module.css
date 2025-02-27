@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+    flex-direction: column;  /* Allow items to stack vertically */
+    overflow-x: scroll;      /* Enable horizontal scrolling */
+    overflow-y: hidden;      /* No vertical scrolling */
+  }

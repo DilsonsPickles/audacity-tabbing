@@ -1,0 +1,17 @@
+.measure {
+    display: flex;
+    height: 100%;
+    border-left: 1px solid rgba(255,255,255,0.2);
+    width: calc(56px * 4);
+    justify-content: space-between;
+}
+
+.beat {
+    width: 56px;
+    height: 100%;
+}
+
+/* Add a border to the first 3 beats */
+.beat:nth-child(n+2) {
+    border-left: solid 1px rgba(255,255,255,0.1);
+}

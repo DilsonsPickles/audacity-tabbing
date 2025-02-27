@@ -1,0 +1,38 @@
+.knob_container {
+    position: relative;
+    height: 30px;
+    min-width: 30px;
+}
+
+.knob_guage {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: var(--background-secondary);
+}
+
+.knob_dial {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: var(--background-primary);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+
+    /* Center the element precisely */
+    transform: translate(-50%, -50%);
+}
+
+.knob_dial_marker {
+    position: absolute;
+    top: 2px; /* Adjust to place it near the top */
+    left: 50%;
+    height: 5px;
+    width: 2px; /* Thin rectangle to act as the indicator */
+    background-color: black;
+    transform: translateX(-50%);
+    border-radius: 1px;
+}

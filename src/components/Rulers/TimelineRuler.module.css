@@ -1,0 +1,8 @@
+.ruler_container {
+    display: flex;
+    padding-left: 12px;
+    height: 40px;
+    width: fit-content;
+    border-bottom: 1px solid var(--stroke-primary);
+    background-color: var(--background-secondary);
+}

@@ -1,0 +1,22 @@
+.tick_container {
+    width: 56px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--stroke-primary);
+  }
+  
+  .tick_container_upper {
+    height: 20px;
+    display: flex;
+    border-bottom: 1px solid var(--stroke-primary);
+    align-items: center; /* Ensures the text is vertically centered */
+    justify-content: start; /* Centers the text horizontally */
+  }
+  
+  .tick_container_lower {
+    height: 20px;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }

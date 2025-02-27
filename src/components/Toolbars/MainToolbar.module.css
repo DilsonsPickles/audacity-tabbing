@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 48px;
+    background-color: var(--background-primary);
+    border-bottom: 1px solid var(--stroke-primary);
+    flex-shrink: 0; /* Ensures it doesn’t shrink */
+}
+
+.transport_button_container {
+    display: flex;
+    gap: 4px; /* Slightly increased spacing for better touch targets */
+    align-items: center; /* Ensures button alignment */
+}
