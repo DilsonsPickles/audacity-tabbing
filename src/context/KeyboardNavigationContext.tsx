@@ -269,6 +269,8 @@ export const KeyboardProvider = ({
         navigateToAdjacentTrackClip(event, 1);
         break;
       case "ArrowLeft":
+        event.preventDefault();
+        break;
       case "a": // Navigate to the previous clip using "A"
         event.preventDefault(); // Prevent default behavior
         const prevClip = document.getElementById(
@@ -280,6 +282,8 @@ export const KeyboardProvider = ({
         }
         break;
       case "ArrowRight":
+        event.preventDefault();
+        break;
       case "d": // Navigate to the next clip using "D"
         event.preventDefault(); // Prevent default behavior
         const nextClip = document.getElementById(
