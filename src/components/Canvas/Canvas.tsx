@@ -2,48 +2,20 @@ import React from "react";
 import styles from "./Canvas.module.css";
 import Measure from "../Gridlines/Measure";
 import Track from "../Tracks/Track";
-import { TrackData } from "@/app/page";
+import { useTrackContext } from "@/context/TrackContext";
 
-type CanvasProps = {
-  tracks: TrackData[]; // Use the imported Track type from page.tsx
-  selectedTrack: number;
-  setSelectedTrack: (id: number) => void;
-  focusedTrack: number;
-  setFocusedTrack: (id: number) => void;
-  selectedClip: number;
-  setSelectedClip: (id: number) => void;
-  focusedClip: number;
-  setFocusedClip: (id: number) => void;
-};
+function Canvas() {
+  const { tracks, focusedTrack } = useTrackContext();
 
-function Canvas({
-  tracks,
-  selectedTrack,
-  setSelectedTrack,
-  focusedTrack,
-  setFocusedTrack,
-  selectedClip,
-  setSelectedClip,
-  focusedClip,
-  setFocusedClip,
-}: CanvasProps) {
   return (
     <div className={styles.container}>
       <div className={styles.trackContainer}>
         {tracks.map((track) => (
-          <Track
-            key={track.id}
+          <Track 
+            key={track.id} 
+            track={track} 
             tabIndex={track.id}
-            track={track}
-            isSelected={selectedTrack === track.id}
-            setSelectedTrack={setSelectedTrack}
             inFocus={focusedTrack === track.id}
-            focusedTrack={focusedTrack}
-            setFocusedTrack={setFocusedTrack}
-            selectedClip={selectedClip}
-            setSelectedClip={setSelectedClip}
-            focusedClip={focusedClip}
-            setFocusedClip={setFocusedClip}
           />
         ))}
       </div>

@@ -1,23 +1,22 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import styles from "./ClipNameInput.module.css";
 
 type ClipNameInputProps = {
   tabIndex: number;
-  value: number;
+  value: string;
+  id: string;
 };
 
-const ClipNameInput = forwardRef<HTMLInputElement, ClipNameInputProps>(
-  ({ tabIndex, value }, ref) => {
-    return (
-      <input
-        ref={ref}
-        className={styles.input}
-        tabIndex={tabIndex}
-        value={value}
-        readOnly
-      ></input>
-    );
-  }
-);
+const ClipNameInput = ({ tabIndex, value, id }: ClipNameInputProps) => {
+  return (
+    <input
+      className={styles.input}
+      tabIndex={tabIndex}
+      value={value}
+      readOnly
+      id={id}
+    />
+  );
+};
 
 export default ClipNameInput;

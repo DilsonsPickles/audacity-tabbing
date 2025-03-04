@@ -1,15 +1,22 @@
-import React from 'react'
-import styles from './TrackNameInput.module.css'
+import React from "react";
+import styles from "./TrackNameInput.module.css";
 
-type TrackNameInputProps = {    
-    tabIndex: number;
-    value: string;
+type TrackNameInputProps = {
+  tabIndex: number;
+  value: string;
+  id: string;
 };
 
-function TrackNameInput({tabIndex, value}: TrackNameInputProps) {
+const TrackNameInput = ({ tabIndex, value, id }: TrackNameInputProps) => {
   return (
-    <input className={styles.input} tabIndex={tabIndex} value={value} readOnly></input>
-  )
-}
+    <input
+      className={styles.input}
+      tabIndex={tabIndex}
+      value={value}
+      readOnly
+      id={id}
+    />
+  );
+};
 
-export default TrackNameInput
+export default TrackNameInput;

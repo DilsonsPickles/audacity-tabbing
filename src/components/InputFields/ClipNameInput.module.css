@@ -1,4 +1,7 @@
 .input {
     border: none;
     background-color: transparent;
+    width: 100%;
+    overflow: none
+    ;
 }

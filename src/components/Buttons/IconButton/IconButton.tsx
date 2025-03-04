@@ -1,16 +1,19 @@
-import Icon from '@/components/Icon'
-import React from 'react'
-import styles from './IconButton.module.css'
+import React from "react";
+import Icon from "@/components/Icon";
+import styles from "./IconButton.module.css";
 
 type IconButtonProps = {
   code: string;
   tabIndex: number;
+  id: string;
 };
 
-function IconButton({ code, tabIndex }: IconButtonProps) {
+const IconButton = ({ code, tabIndex, id }: IconButtonProps) => {
   return (
-    <button tabIndex={tabIndex} className={styles.button}><Icon size={16} code={code}/></button>
-  )
-}
+    <button tabIndex={tabIndex} className={styles.button} id={id}>
+      <Icon size={16} code={code} />
+    </button>
+  );
+};
 
-export default IconButton
+export default IconButton;

@@ -1,68 +1,61 @@
+"use client";
 import React from "react";
 import styles from "./Track.module.css";
 import Clip from "../Clips/Clip";
+import { TrackData } from "@/context/TrackContext";
+import { useTrackContext } from "@/context/TrackContext";
 
 type TrackProps = {
-  track: {
-    name: string;
-    id: number;
-    clips: { id: number }[];
-  };
-  setSelectedTrack: (id: number) => void;
-  inFocus: boolean;
+  track: TrackData;
   tabIndex: number;
-  isSelected: boolean;
-  focusedTrack: number;
-  setFocusedTrack: (id: number) => void;
-  selectedClip: number;
-  setSelectedClip: (id: number) => void;
-  focusedClip: number;
-  setFocusedClip: (id: number) => void;
+  inFocus: boolean;
 };
 
-const Track: React.FC<TrackProps> = ({
-  track,
-  setSelectedTrack,
-  tabIndex,
-  selectedClip,
-  setSelectedClip,
-  isSelected,
-  inFocus,
-  focusedTrack,
-  setFocusedTrack,
-  focusedClip,
-  setFocusedClip,
-}) => {
-  const handleClipClick = (clipId: number) => {
-    setSelectedTrack(track.id);
-    setFocusedTrack(track.id);
-  };
+const Track: React.FC<TrackProps> = ({ track, tabIndex, inFocus }) => {
+  const {
+    focusedClip,
+    selectedClip,
+    setSelectedClip,
+    selectedTrack,
+    setSelectedTrack,
+    setFocusedClipPosition,
+    setFocusedTrack,
+  } = useTrackContext();
+
+  // Handle clip click
+  function handleClipSelectionButton(clipName: string, clipParentId: number) {
+    setSelectedClip(clipName);
+    setSelectedTrack(clipParentId)
+  }
+
+  // Handle clip focus
+  function handleClipFocus(clipPos: number, clipParentId: number) {
+    setFocusedClipPosition(clipPos);
+    setFocusedTrack(clipParentId);
+  }
 
   return (
     <div
-      className={`${styles.track_container} ${
-        isSelected ? styles.selected : ""
-      } ${inFocus ? styles.focused : ""}`}
+      className={`
+        ${styles.track_container} 
+        ${selectedTrack === track.id ? styles.selected : ""} 
+        ${inFocus ? styles.focused : ""}
+      `}
+      role="region"
+      aria-label={`${track.name} Track`}
     >
-      {track.clips.map((clip, index) => {
-        // If this is the last clip, give it a tabIndex of -1 (no focus)
-        const isLastClip = index === track.clips.length - 1;
-        return (
-          <Clip
-            key={clip.id}
-            id={clip.id}
-            tabIndex={tabIndex} // Last clip doesn't have tab focus
-            onClick={handleClipClick}
-            isSelected={clip.id === selectedClip}
-            setSelectedClip={setSelectedClip}
-            isFocused={clip.id === focusedClip}
-            setFocusedClip={setFocusedClip} // Pass setFocusedClip here
-            isLastClip={isLastClip}
-            setFocusedTrack={setFocusedTrack}
-            focusedTrack={focusedTrack}
-          />
-        );
-      })}
+      {track.clips.map((clip) => (
+        <Clip
+          key={clip.id}
+          clip={clip}
+          tabIndex={tabIndex}
+          parentId={clip.parentId}
+          isSelected={clip.name === selectedClip}
+          isFocused={clip.name === focusedClip}
+          onClick={handleClipSelectionButton}
+          onFocus={handleClipFocus}
+        />
+      ))}
     </div>
   );
 };

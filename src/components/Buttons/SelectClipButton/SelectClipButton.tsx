@@ -1,34 +1,41 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import styles from "./SelectClipButton.module.css";
 
 type SelectClipButtonProps = {
+  clipName: string;
+  clipParentId: number;
   tabIndex: number;
-  onClick: () => void; 
   isSelected: boolean;
+  id: string;
+  onClick: (clipName: string, clipParentId: number) => void;
 };
 
-const SelectClipButton = forwardRef<HTMLButtonElement, SelectClipButtonProps>(
-  ({ tabIndex, onClick, isSelected }, ref) => {
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-      // Trigger onClick when Enter key is pressed
-      if (event.key === "Enter") {
-        onClick();
-        event.preventDefault(); // Prevent default behavior of Enter key
-      }
-    };
-
-    return (
-      <button
-        ref={ref}
-        tabIndex={tabIndex}
-        className={styles.button}
-        onClick={onClick}
-        onKeyDown={handleKeyDown} // Handle keydown event for Enter key
-      >
-        {isSelected ? "Deselect" : "Select"}
-      </button>
-    );
+const SelectClipButton = ({
+  clipName,
+  clipParentId,
+  tabIndex,
+  isSelected,
+  id,
+  onClick,
+}: SelectClipButtonProps) => {
+  // Handle key down for "Enter" key to trigger the onClick handler
+  function handleKeyDown(event: React.KeyboardEvent) {
+    if (event.code === "Enter") {
+      onClick(clipName, clipParentId); // Trigger the onClick handler with the clipName when "Enter" is pressed
+    }
   }
-);
+
+  return (
+    <button
+      tabIndex={tabIndex}
+      className={styles.button}
+      id={id}
+      onKeyDown={handleKeyDown} // Pass the function reference to onKeyDown
+      onClick={() => onClick(clipName, clipParentId)} // Trigger onClick when the button is clicked
+    >
+      {isSelected ? "Deselect" : "Select"}
+    </button>
+  );
+};
 
 export default SelectClipButton;
