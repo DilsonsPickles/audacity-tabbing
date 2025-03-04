@@ -1,8 +1,12 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useTrackContext } from "./TrackContext";
 
+type KeyboardContextType = {
+  focusedElement: HTMLElement | null;
+  focusedClip: string | null;
+};
 // Create a context for managing keyboard events globally
-const KeyboardContext = createContext<any>(null);
+const KeyboardContext = createContext<KeyboardContextType | null>(null);
 
 export const useKeyboardContext = () => useContext(KeyboardContext);
 
