@@ -2,7 +2,6 @@
 import React from "react";
 import ProjectToolbar from "@/components/Toolbars/ProjectToolbar";
 import MainToolbar from "@/components/Toolbars/MainToolbar";
-import RealtimeEffectsPanel from "@/components/Panels/RealtimeEffectsPanel";
 import TrackHeadersPanel from "@/components/Panels/TrackHeadersPanel";
 import Viewport from "@/components/Viewport/Viewport";
 import { TrackProvider } from "@/context/TrackContext";
@@ -16,7 +15,6 @@ function HomeContent() {
         <MainToolbar />
       </div>
       <div className="main-grid">
-        <RealtimeEffectsPanel />
         <TrackHeadersPanel />
         <Viewport />
       </div>

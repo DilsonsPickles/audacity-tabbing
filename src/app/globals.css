@@ -73,6 +73,6 @@ a {
 
 .main-grid {
   display: grid;
-  grid-template-columns: 240px 280px 1fr;
+  grid-template-columns: 280px 1fr;
   height: calc(100vh - 88px);
 }
