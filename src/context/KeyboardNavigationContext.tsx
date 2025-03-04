@@ -214,7 +214,7 @@ export const KeyboardProvider = ({
         }
         break;
       case "ArrowLeft":
-        if (focusedElement?.id.includes(`track-${focusedTrack}-control-z`)) {
+        if (focusedElement?.id.includes(`track-${focusedTrack}-control-`)) {
           navigateInternalTrackHeader(event, -1); // Move left in the internal track header tab group
         }
         break;
