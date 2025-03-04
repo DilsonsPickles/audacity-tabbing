@@ -31,7 +31,6 @@ const SelectClipButton = ({
       className={styles.button}
       id={id}
       onKeyDown={handleKeyDown} // Pass the function reference to onKeyDown
-      onClick={() => onClick(clipName, clipParentId)} // Trigger onClick when the button is clicked
     >
       {isSelected ? "Deselect" : "Select"}
     </button>

@@ -25,7 +25,7 @@ const Track: React.FC<TrackProps> = ({ track, tabIndex, inFocus }) => {
   // Handle clip click
   function handleClipSelectionButton(clipName: string, clipParentId: number) {
     setSelectedClip(clipName);
-    setSelectedTrack(clipParentId)
+    setSelectedTrack(clipParentId);
   }
 
   // Handle clip focus

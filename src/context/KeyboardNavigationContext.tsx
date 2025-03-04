@@ -1,13 +1,8 @@
 import React, { createContext, useContext, useEffect } from "react";
 import { useTrackContext } from "./TrackContext";
 
-type KeyboardContextType = {
-    focusedElement: HTMLElement | null;
-    focusedClip: string | null;
-  };
-
 // Create a context for managing keyboard events globally
-const KeyboardContext = createContext<KeyboardContextType | null>(null);
+const KeyboardContext = createContext<any>(null);
 
 export const useKeyboardContext = () => useContext(KeyboardContext);
 
@@ -28,7 +23,6 @@ export const KeyboardProvider = ({
     setFocusedClipPosition,
     trackControlIndex,
     setTrackControlIndex,
-    clipControlIndex,
     setClipControlIndex,
     mainToolbarIndex,
     setMainToolbarIndex,
@@ -47,7 +41,7 @@ export const KeyboardProvider = ({
 
   /**
    * Finds the nearest valid clip in a given track.
-   * - First attempts `position`, if not found, tries previous positions.
+   * - First attempts position, if not found, tries previous positions.
    */
   function findValidClip(track: number, position: number) {
     let attemptPosition = position;
@@ -216,7 +210,7 @@ export const KeyboardProvider = ({
         }
         break;
       case "ArrowLeft":
-        if (focusedElement?.id.includes(`track-${focusedTrack}-control-`)) {
+        if (focusedElement?.id.includes(`track-${focusedTrack}-control-z`)) {
           navigateInternalTrackHeader(event, -1); // Move left in the internal track header tab group
         }
         break;
@@ -426,7 +420,7 @@ export const KeyboardProvider = ({
       selectButtonFocus?.focus();
       setClipControlIndex(2);
     }
-  }, [focusedClip, clipControlIndex]);
+  }, [focusedClip]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
