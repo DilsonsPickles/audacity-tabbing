@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     border-left: 1px solid var(--stroke-primary);
+    user-select: none;
   }
   
   .tick_container_upper {
@@ -11,10 +12,14 @@
     border-bottom: 1px solid var(--stroke-primary);
     align-items: center; /* Ensures the text is vertically centered */
     justify-content: start; /* Centers the text horizontally */
+    user-select: none;
+
   }
   
   .tick_container_lower {
     height: 20px;
+    user-select: none;
+
   }
   
   .bold {

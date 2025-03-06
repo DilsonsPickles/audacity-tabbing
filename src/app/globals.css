@@ -1,19 +1,27 @@
 :root {
   --background-primary: #F8F8F9;
-  --background-primary-rgb: 248, 248, 249; /* RGB equivalent of --background-primary */
+  --background-primary-rgb: 248, 248, 249;
+  /* RGB equivalent of --background-primary */
   --track-header-default: rgba(var(--background-primary-rgb), 0.6);
+  --track-header-hover: rgba(var(--background-primary-rgb), 1) ;
   --track-header-active: var(--background-primary);
   --background-secondary: #E6E6EB;
   --background-tertiary: #323545;
   --stroke-primary: #d4d5d9;
   --button-base: #c2c4cf;
-  --button-base-rgb: 194, 196, 207; /* RGB equivalent of --button-base */
+  --button-base-rgb: 194, 196, 207;
+  /* RGB equivalent of --button-base */
   --button-idle: rgba(var(--button-base-rgb), 0.5);
   --button-hover: rgba(var(--button-base-rgb), 0.7);
   --button-active: rgba(var(--button-base-rgb), 0.9);
   --button-disabled: rgba(var(--button-base-rgb), 0.3);
   --foreground: #171717;
-  --clip-colour: #9996FC;
+  --accent-colour: #677CE4;
+  --clip-colour-1: #7EB1FF;
+  --clip-colour-2: #9996FC;
+  --clip-colour-3: #DA8CCC;
+  --text-primary: #14151A;
+  --text-secondary: #F4F5F9;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,12 +31,8 @@
   }
 }
 
-html,
 body {
   max-width: 100vw;
-}
-
-body {
   color: #000000;
   background: var(--background-primary);
   font-family: Arial, Helvetica, sans-serif;
@@ -36,12 +40,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-size: 12px;
   line-height: 16px;
+  user-select: none;
 }
 
 a {
@@ -74,5 +82,5 @@ a {
 .main-grid {
   display: grid;
   grid-template-columns: 280px 1fr;
-  height: calc(100vh - 88px);
+  height: calc(100vh - 128px);
 }

@@ -29,20 +29,20 @@ interface TrackContextType {
   tracks: TrackData[];
   setTracks: React.Dispatch<React.SetStateAction<TrackData[]>>;
 
-  selectedTrack: number;
-  setSelectedTrack: (id: number) => void;
+  selectedTrack: number[];
+  setSelectedTrack: (ids: number[]) => void;
 
   focusedTrack: number;
   setFocusedTrack: (id: number) => void;
 
-  selectedClip: string;
-  setSelectedClip: (name: string) => void;
+  selectedClip: string[];
+  setSelectedClip: (names: string[], shiftKey: boolean) => void; // Updated signature
 
   focusedClip: string;
   setFocusedClip: (name: string) => void;
 
   focusedElement: HTMLElement | null;
-  setFocusedElement: (element: HTMLElement | null) => void; // ✅ Fixed function type
+  setFocusedElement: (element: HTMLElement | null) => void;
 
   trackControlIndex: number;
   setTrackControlIndex: (index: number) => void;
@@ -67,9 +67,9 @@ interface TrackContextType {
 const TrackContext = createContext<TrackContextType | undefined>(undefined);
 
 export function TrackProvider({ children }: { children: ReactNode }) {
-  const [selectedTrack, setSelectedTrackState] = useState<number>(1);
+  const [selectedTrack, setSelectedTrackState] = useState<number[]>([1]);
   const [focusedTrack, setFocusedTrackState] = useState<number>(1);
-  const [selectedClip, setSelectedClipState] = useState<string>("");
+  const [selectedClip, setSelectedClipState] = useState<string[]>([]); // Use an array of strings
   const [focusedClip, setFocusedClipState] = useState<string>("");
   const [focusedElement, setFocusedElementState] = useState<HTMLElement | null>(
     null
@@ -112,87 +112,97 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     return () => document.removeEventListener("focusin", handleFocus);
   }, [focusedElement]);
 
-  const [tracks, setTracks] = useState<TrackData[]>([
-    {
-      id: 1,
-      name: "Mono track 1",
-      index: 0,
-      isSelected: selectedTrack === 1,
-      isFocused: focusedTrack === 1,
-      clips: [
-        {
-          id: 1,
-          name: "clip-1-1",
-          position: 1,
-          //Check to make sure these are working as intended, they are being passed down right now but not used
-          isSelected: selectedClip === "clip-1-1",
-          isFocused: focusedClip === "clip-1-1",
-          parentId: 1,
-        },
-        {
-          id: 2,
-          name: "clip-1-2",
-          position: 2,
-          isSelected: selectedClip === "clip-1-2",
-          isFocused: focusedClip === "clip-1-2",
-          parentId: 1,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Mono track 2",
-      index: 1,
-      isSelected: selectedTrack === 2,
-      isFocused: focusedTrack === 2,
-      clips: [
-        {
-          id: 1,
-          name: "clip-2-1",
-          position: 1,
-          isSelected: selectedClip === "clip-2-1",
-          isFocused: focusedClip === "clip-2-1",
-          parentId: 2,
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: "Mono track 3",
-      index: 2,
-      isSelected: selectedTrack === 3,
-      isFocused: focusedTrack === 3,
-      clips: [
-        {
-          id: 1,
-          name: "clip-3-1",
-          position: 1,
-          isSelected: selectedClip === "clip-3-1",
-          isFocused: focusedClip === "clip-3-1",
-          parentId: 3,
-        },
-        {
-          id: 2,
-          name: "clip-3-2",
-          position: 2,
-          isSelected: selectedClip === "clip-3-2",
-          isFocused: focusedClip === "clip-3-2",
-          parentId: 3,
-        },
-      ],
-    },
-  ]);
+  const [tracks, setTracks] = useState<TrackData[]>(() => {
+    return [
+      {
+        id: 1,
+        name: "Mono track 1",
+        index: 0,
+        isSelected: selectedTrack.includes(1),
+        isFocused: focusedTrack === 1,
+        clips: [
+          {
+            id: 1,
+            name: "clip-1-1",
+            position: 1,
+            isSelected: selectedClip.includes("clip-1-1"), // Check if this clip is selected
+            isFocused: focusedClip === "clip-1-1",
+            parentId: 1,
+          },
+          {
+            id: 2,
+            name: "clip-1-2",
+            position: 2,
+            isSelected: selectedClip.includes("clip-1-2"), // Check if this clip is selected
+            isFocused: focusedClip === "clip-1-2",
+            parentId: 1,
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: "Mono track 2",
+        index: 1,
+        isSelected: selectedTrack.includes(2),
+        isFocused: focusedTrack === 2,
+        clips: [
+          {
+            id: 1,
+            name: "clip-2-1",
+            position: 1,
+            isSelected: selectedClip.includes("clip-2-1"),
+            isFocused: focusedClip === "clip-2-1",
+            parentId: 2,
+          },
+        ],
+      },
+      {
+        id: 3,
+        name: "Mono track 3",
+        index: 2,
+        isSelected: selectedTrack.includes(3),
+        isFocused: focusedTrack === 3,
+        clips: [
+          {
+            id: 1,
+            name: "clip-3-1",
+            position: 1,
+            isSelected: selectedClip.includes("clip-3-1"),
+            isFocused: focusedClip === "clip-3-1",
+            parentId: 3,
+          },
+          {
+            id: 2,
+            name: "clip-3-2",
+            position: 2,
+            isSelected: selectedClip.includes("clip-3-2"),
+            isFocused: focusedClip === "clip-3-2",
+            parentId: 3,
+          },
+        ],
+      },
+    ];
+  });
 
-  function setSelectedTrack(id: number) {
-    setSelectedTrackState(id);
-  }
+  function setSelectedTrack(newSelectedTracks: number[]) {
+    setSelectedTrackState(newSelectedTracks);
+  }   
 
   function setFocusedTrack(id: number) {
     setFocusedTrackState(id);
   }
 
-  function setSelectedClip(name: string) {
-    setSelectedClipState((prev) => (prev === name ? " " : name));
+  function setSelectedClip(
+    newSelectedClips: string[],
+    isShiftPressed: boolean
+  ) {
+    setSelectedClipState((prevSelectedClip) => {
+      const newSelection = isShiftPressed
+        ? [...new Set([...prevSelectedClip, ...newSelectedClips])]
+        : newSelectedClips;
+
+      return newSelection;
+    });
   }
 
   function setFocusedClip(name: string) {
@@ -225,7 +235,7 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     focusedElementType,
     setFocusedElementType,
     mainToolbarIndex,
-    setMainToolbarIndex
+    setMainToolbarIndex,
   };
 
   return (

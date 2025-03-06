@@ -7,21 +7,21 @@ type SelectClipButtonProps = {
   tabIndex: number;
   isSelected: boolean;
   id: string;
-  onClick: (clipName: string, clipParentId: number) => void;
+  onClipButtonSelect: (event: React.KeyboardEvent, clipName: string, clipParentId: number) => void;
 };
 
 const SelectClipButton = ({
   clipName,
-  clipParentId,
   tabIndex,
   isSelected,
   id,
-  onClick,
+  onClipButtonSelect,
+  clipParentId
 }: SelectClipButtonProps) => {
   // Handle key down for "Enter" key to trigger the onClick handler
   function handleKeyDown(event: React.KeyboardEvent) {
     if (event.code === "Enter") {
-      onClick(clipName, clipParentId); // Trigger the onClick handler with the clipName when "Enter" is pressed
+      onClipButtonSelect(event, clipName, clipParentId); // Trigger the onClick handler with the clipName when "Enter" is pressed
     }
   }
 

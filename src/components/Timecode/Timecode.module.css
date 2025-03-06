@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    background-color: var(--background-tertiary);
+   
+    height: 28px;
+    padding: 0px 4px;
+    border-radius: 3px;
+}
+
+.digit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16;
+    padding: 2px;
+    height: 100%;
+    color: var(--background-primary);
+
+    &:hover{
+        background-color: grey;
+    }
+}
+
+.type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16;
+    padding: 2px;
+    height: 100%;
+    color: var(--track-header-default)
+
+}

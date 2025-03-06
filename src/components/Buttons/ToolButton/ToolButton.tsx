@@ -1,8 +1,8 @@
 import React from 'react'
-import Icon from '../Icon';
-import styles from './TransportButton.module.css';
+import Icon from '@/components/Icon';
+import styles from './ToolButton.module.css';
 
-type TransportButtonProps = {
+type ToolButtonProps = {
     code: string; // Unicode character for the icon
     label: string;
     tabIndex: number;
@@ -10,7 +10,7 @@ type TransportButtonProps = {
   };
   
 
-export default function TransportButton({ code, label, tabIndex, id }: TransportButtonProps) {
+export default function ToolButton({ code, label, tabIndex, id }: ToolButtonProps) {
 
   return (
     <button id={id} tabIndex={tabIndex} aria-label={label} className={styles.button}><Icon code={code} size={16} /></button>

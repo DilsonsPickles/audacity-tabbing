@@ -6,13 +6,27 @@
     margin-left: -1px;
     display: flex;
     flex-direction: column;
-    /* Ensures children stack vertically */
     overflow: hidden;
-    /* Prevents content from bleeding out */
-    background-color: var(--clip-colour);
+    box-sizing: border-box;
+    /* Ensures borders are included in the width/height */
 
-   
+    &.selected {
+        outline: 1px solid white;
+        outline-offset: -2px;
+
+
+    }
+
+    &:focus {
+        outline: 1px solid black;
+        outline-offset: 0px;
+        z-index: 999;
+        box-shadow: 0 0 0 2px white;
+        /* Use box-shadow for focus */
+    }
 }
+
+
 
 .clip_header {
     display: flex;
@@ -44,4 +58,20 @@
     &.selected {
         background-color: rgba(255, 255, 255, 0.4);
     }
+}
+
+/* Custom class for each track's clip */
+.clip_track1 {
+    background-color: var(--clip-colour-1);
+    /* Example color for track 1 */
+}
+
+.clip_track2 {
+    background-color: var(--clip-colour-2);
+    /* Example color for track 2 */
+}
+
+.clip_track3 {
+    background-color: var(--clip-colour-3);
+    /* Example color for track 3 */
 }

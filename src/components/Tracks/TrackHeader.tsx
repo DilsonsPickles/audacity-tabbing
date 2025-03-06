@@ -5,6 +5,7 @@ import IconButton from "../Buttons/IconButton/IconButton";
 import Knob from "../Controls/Knob";
 import Slider from "../Controls/Slider";
 import TrackNameInput from "../InputFields/TrackNameInput";
+import Icon from "../Icon";
 
 type TrackHeaderProps = {
   name: string;
@@ -29,27 +30,33 @@ export default function TrackHeader({
 }: TrackHeaderProps) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " ") {
-      // Trigger the onClick when Enter or Space is pressed
-      onClick?.();
+      onClick();
     }
   };
 
   return (
     <div
       className={`${styles.track_header_container} ${
-        isSelected ? styles.selected : ""
-      } ${inFocus ? styles.focused : ""}`}
+        isSelected && styles.selected
+      } ${inFocus && styles.focused}`}
       onFocus={onFocus}
-    >
+      >
       <div
         id={`track-${id}-control-0`}
         tabIndex={tabIndex}
-        className={styles.track_header_handle}
+        className={`${styles.track_header_handle} ${
+          isSelected && styles.selected
+        }`}
         onKeyDown={handleKeyDown}
         aria-label={`mono track ${id} grab handle`}
         role="button"
       >
-        {tabIndex}
+        <div
+          className={`${styles.track_header_handle_background} ${
+            isSelected && styles.selected
+          }`}
+        ></div>
+        <Icon code="&#xF347;" size={14} />
       </div>
 
       <div className={styles.track_content_container}>

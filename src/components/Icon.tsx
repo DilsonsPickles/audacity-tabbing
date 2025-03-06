@@ -4,11 +4,11 @@ type IconProps = {
     size?: number; // Optional size in pixels
   };
   
-  export default function Icon({ code, className, size = 24 }: IconProps) {
+  export default function Icon({ code="\uF446", className, size = 24 }: IconProps) {
     return (
       <span
         className={`icon ${className ?? ""}`}
-        style={{ fontSize: size, lineHeight: "1em" }}
+        style={{ userSelect: "none", fontSize: size, lineHeight: "1em" }}
       >
         {code}
       </span>

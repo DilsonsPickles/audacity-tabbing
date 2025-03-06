@@ -1,5 +1,9 @@
 import styles from "./ProjectToolbar.module.css";
+import { useTrackContext } from "@/context/TrackContext";
 
 export default function ProjectToolbar() {
-  return <div className={styles.container}>Focused track : {}</div>;
+
+const {selectedClip, selectedTrack} = useTrackContext();
+
+  return <div className={styles.container}>{selectedTrack}</div>;
 }

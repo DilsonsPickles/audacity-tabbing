@@ -1,7 +1,18 @@
 .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;  /* Allow items to stack vertically */
-    overflow-x: scroll;      /* Enable horizontal scrolling */
-    overflow-y: hidden;      /* No vertical scrolling */
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Allow items to stack vertically */
+  overflow-y: hidden;  /* No vertical scrolling */
+  overflow-x: scroll;
+}
+
+/* For WebKit browsers like Chrome and Safari */
+.container::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+/* For Firefox */
+.container {
+  scrollbar-width: none; /* Hides the scrollbar in Firefox */
+}

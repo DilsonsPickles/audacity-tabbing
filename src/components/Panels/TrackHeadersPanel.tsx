@@ -14,8 +14,9 @@ export default function TrackHeadersPanel() {
   } = useTrackContext();
 
   const handleTrackHeaderClick = (id: number) => {
-    setSelectedTrack(id);
-    setFocusedTrack(id);
+    // Select the clicked track and deselect any previously selected track
+    setSelectedTrack([id]); // This ensures that only the clicked track is selected
+    setFocusedTrack(id); // Focus the track as well
   };
 
   const handleTrackHeaderFocus = (id: number) => {
@@ -37,7 +38,7 @@ export default function TrackHeadersPanel() {
             key={track.id}
             name={track.name}
             tabIndex={track.id}
-            isSelected={selectedTrack === track.id}
+            isSelected={selectedTrack.includes(track.id)}
             inFocus={focusedTrack === track.id}
             onClick={() => handleTrackHeaderClick(track.id)}
             focusedTrack={focusedTrack}

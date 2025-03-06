@@ -1,7 +1,6 @@
 .input {
     border: none;
     background-color: transparent;
-    width: fit-content;
     overflow: none;
-    
+    width: 80px;
 }

@@ -12,7 +12,11 @@ type ClipProps = {
   parentId: number;
   isSelected: boolean;
   isFocused: boolean;
-  onClick: (clipName: string, clipParentId: number) => void;
+  onClipButtonSelect: (
+    event: React.KeyboardEvent,
+    clipName: string,
+    clipParentId: number
+  ) => void;
   onFocus: (clipPos: number, clipParentId: number) => void;
 };
 
@@ -21,7 +25,7 @@ export default function Clip({
   tabIndex,
   isSelected,
   isFocused,
-  onClick,
+  onClipButtonSelect,
   onFocus,
 }: ClipProps) {
   const { name } = clip;
@@ -29,14 +33,15 @@ export default function Clip({
   return (
     <div
       id={`clip-${clip.parentId}-${clip.id}`}
-      className={styles.clip}
+      className={`${styles.clip} ${styles[`clip_track${clip.parentId}`]} ${
+        isSelected && styles.selected
+      } ${isFocused && styles.focused}`}
       role="cell"
       tabIndex={tabIndex}
       onFocus={() => onFocus(clip.position, clip.parentId)}
     >
       <div
         className={`${styles.clip_header} ${isSelected ? styles.selected : ""}`}
-        onClick={() => onClick(clip.name, clip.parentId)}
       >
         <ClipNameInput
           tabIndex={isFocused ? 0 : -1}
@@ -61,7 +66,9 @@ export default function Clip({
             tabIndex={tabIndex}
             isSelected={isSelected}
             id={`clip-${clip.parentId}-${clip.id}-control-2`}
-            onClick={onClick} // Trigger click
+            onClipButtonSelect={(event) =>
+              onClipButtonSelect(event, clip.name, clip.parentId)
+            } // Pass event to onClick
           />
         )}
       </div>

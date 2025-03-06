@@ -1,12 +1,43 @@
-.cursor {
+.container {
     position: absolute;
     top:0; 
     bottom: 0;
-    left: 12px;
-    background-color: black;
-    width: 1px;
-    border-right: 1px solid rgba(255, 255, 255, 0.25);
-    border-left: 1px solid rgba(255, 255, 255, 0.25);
     z-index: 999;
-    
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1px;
 }
+
+.stalk {
+    flex: 1;
+    background-color: white;
+    width: 1px;
+    box-sizing: content-box;
+    border-right: 1px solid rgba(0, 0, 0, 0.75);
+    border-left: 1px solid rgba(0, 0, 0, 0.75);
+    margin-left: 1px;}
+
+.playhead {
+    display: flex;
+    justify-content: center;
+    align-items: end;  /* Ensure vertical centering */
+    position: relative;   /* Ensure it's positioned correctly within its container */
+    height: 20px;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.icon {
+    margin: 0; /* Make sure there's no extra margin causing the offset */
+}
+
+.selectionArea {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 255, 0.3); /* Semi-transparent blue */
+    z-index: 1;
+  }

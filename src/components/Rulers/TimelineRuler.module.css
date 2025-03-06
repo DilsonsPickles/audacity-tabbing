@@ -5,4 +5,6 @@
     width: fit-content;
     border-bottom: 1px solid var(--stroke-primary);
     background-color: var(--background-secondary);
+    user-select: none;
+
 }
