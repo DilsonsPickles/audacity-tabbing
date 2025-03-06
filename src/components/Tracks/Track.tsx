@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Track.module.css";
 import Clip from "../Clips/Clip";
 import { TrackData } from "@/context/TrackContext";

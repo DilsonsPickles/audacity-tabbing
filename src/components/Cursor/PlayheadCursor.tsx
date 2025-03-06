@@ -50,7 +50,7 @@ export default function PlayheadCursor() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove]);
 
   return (
     <div
