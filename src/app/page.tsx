@@ -15,7 +15,7 @@ import Preferences from "@/components/Windows/Preferences";
 
 function HomeContent() {
   const [realtimeEffectsPanelIsOpen, setRealtimeEffectsPanelIsOpen] =
-    useState(true);
+    useState(false);
 
   function toggleRealtimeEffectsPanel() {
     setRealtimeEffectsPanelIsOpen(!realtimeEffectsPanelIsOpen);
