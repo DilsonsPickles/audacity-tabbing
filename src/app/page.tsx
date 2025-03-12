@@ -6,7 +6,7 @@ import TrackHeadersPanel from "@/components/Panels/TrackHeadersPanel";
 import RealtimeEffectsPanel from "@/components/Panels/RealtimeEffectsPanel";
 import Viewport from "@/components/Viewport/Viewport";
 import BottomToolbar from "@/components/Toolbars/BottomToolbar";
-import {ThemeProvider} from '@/context/ThemeContext'
+import { ThemeProvider } from "@/context/ThemeContext";
 import { TrackProvider } from "@/context/TrackContext";
 import { KeyboardProvider } from "@/context/KeyboardNavigationContext";
 import { PlayheadProvider } from "@/context/PlayheadContext";
@@ -23,7 +23,6 @@ function HomeContent() {
 
   const {
     isPreferencePanelOpen,
-    activePreferencePage,
     toggleIsPreferencePanelOpen,
   } = usePanelContext();
 
