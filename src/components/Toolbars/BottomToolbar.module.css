@@ -1,9 +1,10 @@
 .container {
     height: 40px;
     display: flex;
-    background-color: var(--background-primary);
+    background-color: var(--bg-primary);
     border-top: 1px solid var(--stroke-primary);
     padding: 12px;
+    color: var(--text-primary)
 }
 
 .info_container {

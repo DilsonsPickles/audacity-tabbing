@@ -4,18 +4,18 @@
     gap: 8px;
     padding: 6px 8px;
     justify-content: space-between;
-    background-color: var(--btn-on-primary-idle);
+    background-color: var(--btn-on-secondary-idle);
     border-radius: 3px;
     border: none;
     color: var(--text-primary);
 
 
     &:hover {
-        background-color: var(--btn-on-primary-hover);
+        background-color: var(--btn-on-secondary-hover);
     }
 
     &:active {
-        background-color: var(--btn-on-primary-active);
+        background-color: var(--btn-on-secondary-active);
     }
 
 

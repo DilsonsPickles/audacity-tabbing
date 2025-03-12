@@ -56,7 +56,7 @@ export default function TrackHeader({
             isSelected && styles.selected
           }`}
         ></div>
-        <Icon code="&#xF347;" size={14} />
+        <Icon code="&#xF3A2;" size={16} />
       </div>
 
       <div className={styles.track_content_container}>
@@ -83,7 +83,7 @@ export default function TrackHeader({
         </div>
         <div className={styles.track_header_controls}>
           <Knob tabIndex={-1} id={`track-${id}-control-4`} />
-          <Slider tabIndex={-1} id={`track-${id}-control-5`} />
+          <Slider tabIndex={-1} id={`track-${id}-control-5`} isSelected={isSelected}/>
           <div style={{ display: "flex", gap: "4px" }}>
             <IconButton
               tabIndex={-1}

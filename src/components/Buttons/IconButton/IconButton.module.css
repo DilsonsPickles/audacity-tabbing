@@ -1,5 +1,5 @@
 .button{
-    background-color: var(--button-idle);
+    background-color: var(--btn-on-primary-idle);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,5 +8,15 @@
     border-radius: 2px;
     border:none;
     user-select: none;
+    color: var(--text-primary);
+
+
+    &:hover {
+        background-color: var(--btn-on-primary-hover);
+    }
+
+    &:active {
+        background-color: var(--btn-on-primary-active);
+    }
 
 }

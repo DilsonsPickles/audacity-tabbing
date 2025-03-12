@@ -13,8 +13,6 @@
     &.selected {
         outline: 1px solid white;
         outline-offset: -2px;
-
-
     }
 
     &:focus {
@@ -29,6 +27,7 @@
 
 
 .clip_header {
+    color: var(--text-tertiary);
     display: flex;
     height: 20px;
     padding: 0px 4px 1px 4px;
@@ -62,16 +61,16 @@
 
 /* Custom class for each track's clip */
 .clip_track1 {
-    background-color: var(--clip-colour-1);
+    background-color: var(--clip-color-1);
     /* Example color for track 1 */
 }
 
 .clip_track2 {
-    background-color: var(--clip-colour-2);
+    background-color: var(--clip-color-2);
     /* Example color for track 2 */
 }
 
 .clip_track3 {
-    background-color: var(--clip-colour-3);
+    background-color: var(--clip-color-3);
     /* Example color for track 3 */
 }

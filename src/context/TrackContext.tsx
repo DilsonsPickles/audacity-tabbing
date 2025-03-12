@@ -103,6 +103,13 @@ export function TrackProvider({ children }: { children: ReactNode }) {
         case event.target.id.includes("track"):
           setFocusedElementType("track");
           break;
+        case event.target.id.includes("preferences") &&
+          event.target.id.includes("-nav-item-"):
+          setFocusedElementType("preference-nav-item");
+          break;
+        case event.target.id.includes("preferences"):
+          setFocusedElementType("preference");
+          break;
         default:
           setFocusedElementType(""); // Handle unknown cases
       }
@@ -186,7 +193,7 @@ export function TrackProvider({ children }: { children: ReactNode }) {
 
   function setSelectedTrack(newSelectedTracks: number[]) {
     setSelectedTrackState(newSelectedTracks);
-  }   
+  }
 
   function setFocusedTrack(id: number) {
     setFocusedTrackState(id);

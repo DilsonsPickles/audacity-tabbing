@@ -3,7 +3,7 @@
     /* This establishes the stacking context */
     height: 100%;
     width: 295vw;
-    background-color: var(--background-tertiary);
+    background-color: var(--bg-tertiary);
     cursor: text;
 }
 

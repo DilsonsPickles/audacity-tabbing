@@ -1,10 +1,10 @@
 .container {
     display: flex;
-    background-color: var(--background-tertiary);
-   
+    background-color: var(--timecode-bg-idle);
     height: 28px;
     padding: 0px 4px;
     border-radius: 3px;
+
 }
 
 .digit {
@@ -14,10 +14,10 @@
     font-size: 16;
     padding: 2px;
     height: 100%;
-    color: var(--background-primary);
+    color: var(--timecode-digit-color);
 
     &:hover{
-        background-color: grey;
+        background-color: var(--timecode-bg-hover);
     }
 }
 
@@ -28,6 +28,5 @@
     font-size: 16;
     padding: 2px;
     height: 100%;
-    color: var(--track-header-default)
-
+    color: var(--timecode-type-color)
 }

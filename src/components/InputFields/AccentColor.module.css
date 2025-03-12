@@ -1,0 +1,30 @@
+.container {
+    width: 32px;
+    height: 32px; 
+    border-radius: 32px;
+
+    &.accent_1 {
+        background-color: var(--accent-1);
+    }
+    &.accent_2 {
+        background-color: var(--accent-2);
+    }
+    &.accent_3 {
+        background-color: var(--accent-3);
+    }
+    &.accent_4 {
+        background-color: var(--accent-4);
+    }
+    &.accent_5 {
+        background-color: var(--accent-5);
+    }
+    &.accent_6 {
+        background-color: var(--accent-6);
+    }
+    &.accent_7 {
+        background-color: var(--accent-7);
+    }
+    
+}
+
+

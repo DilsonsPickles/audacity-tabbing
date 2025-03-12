@@ -4,6 +4,16 @@
     align-items: center;
     padding: 0 1rem;
     min-height: 40px;
-    background-color: var(--background-primary);
+    background-color: var(--bg-primary);
     border-bottom: 1px solid var(--stroke-primary);
+    color: var(--text-primary);
+}
+
+.navGroup {
+    display: flex;
+    
+}
+
+.buttonGroup {
+    display: flex;
 }

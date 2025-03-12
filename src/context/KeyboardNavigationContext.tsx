@@ -11,7 +11,10 @@ import { handleMainToolbarNavigation } from "@/utils/handleMainToolbarNavigation
 import { handleTrackNavigation } from "@/utils/handleTrackNavigation";
 import { handleClipControlNavigation } from "@/utils/handleClipControlNavigation";
 import { handleDefaultNavigation } from "@/utils/handleDefaultNavigation";
+import { handlePreferenceNavigation } from "@/utils/handlePreferenceNavigation";
+import { handlePreferenceNavItemNavigation } from "@/utils/handlePreferenceNavItemNavigation";
 import { exitTabbing } from "@/helper/exitTabbing";
+import { usePanelContext } from "./PanelContext";
 
 type KeyboardContextType = {
   focusedElement: HTMLElement | null;
@@ -54,9 +57,13 @@ export const KeyboardProvider = ({
   } = useTrackContext();
 
   const {
-    setPlayheadPosition,
-    playheadPosition
-  } = usePlayheadContext();
+    toggleIsPreferencePanelOpen,
+    preferencePageIndex,
+    setPreferencePageIndex,
+    setActivePreferencePage,
+  } = usePanelContext();
+
+  const { setPlayheadPosition, playheadPosition } = usePlayheadContext();
 
   const totalTrackControls = 9; // Number of track header controls (0-7)
 
@@ -104,7 +111,7 @@ export const KeyboardProvider = ({
             focusedElement,
             setFocusedClip,
             exitTabbing,
-            setFocusedTrack, 
+            setFocusedTrack,
             setPlayheadPosition,
             playheadPosition
           );
@@ -119,7 +126,20 @@ export const KeyboardProvider = ({
             setClipControlIndex
           );
           break;
-        default:
+        case "preference-nav-item":
+          handlePreferenceNavItemNavigation(
+            event,
+            preferencePageIndex,
+            setPreferencePageIndex,
+            toggleIsPreferencePanelOpen,
+            setActivePreferencePage
+          );
+          break;
+
+        case "preference":
+          handlePreferenceNavigation(focusedElement, event, preferencePageIndex);
+          break;
+        case "":
           handleDefaultNavigation(
             event,
             focusedTrack,
@@ -129,6 +149,7 @@ export const KeyboardProvider = ({
             setMainToolbarIndex,
             setPlayheadPosition
           );
+          break;
       }
     },
     [

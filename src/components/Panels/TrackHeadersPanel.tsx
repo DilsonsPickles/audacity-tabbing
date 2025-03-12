@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./TrackHeadersPanel.module.css";
 import TrackHeader from "../Tracks/TrackHeader";
-import Button from "../Buttons/Button/Button";
+import AddNewTrackButton from "../Buttons/AddNewTrackButton/AddNewTrackButton";
 import { useTrackContext } from "@/context/TrackContext";
+
+
 
 export default function TrackHeadersPanel() {
   const {
@@ -29,7 +31,7 @@ export default function TrackHeadersPanel() {
         <div>
           <p>Tracks</p>
         </div>
-        <Button tabIndex={1} value="Add new" code="&#xEF2A;"  />
+        <AddNewTrackButton tabIndex={1} value="Add new" code="&#xEF2A;"  />
       </div>
       <div className={styles.track_headers_list}>
         {tracks.map((track) => (

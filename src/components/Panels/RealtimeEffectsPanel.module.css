@@ -4,7 +4,9 @@
     gap: 8px;
     max-width: 240px;
     height: 100%;
-    background-color: var(--background-primary);
+    background-color: var(--bg-primary);
     border-right: 1px solid var(--stroke-primary);
     padding: 16px;
+    color: var(--text-primary);
+
 }

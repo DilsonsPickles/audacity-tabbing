@@ -15,6 +15,7 @@ const ClipNameInput = ({ tabIndex, value, id }: ClipNameInputProps) => {
       value={value}
       readOnly
       id={id}
+      style={{color: `var(--text-tertiary)`}}
     />
   );
 };

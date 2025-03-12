@@ -9,7 +9,7 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background-color: var(--background-secondary);
+    background-color: var(--bg-secondary);
 }
 
 .knob_dial {
@@ -19,8 +19,8 @@
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    background-color: var(--background-primary);
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-primary);
+    border: 2px solid var(--stroke-tertiary);
 
     /* Center the element precisely */
     transform: translate(-50%, -50%);
@@ -32,7 +32,7 @@
     left: 50%;
     height: 5px;
     width: 2px; /* Thin rectangle to act as the indicator */
-    background-color: black;
+    background-color: var(--text-primary);
     transform: translateX(-50%);
     border-radius: 1px;
 }

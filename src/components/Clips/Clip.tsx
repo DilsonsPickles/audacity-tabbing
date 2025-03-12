@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import styles from "./Clip.module.css";
-import GhostIconButton from "../Buttons/GhostIconButton/GhostIconButton";
+import ClipHeaderButton from '../Buttons/ClipHeaderButton/ClipHeaderButton'
 import ClipNameInput from "../InputFields/ClipNameInput";
 import SelectClipButton from "../Buttons/SelectClipButton/SelectClipButton";
 import { ClipData } from "@/context/TrackContext";
+import waveform from "@/../public/waveform.svg";
 
 type ClipProps = {
   clip: ClipData;
@@ -48,7 +49,7 @@ export default function Clip({
           value={name}
           id={`clip-${clip.parentId}-${clip.id}-control-0`}
         />
-        <GhostIconButton
+        <ClipHeaderButton
           tabIndex={isFocused ? 0 : -1}
           code="&#xEF13;"
           size={16}
@@ -59,6 +60,10 @@ export default function Clip({
       <div
         className={`${styles.clip_body} ${isSelected ? styles.selected : ""}`}
       >
+        <img
+          src={waveform.src}
+          style={{ color: "black", opacity: `${isSelected ? "0.8" : "0.6"}` }}
+        />
         {isFocused && (
           <SelectClipButton
             clipName={clip.name}
