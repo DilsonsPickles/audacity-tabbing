@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import {focusElement} from "@/helper/focusElement"
 
 interface PanelContextType {
   isPreferencePanelOpen: boolean;
@@ -29,6 +30,7 @@ export function PanelProvider({ children }: { children: ReactNode }) {
 
   function closePreferencesPanel() {
     setIsPreferencePanelOpenState(false);
+    focusElement("project-toolbar-audio-setup-button");
   }
 
   function setActivePreferencePage(id: number) {

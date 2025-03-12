@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./Preferences.module.css";
 import PreferenceNavItem from "@/components/ListItems/PreferenceNavItem";
 import { usePanelContext } from "@/context/PanelContext";
@@ -23,6 +23,15 @@ export default function Preferences() {
     preferencePageIndex
   } = usePanelContext();
 
+  // State to track position of the window
+  const [position, setPosition] = useState({ x: 800, y: 400 });
+  // State to track whether we're currently dragging
+  const [isDragging, setIsDragging] = useState(false);
+  // Ref to store the initial mouse position when dragging starts
+  const dragStartRef = useRef({ x: 0, y: 0 });
+  // Ref to the container element
+  const containerRef = useRef<HTMLDivElement>(null);
+
   function onPreferenceNavItemClick(id: number) {
     setActivePreferencePage(id);
   }
@@ -33,28 +42,89 @@ export default function Preferences() {
     }
   }
 
-  function handleOkButtonClick(){
+  function handleOkButtonClick() {
     if (isPreferencePanelOpen) {
       closePreferencesPanel();
     }
   }
 
+  // Handle the start of dragging
+  const handleMouseDown = (e: React.MouseEvent) => {
+    // Only start dragging if the user clicked on the header
+    if ((e.target as HTMLElement).closest(`.${styles.header}`)) {
+      setIsDragging(true);
+      dragStartRef.current = {
+        x: e.clientX - position.x,
+        y: e.clientY - position.y
+      };
+      // Prevent text selection during drag
+      e.preventDefault();
+    }
+  };
+
+  // Handle the drag movement
+  const handleMouseMove = (e: MouseEvent) => {
+    if (isDragging) {
+      const newX = e.clientX - dragStartRef.current.x;
+      const newY = e.clientY - dragStartRef.current.y;
+      
+      setPosition({ x: newX, y: newY });
+    }
+  };
+
+  // Handle the end of dragging
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  useEffect(() => {
+    // Set up global mouse event listeners for drag
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+
+    // Clean up the listeners when dragging stops or component unmounts
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      handlePreferenceNavigation(document.activeElement as HTMLElement, event, preferencePageIndex, closePreferencesPanel);
+      handlePreferenceNavigation(
+        document.activeElement as HTMLElement,
+        event,
+        preferencePageIndex,
+        closePreferencesPanel
+      );
     };
-  
+
     const panel = document.querySelector('.preferences-panel');
-    
+
     if (panel) {
       panel.addEventListener('keydown', handleKeyDown as EventListener);
       return () => panel.removeEventListener('keydown', handleKeyDown as EventListener);
     }
   }, [preferencePageIndex]);
 
+  // Additional styles for positioning the window
+  const containerStyle = {
+    position: 'absolute',
+    left: `${position.x}px`,
+    top: `${position.y}px`,
+    cursor: isDragging ? 'grabbing' : 'default'
+  };
+
   return (
-    <div className={`${styles.container} preferences-panel`}>
-      <div className={styles.header}>Preferences</div>
+    <div 
+      className={`${styles.container} preferences-panel`} 
+      ref={containerRef}
+      style={containerStyle as React.CSSProperties}
+      onMouseDown={handleMouseDown}
+    >
+      <div className={styles.header} style={{ cursor: 'grab' }}>Preferences</div>
 
       <div className={styles.body}>
         <div className={styles.sideNav}>
