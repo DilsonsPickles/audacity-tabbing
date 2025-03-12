@@ -1,7 +1,8 @@
 export function handlePreferenceNavigation(
   focusedElement: HTMLElement | null,
   event: KeyboardEvent,
-  preferencePageIndex: number
+  preferencePageIndex: number,
+  closePreferencePanel: () => void,
 ) {
 
   // Early return if no focused element
@@ -91,5 +92,13 @@ export function handlePreferenceNavigation(
     ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)
   ) {
     event.preventDefault();
+  }
+  // Default arrow key prevention for other elements
+  else if (
+    ["Escape"].includes(event.key)
+  ) {
+    event.preventDefault();
+    closePreferencePanel();
+    focusElement("project-toolbar-audio-setup-button");
   }
 }

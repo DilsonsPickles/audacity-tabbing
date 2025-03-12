@@ -20,7 +20,7 @@ export default function ProjectToolbar({
         <button id="project-toolbar-effects-button" tabIndex={1} onClick={onEffectButtonClick}>
           Effects
         </button>
-        <button tabIndex={1} onClick={onAudioSetupButtonClick}>
+        <button id="project-toolbar-audio-setup-button" tabIndex={1} onClick={onAudioSetupButtonClick}>
           Audio setup
         </button>
       </div>

@@ -5,7 +5,9 @@ export function handleDefaultNavigation(
   setSelectedTrack: (focusedTrack: number[]) => void,
   exitTabbing: () => void,
   setMainToolbarIndex: (index: number) => void,
-  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
+  focusedElement: HTMLElement | null,
+  preferencePageIndex: number,
 ) {
   switch (event.key) {
     case "ArrowUp":
@@ -32,6 +34,17 @@ export function handleDefaultNavigation(
       break;
     case "Enter":
       setSelectedTrack([focusedTrack]);
+
+      if (focusedElement?.id === "project-toolbar-audio-setup-button") {
+        setTimeout(() => {
+          const element = document.getElementById(`preferences-nav-item-${preferencePageIndex}`);
+          if (element) {
+            element.focus();
+          } else {
+            console.warn(`Element not found`);
+          }
+        }, 0);
+      }
 
       break;
     case "Escape":

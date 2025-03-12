@@ -41,7 +41,7 @@ export default function Preferences() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      handlePreferenceNavigation(document.activeElement as HTMLElement, event, preferencePageIndex);
+      handlePreferenceNavigation(document.activeElement as HTMLElement, event, preferencePageIndex, closePreferencesPanel);
     };
   
     const panel = document.querySelector('.preferences-panel');

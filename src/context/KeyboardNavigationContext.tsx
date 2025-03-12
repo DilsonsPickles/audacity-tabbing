@@ -137,7 +137,12 @@ export const KeyboardProvider = ({
           break;
 
         case "preference":
-          handlePreferenceNavigation(focusedElement, event, preferencePageIndex);
+          handlePreferenceNavigation(
+            focusedElement,
+            event,
+            preferencePageIndex,
+            closePreferencesPanel
+          );
           break;
         case "":
           handleDefaultNavigation(
@@ -147,7 +152,9 @@ export const KeyboardProvider = ({
             setSelectedTrack,
             exitTabbing,
             setMainToolbarIndex,
-            setPlayheadPosition
+            setPlayheadPosition,
+            focusedElement,
+            preferencePageIndex
           );
           break;
       }
