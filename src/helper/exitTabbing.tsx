@@ -1,5 +1,5 @@
 export function exitTabbing() {
-    const firstFocusableElement = document.getElementById("transport-button-0");
+    const firstFocusableElement = document.getElementById("project-toolbar-effects-button");
     if (firstFocusableElement) {
       firstFocusableElement.focus();
     }

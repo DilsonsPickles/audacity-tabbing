@@ -17,8 +17,12 @@ export default function ProjectToolbar({
         <div>Share</div>
       </div>
       <div className={styles.buttonGroup}>
-        <button onClick={onEffectButtonClick}>Effects</button>
-        <button onClick={onAudioSetupButtonClick}>Audio setup</button>
+        <button id="project-toolbar-effects-button" tabIndex={1} onClick={onEffectButtonClick}>
+          Effects
+        </button>
+        <button tabIndex={1} onClick={onAudioSetupButtonClick}>
+          Audio setup
+        </button>
       </div>
       <div className={styles.buttonGroup}>
         <div>Workspaces</div>

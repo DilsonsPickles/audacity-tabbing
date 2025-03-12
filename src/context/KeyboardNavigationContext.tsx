@@ -57,7 +57,7 @@ export const KeyboardProvider = ({
   } = useTrackContext();
 
   const {
-    toggleIsPreferencePanelOpen,
+    closePreferencesPanel,
     preferencePageIndex,
     setPreferencePageIndex,
     setActivePreferencePage,
@@ -128,10 +128,10 @@ export const KeyboardProvider = ({
           break;
         case "preference-nav-item":
           handlePreferenceNavItemNavigation(
+            closePreferencesPanel,
             event,
             preferencePageIndex,
             setPreferencePageIndex,
-            toggleIsPreferencePanelOpen,
             setActivePreferencePage
           );
           break;
