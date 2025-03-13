@@ -10,14 +10,14 @@ export function handlePreferenceNavItemNavigation(
 
   function setFocusOnPreference(newIndex: number): void {
     const preferencePage = document.getElementById(
-      `preferences-nav-item-${newIndex}`
+      `preference-nav-item-${newIndex}`
     );
 
     if (preferencePage) {
       preferencePage.focus();
     } else {
       console.warn(
-        `No valid preference page found for preferences-nav-item-${
+        `No valid preference page found for preference-nav-item-${
           newIndex + 1
         }`
       );

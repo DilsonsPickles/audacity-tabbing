@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.thumbnail {
+    display:flex;
+    width: 144px;
+    height: 96px;
+    border: 1px solid var(--stroke-secondary);
+    border-radius: 4px;
+
+    &.light {
+        background-color: var(--gray-2);
+    }
+    &.dark {
+        background-color: var(--gray-12);
+    }
+}
+

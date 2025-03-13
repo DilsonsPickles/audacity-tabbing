@@ -11,7 +11,7 @@ type AccentColorCircleProps = {
 function AccentColorCircle({color, isSelected = false, onClick, index}: AccentColorCircleProps) {
   return (
     <div 
-      id={`preferences-accent-color-${index}`}
+      id={`preference-accent-color-${index}`}
       className={`${styles.container} ${styles[color]} ${isSelected ? styles.selected : ''}`}
       onClick={onClick}
       role="button"

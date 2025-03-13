@@ -17,37 +17,26 @@
 
 .header {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     height: 24px;
     align-items: center;
     border-bottom: 1px solid var(--stroke-primary);
 }
 
 .body {
-    display: flex;
+    width: 100%;
     flex: 1;
+    display: flex;
     background-color: var(--bg-secondary);
 }
 
-.sideNav {
+.side_nav {
     display: flex;
     flex-direction: column;
-    width: 200px;
+    min-width: 200px;
     border-right: 1px solid var(--stroke-primary);
     background-color: var(--bg-primary);
     padding-top: 8px;
-}
-
-.navItem {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    height: 32px;
-    padding-left: 24px;
-
-    &:hover {
-        background-color: rgba(255,255,255, 0.2);
-    }
 }
 
 .footer {
@@ -60,4 +49,8 @@
 .footer_btn_group {
     display: flex;
     gap: 8px
+}
+
+.main_content {
+    width: 100%;
 }

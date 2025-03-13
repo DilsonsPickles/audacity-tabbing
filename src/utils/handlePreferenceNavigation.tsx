@@ -1,3 +1,5 @@
+import { focusElement } from "@/helper/focusElement";
+
 export function handlePreferenceNavigation(
   focusedElement: HTMLElement | null,
   event: KeyboardEvent,
@@ -10,82 +12,72 @@ export function handlePreferenceNavigation(
 
   const totalColors = 7;
 
-  // Helper function to focus an element by ID with error handling
-  const focusElement = (id: string) => {
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.focus();
-      } else {
-        console.warn(`Element not found: ${id}`);
-      }
-    }, 0);
-  };
-
   // Get element ID (safely)
   const elementId = focusedElement.id || "";
 
   // Handle accent color circles
-  if (elementId.includes("preferences-accent-color-")) {
+  if (elementId.includes("preference-accent-color-")) {
     const currentColorIndex = parseInt(elementId.split("-").pop() || "0");
 
     if (["ArrowRight", "ArrowDown"].includes(event.key)) {
       event.preventDefault();
       const nextIndex =
         currentColorIndex === totalColors - 1 ? 0 : currentColorIndex + 1;
-      focusElement(`preferences-accent-color-${nextIndex}`);
+      focusElement(`preference-accent-color-${nextIndex}`);
     } else if (["ArrowLeft", "ArrowUp"].includes(event.key)) {
       event.preventDefault();
       const prevIndex =
         currentColorIndex === 0 ? totalColors - 1 : currentColorIndex - 1;
-      focusElement(`preferences-accent-color-${prevIndex}`);
+      focusElement(`preference-accent-color-${prevIndex}`);
+    } else if (["Escape"].includes(event.key)){
+      closePreferencePanel();
     }
   }
   // Handle theme radio buttons
   else if (
-    elementId === "preferences-interface-light-mode" &&
-    event.key === "ArrowDown"
+    elementId === "preference-interface-light-mode" &&
+    ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)
   ) {
     event.preventDefault();
-    focusElement("preferences-interface-dark-mode");
+    focusElement("preference-interface-dark-mode");
   } else if (
-    elementId === "preferences-interface-dark-mode" &&
-    ["ArrowDown", "ArrowUp"].includes(event.key)
+    elementId === "preference-interface-dark-mode" &&
+    ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)
   ) {
     event.preventDefault();
-    focusElement("preferences-interface-light-mode");
+    focusElement("preference-interface-light-mode");
   }
   // Handle clip style radio buttons
   else if (
-    elementId === "preferences-interface-colorful" &&
+    elementId === "preference-interface-colorful" &&
     event.key === "ArrowDown"
   ) {
     event.preventDefault();
-    focusElement("preferences-interface-classic");
+    focusElement("preference-interface-classic");
   } else if (
-    elementId === "preferences-interface-classic" &&
+    elementId === "preference-interface-classic" &&
     ["ArrowDown", "ArrowUp"].includes(event.key)
   ) {
     event.preventDefault();
-    focusElement("preferences-interface-colorful");
+    focusElement("preference-interface-colorful");
   }
   // Handle OK button navigation
   else if (
-    elementId === "preferences-ok" &&
+    elementId === "preference-done-button" &&
     event.key === "Tab" &&
     !event.shiftKey
   ) {
     event.preventDefault();
-    focusElement(`preferences-nav-item-${preferencePageIndex}`);
+    focusElement(`preference-nav-item-${preferencePageIndex}`);
   }
   // Handle nav item to OK button navigation with Shift+Tab
   else if (
-    elementId === `preferences-nav-item-${preferencePageIndex}` &&
+    elementId === `preference-nav-item-${preferencePageIndex}` &&
     event.key === "Tab" &&
     event.shiftKey
   ) {
     event.preventDefault();
-    focusElement("preferences-ok");
+    focusElement("preference-done-button");
   }
   // Default arrow key prevention for other elements
   else if (

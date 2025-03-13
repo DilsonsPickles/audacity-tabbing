@@ -103,11 +103,11 @@ export function TrackProvider({ children }: { children: ReactNode }) {
         case event.target.id.includes("track"):
           setFocusedElementType("track");
           break;
-        case event.target.id.includes("preferences") &&
+        case event.target.id.includes("preference") &&
           event.target.id.includes("-nav-item-"):
           setFocusedElementType("preference-nav-item");
           break;
-        case event.target.id.includes("preferences"):
+        case event.target.id.includes("preference"):
           setFocusedElementType("preference");
           break;
         default:

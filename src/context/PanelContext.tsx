@@ -22,9 +22,8 @@ export function PanelProvider({ children }: { children: ReactNode }) {
 
   function toggleIsPreferencePanelOpen() {
     setIsPreferencePanelOpenState(!isPreferencePanelOpen);
-    if(isPreferencePanelOpen) {
-        const newFocus = document.getElementById("preferences-nav-item-0");
-        newFocus?.focus();
+    if(!isPreferencePanelOpen) {
+        focusElement(`preference-nav-item-${preferencePageIndex}`)
     }
   }
 

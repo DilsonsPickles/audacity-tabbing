@@ -1,10 +1,39 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    padding: 32px;
+    gap: 56px;
 }
 
 .accent_color_circle_container {
     display: flex;
     gap: 8px;
+}
+
+.clip_thumbnail_group {
+    display: flex;
+    gap: 16px;
+}
+
+.clip_thumbnail_container {
+    display: flex;
+    gap: 8px;
+}
+
+.clip_theme_input_group {
+    display: flex;
+    gap: 4px;
+}
+
+.fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accent_color_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
