@@ -10,15 +10,17 @@ type AddNewTrackButtonProps = {
   fullWidth?: boolean;
   textCenter?: boolean;
   id?: string;
+  onClick: () => void;
 };
 
-const AddNewTrackButton = ({ value, code, tabIndex, ariaLabel, fullWidth, textCenter, id }: AddNewTrackButtonProps) => {
+const AddNewTrackButton = ({ value, code, tabIndex, ariaLabel, fullWidth, textCenter, id, onClick }: AddNewTrackButtonProps) => {
   return (
     <button 
       tabIndex={tabIndex} 
       className={`${styles.container} ${fullWidth ? styles.full_width : ''} ${textCenter ? styles.text_center : ''}`}
       aria-label={ariaLabel || value} // Fallback to button's text value for screen readers
       id={id}
+      onClick={onClick}
     >
       {code && <Icon code={code} size={16} />} 
       {value}

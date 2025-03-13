@@ -1,0 +1,27 @@
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 140px;
+    background-color: var(--bg-primary);
+    z-index: 999;
+    top: calc(100% - 8px);  
+    left: 72px;      /* Position it just below the header */
+    border: 1px solid var(--stroke-secondary);
+    border-radius: 4px;
+    box-shadow: 0px 10px 30px 0px rgba(20, 21, 26, 0.30);
+}
+
+.button_group {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+}
+
+.footer {
+    padding: 12px;
+    border-top: 1px solid var(--stroke-primary)
+}

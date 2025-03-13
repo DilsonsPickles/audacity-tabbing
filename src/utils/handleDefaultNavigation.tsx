@@ -1,3 +1,5 @@
+import { focusElement } from "@/helper/focusElement";
+
 export function handleDefaultNavigation(
   event: KeyboardEvent,
   focusedTrack: number,
@@ -7,7 +9,7 @@ export function handleDefaultNavigation(
   setMainToolbarIndex: (index: number) => void,
   setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
   focusedElement: HTMLElement | null,
-  preferencePageIndex: number,
+  preferencePageIndex: number
 ) {
   switch (event.key) {
     case "ArrowUp":
@@ -34,18 +36,10 @@ export function handleDefaultNavigation(
       break;
     case "Enter":
       setSelectedTrack([focusedTrack]);
-
-      if (focusedElement?.id === "project-toolbar-audio-setup-button") {
-        setTimeout(() => {
-          const element = document.getElementById(`preferences-nav-item-${preferencePageIndex}`);
-          if (element) {
-            element.focus();
-          } else {
-            console.warn(`Element not found`);
-          }
-        }, 0);
+      if (focusedElement?.id === "add-new-track-button") {
+        console.log("Enter pressed on add new track button");
+        focusElement("add-new-track-flyout-index-0");
       }
-
       break;
     case "Escape":
       exitTabbing();

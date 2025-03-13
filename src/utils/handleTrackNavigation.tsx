@@ -1,3 +1,5 @@
+import { focusElement } from "@/helper/focusElement";
+
 export function handleTrackNavigation(
   event: KeyboardEvent,
   trackControlIndex: number,
@@ -84,7 +86,7 @@ export function handleTrackNavigation(
         setTrackControlIndex(0); // Reset the control index to the first one
         const firstClip = document.getElementById(`clip-${focusedTrack}-1`);
         if (firstClip) {
-          firstClip.focus(); // Focus the first clip
+          focusElement(firstClip.id);
         }
       }
       break;
@@ -97,6 +99,12 @@ export function handleTrackNavigation(
         setTrackControlIndex(0);
       } else {
         exitTabbing();
+      }
+      break;
+    case "Enter":
+      if (focusedElement?.id === "add-new-track-button") {
+        console.log("Enter pressed on add new track button")
+        focusElement("add-new-track-flyout-index-0");
       }
       break;
   }

@@ -1,11 +1,11 @@
-import React, { KeyboardEvent } from "react";
+import React, { KeyboardEvent, ReactNode } from "react";
 import styles from "./Checkbox.module.css";
 
 type CheckboxProps = {
   id: string,
   name: string,
   value: string,
-  children: string,
+  children: ReactNode,
 }
 
 export default function Checkbox({id, name, value, children}:CheckboxProps) {

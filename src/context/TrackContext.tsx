@@ -100,6 +100,9 @@ export function TrackProvider({ children }: { children: ReactNode }) {
         case event.target.id.includes("clip"):
           setFocusedElementType("clip");
           break;
+        case event.target.id.includes("add-new-track"):
+          setFocusedElementType("add-new-track");
+          break;
         case event.target.id.includes("track"):
           setFocusedElementType("track");
           break;

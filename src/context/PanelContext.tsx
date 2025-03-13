@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import {focusElement} from "@/helper/focusElement"
+import { focusElement } from "@/helper/focusElement";
 
 interface PanelContextType {
   isPreferencePanelOpen: boolean;
@@ -9,6 +9,8 @@ interface PanelContextType {
   setActivePreferencePage: (id: number) => void;
   preferencePageIndex: number;
   setPreferencePageIndex: (index: number) => void;
+  isAddNewTrackPanelOpen: boolean;
+  toggleIsAddNewTrackPanelOpen: () => void;
 }
 
 const PanelContext = createContext<PanelContextType | undefined>(undefined);
@@ -18,12 +20,13 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     useState<boolean>(false);
   const [activePreferencePage, setActivePreferencePageState] =
     useState<number>(0);
-    const [preferencePageIndex, setPreferencePageIndex] = useState<number>(0);
+  const [preferencePageIndex, setPreferencePageIndex] = useState<number>(0);
+  const [isAddNewTrackPanelOpen, setIsAddNewTrackPanelOpenState] = useState<boolean>(true);
 
   function toggleIsPreferencePanelOpen() {
     setIsPreferencePanelOpenState(!isPreferencePanelOpen);
-    if(!isPreferencePanelOpen) {
-        focusElement(`preference-nav-item-${preferencePageIndex}`)
+    if (!isPreferencePanelOpen) {
+      focusElement(`preference-nav-item-${preferencePageIndex}`);
     }
   }
 
@@ -36,6 +39,11 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     setActivePreferencePageState(id);
   }
 
+  function toggleIsAddNewTrackPanelOpen(){
+    setIsAddNewTrackPanelOpenState(!isAddNewTrackPanelOpen);
+    focusElement("add-new-track-flyout")
+  }
+
   const value = {
     isPreferencePanelOpen,
     toggleIsPreferencePanelOpen,
@@ -44,6 +52,8 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     setActivePreferencePage,
     preferencePageIndex,
     setPreferencePageIndex,
+    isAddNewTrackPanelOpen,
+    toggleIsAddNewTrackPanelOpen,
   };
 
   return (

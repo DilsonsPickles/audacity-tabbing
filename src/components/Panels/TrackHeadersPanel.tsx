@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./TrackHeadersPanel.module.css";
-import TrackHeader from "../Tracks/TrackHeader";
-import AddNewTrackButton from "../Buttons/AddNewTrackButton/AddNewTrackButton";
+import TrackHeader from "@/components/Tracks/TrackHeader";
+import AddNewTrackButton from "@/components/Buttons/AddNewTrackButton/AddNewTrackButton";
+import AddNewTrackFlyout from '@/components/Flyouts/AddNewTrackFlyout';
 import { useTrackContext } from "@/context/TrackContext";
-
-
+import { usePanelContext } from "@/context/PanelContext";
 
 export default function TrackHeadersPanel() {
   const {
@@ -15,6 +15,8 @@ export default function TrackHeadersPanel() {
     setFocusedTrack,
   } = useTrackContext();
 
+  const { isAddNewTrackPanelOpen, toggleIsAddNewTrackPanelOpen } = usePanelContext();
+
   const handleTrackHeaderClick = (id: number) => {
     // Select the clicked track and deselect any previously selected track
     setSelectedTrack([id]); // This ensures that only the clicked track is selected
@@ -22,16 +24,15 @@ export default function TrackHeadersPanel() {
   };
 
   const handleTrackHeaderFocus = (id: number) => {
-    setFocusedTrack(id)
-  }
+    setFocusedTrack(id);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div>
+        {isAddNewTrackPanelOpen && <AddNewTrackFlyout/>}
           <p>Tracks</p>
-        </div>
-        <AddNewTrackButton tabIndex={1} value="Add new" code="&#xEF2A;"  />
+        <AddNewTrackButton id="add-new-track-button" tabIndex={1} value="Add new" code="&#xEF2A;" onClick={toggleIsAddNewTrackPanelOpen}/>
       </div>
       <div className={styles.track_headers_list}>
         {tracks.map((track) => (

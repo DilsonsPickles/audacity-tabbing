@@ -13,6 +13,7 @@ import { handleClipControlNavigation } from "@/utils/handleClipControlNavigation
 import { handleDefaultNavigation } from "@/utils/handleDefaultNavigation";
 import { handlePreferenceNavigation } from "@/utils/handlePreferenceNavigation";
 import { handlePreferenceNavItemNavigation } from "@/utils/handlePreferenceNavItemNavigation";
+import { handleAddNewTrackNavigation } from "@/utils/handleAddNewTrackNavigation";
 import { exitTabbing } from "@/helper/exitTabbing";
 import { usePanelContext } from "./PanelContext";
 
@@ -54,7 +55,7 @@ export const KeyboardProvider = ({
     setClipControlIndex,
     mainToolbarIndex,
     setMainToolbarIndex,
-    selectedClip
+    selectedClip,
   } = useTrackContext();
 
   const {
@@ -62,6 +63,7 @@ export const KeyboardProvider = ({
     preferencePageIndex,
     setPreferencePageIndex,
     setActivePreferencePage,
+    toggleIsAddNewTrackPanelOpen
   } = usePanelContext();
 
   const { setPlayheadPosition, playheadPosition } = usePlayheadContext();
@@ -90,6 +92,9 @@ export const KeyboardProvider = ({
             setMainToolbarIndex,
             exitTabbing
           );
+          break;
+        case "add-new-track":
+          handleAddNewTrackNavigation(focusedElement, event, toggleIsAddNewTrackPanelOpen);
           break;
         case "track-control":
           handleTrackNavigation(
@@ -125,7 +130,7 @@ export const KeyboardProvider = ({
             setFocusedClip,
             clipControlIndex,
             setClipControlIndex,
-            selectedClip,
+            selectedClip
           );
           break;
         case "preference-nav-item":
