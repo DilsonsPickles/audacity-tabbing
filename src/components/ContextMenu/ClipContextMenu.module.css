@@ -12,4 +12,5 @@
     min-height: min-content; /* Ensure it's at least as tall as its content */
     border: 1px solid var(--stroke-primary);
     border-radius: 3px;
+    z-index: 999;
 }
