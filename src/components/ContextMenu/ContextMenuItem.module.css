@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    height: 32px;
+
+    &:hover {
+        background-color: var(--bg-secondary);
+    }
+}

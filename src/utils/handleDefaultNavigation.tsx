@@ -9,7 +9,6 @@ export function handleDefaultNavigation(
   setMainToolbarIndex: (index: number) => void,
   setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
   focusedElement: HTMLElement | null,
-  preferencePageIndex: number
 ) {
   switch (event.key) {
     case "ArrowUp":

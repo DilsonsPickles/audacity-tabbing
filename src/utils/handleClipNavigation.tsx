@@ -11,7 +11,6 @@ export function handleClipNavigation(
   exitTabbing: () => void,
   setFocusedTrack: (newTrack: number) => void,
   setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
-  playheadPosition: number
 ) {
   // Helper to navigate to the adjacent track clip
   function navigateToAdjacentTrackClip(direction: -1 | 1) {

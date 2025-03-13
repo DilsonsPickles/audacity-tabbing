@@ -1,3 +1,5 @@
+import { focusElement } from "@/helper/focusElement";
+
 export function handleClipControlNavigation(
   event: KeyboardEvent,
   focusedTrack: number,
@@ -5,10 +7,11 @@ export function handleClipControlNavigation(
   setFocusedClip: (name: string) => void,
   clipControlIndex: number,
   setClipControlIndex: (newIndex: number) => void,
-  selectedClip: string[]
+  selectedClip: string[],
+  focusedElement: HTMLElement | null
 ) {
   // Update totalClipControls based on whether there are any selected clips
-  let totalClipControls = selectedClip.length > 0 ? 7 : 3;
+  const totalClipControls = selectedClip.length > 0 ? 7 : 3;
 
   // Helper to set focus on a specific clip control by index
   function setFocusOnClipControl(newIndex: number): void {
@@ -66,6 +69,14 @@ export function handleClipControlNavigation(
       if (currentClip) {
         currentClip.focus(); // Focus back on the clip itself
         setFocusedClip(""); // Clear the focused clip state
+      }
+      break;
+    case "Enter":
+      if (
+        focusedElement?.id.includes("-control-2") ||
+        focusedElement?.id.includes("-control-4")
+      ) {
+        focusElement("context-menu-clip-item-0")
       }
       break;
     default:

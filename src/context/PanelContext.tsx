@@ -11,6 +11,9 @@ interface PanelContextType {
   setPreferencePageIndex: (index: number) => void;
   isAddNewTrackPanelOpen: boolean;
   toggleIsAddNewTrackPanelOpen: () => void;
+  openContextMenuClipId: string | null;  // Changed from boolean to string | null
+  toggleClipContextMenu: (clipId: string) => void;  // Updated to take a clipId
+  closeAllClipContextMenus: () => void;  // Added for convenience
 }
 
 const PanelContext = createContext<PanelContextType | undefined>(undefined);
@@ -21,7 +24,26 @@ export function PanelProvider({ children }: { children: ReactNode }) {
   const [activePreferencePage, setActivePreferencePageState] =
     useState<number>(0);
   const [preferencePageIndex, setPreferencePageIndex] = useState<number>(0);
-  const [isAddNewTrackPanelOpen, setIsAddNewTrackPanelOpenState] = useState<boolean>(true);
+  const [isAddNewTrackPanelOpen, setIsAddNewTrackPanelOpenState] =
+    useState<boolean>(false);
+  const [openContextMenuClipId, setOpenContextMenuClipId] = 
+    useState<string | null>(null);
+
+  // Updated function to toggle context menu for a specific clip
+  function toggleClipContextMenu(clipId: string) {
+    if (openContextMenuClipId === clipId) {
+      // If this clip's menu is already open, close it
+      setOpenContextMenuClipId(null);
+    } else {
+      // Close any open menu and open this clip's menu
+      setOpenContextMenuClipId(clipId);
+    }
+  }
+
+  // Added function to close all context menus
+  function closeAllClipContextMenus() {
+    setOpenContextMenuClipId(null);
+  }
 
   function toggleIsPreferencePanelOpen() {
     setIsPreferencePanelOpenState(!isPreferencePanelOpen);
@@ -39,9 +61,9 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     setActivePreferencePageState(id);
   }
 
-  function toggleIsAddNewTrackPanelOpen(){
+  function toggleIsAddNewTrackPanelOpen() {
     setIsAddNewTrackPanelOpenState(!isAddNewTrackPanelOpen);
-    focusElement("add-new-track-flyout")
+    focusElement("add-new-track-flyout");
   }
 
   const value = {
@@ -54,6 +76,9 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     setPreferencePageIndex,
     isAddNewTrackPanelOpen,
     toggleIsAddNewTrackPanelOpen,
+    openContextMenuClipId,
+    toggleClipContextMenu,
+    closeAllClipContextMenus,
   };
 
   return (

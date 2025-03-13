@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import styles from "./Preferences.module.css";
 import PreferenceNavItem from "@/components/ListItems/PreferenceNavItem";
 import { usePanelContext } from "@/context/PanelContext";
@@ -35,7 +35,6 @@ export default function Preferences() {
     closePreferencesPanel,
     activePreferencePage,
     setActivePreferencePage,
-    preferencePageIndex
   } = usePanelContext();
 
   useEffect(() => {

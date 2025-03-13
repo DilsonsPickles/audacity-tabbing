@@ -14,6 +14,7 @@ import { handleDefaultNavigation } from "@/utils/handleDefaultNavigation";
 import { handlePreferenceNavigation } from "@/utils/handlePreferenceNavigation";
 import { handlePreferenceNavItemNavigation } from "@/utils/handlePreferenceNavItemNavigation";
 import { handleAddNewTrackNavigation } from "@/utils/handleAddNewTrackNavigation";
+import { handleClipContextMenuNavigation } from "@/utils/handleClipContextMenuNavigation";
 import { exitTabbing } from "@/helper/exitTabbing";
 import { usePanelContext } from "./PanelContext";
 
@@ -63,7 +64,8 @@ export const KeyboardProvider = ({
     preferencePageIndex,
     setPreferencePageIndex,
     setActivePreferencePage,
-    toggleIsAddNewTrackPanelOpen
+    toggleIsAddNewTrackPanelOpen,
+    closeAllClipContextMenus,
   } = usePanelContext();
 
   const { setPlayheadPosition, playheadPosition } = usePlayheadContext();
@@ -94,7 +96,11 @@ export const KeyboardProvider = ({
           );
           break;
         case "add-new-track":
-          handleAddNewTrackNavigation(focusedElement, event, toggleIsAddNewTrackPanelOpen);
+          handleAddNewTrackNavigation(
+            focusedElement,
+            event,
+            toggleIsAddNewTrackPanelOpen
+          );
           break;
         case "track-control":
           handleTrackNavigation(
@@ -119,7 +125,6 @@ export const KeyboardProvider = ({
             exitTabbing,
             setFocusedTrack,
             setPlayheadPosition,
-            playheadPosition
           );
           break;
         case "clip-control":
@@ -130,7 +135,16 @@ export const KeyboardProvider = ({
             setFocusedClip,
             clipControlIndex,
             setClipControlIndex,
-            selectedClip
+            selectedClip,
+            focusedElement
+          );
+          break;
+        case "clip-context-menu":
+          handleClipContextMenuNavigation(
+            focusedElement,
+            event,
+            closeAllClipContextMenus,
+            focusedClip,
           );
           break;
         case "preference-nav-item":
@@ -142,7 +156,7 @@ export const KeyboardProvider = ({
             setActivePreferencePage
           );
           break;
-
+  
         case "preference":
           handlePreferenceNavigation(
             focusedElement,
@@ -161,7 +175,6 @@ export const KeyboardProvider = ({
             setMainToolbarIndex,
             setPlayheadPosition,
             focusedElement,
-            preferencePageIndex
           );
           break;
       }
@@ -172,13 +185,26 @@ export const KeyboardProvider = ({
       focusedClipPosition,
       trackControlIndex,
       mainToolbarIndex,
+      clipControlIndex,
+      selectedClip,
+      focusedClip,
+      focusedElement,
+      playheadPosition,
+      preferencePageIndex,
       setTrackControlIndex,
       setFocusedTrack,
       setFocusedClipPosition,
       setFocusedClip,
       setSelectedTrack,
       setMainToolbarIndex,
-      exitTabbing,
+      setClipControlIndex,
+      setPlayheadPosition,
+      setPreferencePageIndex,
+      setActivePreferencePage,
+      toggleIsAddNewTrackPanelOpen,
+      closePreferencesPanel,
+      closeAllClipContextMenus
+      // Note: exitTabbing is excluded as it's a static utility function
     ]
   );
 

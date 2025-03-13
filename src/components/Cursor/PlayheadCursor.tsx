@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { usePlayheadContext } from "@/context/PlayheadContext"; // Import the context
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { usePlayheadContext } from "@/context/PlayheadContext";
 import styles from "./PlayheadCursor.module.css";
 import Icon from "../Icon";
 
@@ -12,6 +12,19 @@ export default function PlayheadCursor() {
   // Start at 12px and move in 14px increments for each playhead position
   const position = 12 + playheadPosition * 14;
 
+  // Option 1: Use useCallback to memoize the function
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isDragging) return;
+
+    // Calculate the difference in mouse movement
+    const mouseDelta = e.clientX - initialMouseX.current;
+    const newPosition = Math.max(0, initialPlayheadPosition.current + Math.floor(mouseDelta / 14));
+
+    // Update the playhead position with the new position, ensuring it doesn't go below 0
+    setPlayheadPosition(newPosition);
+  }, [isDragging, setPlayheadPosition]);
+
+  // Option 2: Alternatively, you could move the function inside useEffect
   useEffect(() => {
     // Ensure dragging works even when mouse is released outside the component
     const handleMouseUp = () => {
@@ -27,17 +40,6 @@ export default function PlayheadCursor() {
     setIsDragging(true);
     initialMouseX.current = e.clientX; // Store the initial mouse position
     initialPlayheadPosition.current = playheadPosition; // Store the initial playhead position
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-
-    // Calculate the difference in mouse movement
-    const mouseDelta = e.clientX - initialMouseX.current;
-    const newPosition = Math.max(0, initialPlayheadPosition.current + Math.floor(mouseDelta / 14));
-
-    // Update the playhead position with the new position, ensuring it doesn't go below 0
-    setPlayheadPosition(newPosition);
   };
 
   useEffect(() => {

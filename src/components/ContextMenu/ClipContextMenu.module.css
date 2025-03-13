@@ -1,0 +1,15 @@
+.container {
+    position: absolute;
+    left: 204px;
+    top: 20px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    z-index: 50;
+    padding: 4px 0px;
+    height: auto; /* Explicitly tell the container to size based on content */
+    min-height: min-content; /* Ensure it's at least as tall as its content */
+    border: 1px solid var(--stroke-primary);
+    border-radius: 3px;
+}

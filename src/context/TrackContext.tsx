@@ -97,6 +97,9 @@ export function TrackProvider({ children }: { children: ReactNode }) {
           event.target.id.includes("control"):
           setFocusedElementType("track-control");
           break;
+        case event.target.id.includes("context-menu-clip-item-"):
+          setFocusedElementType("clip-context-menu");
+          break;
         case event.target.id.includes("clip"):
           setFocusedElementType("clip");
           break;
