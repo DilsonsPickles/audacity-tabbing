@@ -1,4 +1,5 @@
 import { findValidClip } from "@/helper/findValidClip";
+import { focusElement } from "@/helper/focusElement";
 
 export function handleClipNavigation(
   event: KeyboardEvent,
@@ -74,8 +75,8 @@ export function handleClipNavigation(
       case "Enter":
         if (focusedElement?.id.includes("clip") && currentClip) {
           setFocusedClip(currentClip.id); // Set the focused clip
+          focusElement(`${currentClip.id}-control-0`)
         }
-        console.log("After Enter: Playhead position: ", playheadPosition); // Log after update
         break;
     case "Escape":
       exitTabbing(); // Exit tabbing mode

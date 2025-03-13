@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import styles from "./Clip.module.css";
-import ClipHeaderButton from '../Buttons/ClipHeaderButton/ClipHeaderButton'
+import ClipHeaderButton from "../Buttons/ClipHeaderButton/ClipHeaderButton";
 import ClipNameInput from "../InputFields/ClipNameInput";
 import SelectClipButton from "../Buttons/SelectClipButton/SelectClipButton";
 import { ClipData } from "@/context/TrackContext";
 import waveform from "@/../public/waveform.svg";
+import ClipHandles from "@/components/Clips/ClipHandles"
 
 type ClipProps = {
   clip: ClipData;
@@ -47,16 +48,21 @@ export default function Clip({
         <ClipNameInput
           tabIndex={isFocused ? 0 : -1}
           value={name}
-          id={`clip-${clip.parentId}-${clip.id}-control-0`}
+          id={`clip-${clip.parentId}-${clip.id}-control-${isSelected ? `3`:`1`}`}
         />
         <ClipHeaderButton
           tabIndex={isFocused ? 0 : -1}
           code="&#xEF13;"
           size={16}
-          id={`clip-${clip.parentId}-${clip.id}-control-1`}
+          id={`clip-${clip.parentId}-${clip.id}-control-${isSelected ? `4`: `2`}`}
         />
       </div>
 
+      {isSelected && (
+        <div className={styles.clip_handles_container}>
+          <ClipHandles parentId={clip.parentId} clipId={clip.id}/>
+        </div>
+      )}
       <div
         className={`${styles.clip_body} ${isSelected ? styles.selected : ""}`}
       >
@@ -70,7 +76,7 @@ export default function Clip({
             clipParentId={clip.parentId}
             tabIndex={tabIndex}
             isSelected={isSelected}
-            id={`clip-${clip.parentId}-${clip.id}-control-2`}
+            id={`clip-${clip.parentId}-${clip.id}-control-0`}
             onClipButtonSelect={(event) =>
               onClipButtonSelect(event, clip.name, clip.parentId)
             } // Pass event to onClick

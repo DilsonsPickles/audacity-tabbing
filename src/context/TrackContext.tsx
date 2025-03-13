@@ -75,7 +75,7 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     null
   );
   const [trackControlIndex, setTrackControlIndex] = useState<number>(0);
-  const [clipControlIndex, setClipControlIndex] = useState<number>(2);
+  const [clipControlIndex, setClipControlIndex] = useState<number>(0);
   const [focusedClipPosition, setFocusedClipPosition] = useState<number>(0);
   const [mainToolbarIndex, setMainToolbarIndex] = useState<number>(0);
   const [focusedElementType, setFocusedElementType] = useState<string>("");

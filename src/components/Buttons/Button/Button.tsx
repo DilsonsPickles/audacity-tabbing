@@ -11,7 +11,7 @@ type ButtonProps = {
   textCenter?: boolean;
   id?: string;
   children?: string;
-  onClick: () => void;
+  onClick?: () => void;
   fixedWidth?: boolean;
 };
 

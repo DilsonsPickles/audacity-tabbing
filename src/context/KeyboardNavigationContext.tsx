@@ -54,6 +54,7 @@ export const KeyboardProvider = ({
     setClipControlIndex,
     mainToolbarIndex,
     setMainToolbarIndex,
+    selectedClip
   } = useTrackContext();
 
   const {
@@ -71,11 +72,11 @@ export const KeyboardProvider = ({
     if (!focusedClip) return;
 
     const selectButtonFocus = document.getElementById(
-      `${focusedClip}-control-2`
+      `${focusedClip}-control-0`
     );
     if (selectButtonFocus) {
       selectButtonFocus.focus();
-      setClipControlIndex(2);
+      setClipControlIndex(0);
     }
   }, [focusedClip, setClipControlIndex]);
 
@@ -123,7 +124,8 @@ export const KeyboardProvider = ({
             focusedClipPosition,
             setFocusedClip,
             clipControlIndex,
-            setClipControlIndex
+            setClipControlIndex,
+            selectedClip,
           );
           break;
         case "preference-nav-item":
