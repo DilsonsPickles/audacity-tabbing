@@ -13,6 +13,7 @@ import CloudPreferences from "@/components/PreferencePages/CloudPreferences";
 import ShortcutsPreferences from "@/components/PreferencePages/ShortcutsPreferences";
 import PluginManagerPreferences from "@/components/PreferencePages/PluginManagerPreferences";
 import { handlePreferenceNavigation } from "@/utils/handlePreferenceNavigation";
+import ButtonPrimary from "../Buttons/ButtonPrimary/ButtonPrimary";
 
 // Define preference pages for easy mapping
 const PREFERENCE_PAGES = [
@@ -101,7 +102,7 @@ export default function Preferences() {
         <button id="preference-reset-button">Reset preferences</button>
         <div className={styles.footer_btn_group}>
          
-          <button id="preference-done-button" onClick={handleDoneButtonClick}>Done</button>
+          <ButtonPrimary tabIndex={0} id="preference-done-button" onClick={handleDoneButtonClick} fixedWidth>Done</ButtonPrimary>
         </div>
       </div>
     </div>

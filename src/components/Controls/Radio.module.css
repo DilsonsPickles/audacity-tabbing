@@ -1,5 +1,47 @@
-.container {
-    display: flex;
-    gap: 4px;
+.radioInput {
+    opacity: 0;
+    position: absolute;
+}
+
+.radioLabel {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
+    min-height: 16px; /* Match the height of your radio button */
+}
+
+.radioLabel:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--stroke-tertiary);
+    border-radius: 50%;
+    background: var(--bg-primary);
+}
+
+.radioInput:checked+.radioLabel:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-1);
+}
+
+.radioInput:focus+.radioLabel:before {
+    outline: 1px solid var(--text-primary);
+}
+
+/* Add hover state */
+.radioLabel:hover:before {
+    border-color: black;
 }

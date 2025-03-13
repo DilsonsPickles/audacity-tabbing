@@ -3,6 +3,7 @@ import styles from "./InterfaceThumbnail.module.css";
 import Radio from "@/components/Controls/Radio";
 
 type InterfaceProps = {
+  label: string,
   theme: string;
   id: string;
   name: string;
@@ -12,6 +13,7 @@ type InterfaceProps = {
 };
 
 export default function InterfaceThumbnail({
+  label,
   theme,
   id,
   name,
@@ -27,6 +29,7 @@ export default function InterfaceThumbnail({
         }`}
       />
       <Radio
+        label={label}
         id={id}
         name={name}
         value={value}

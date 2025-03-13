@@ -2,6 +2,7 @@ import React, { KeyboardEvent } from "react";
 import styles from './Radio.module.css'
 
 type RadioProps = {
+    label: string;
   id: string;
   name: string;
   value: string;
@@ -10,18 +11,16 @@ type RadioProps = {
 };
 
 function Radio({
+    label,
   id,
   name,
   value,
   themePreference,
   setThemePreference,
 }: RadioProps) {
-  // Handle keydown events
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      // Trigger the same function as onChange
       setThemePreference();
-      // Prevent default Enter behavior
       e.preventDefault();
     }
   };
@@ -36,8 +35,9 @@ function Radio({
         checked={themePreference === value}
         onChange={setThemePreference}
         onKeyDown={handleKeyDown}
+        className={styles.radioInput}
       />
-      <label htmlFor={id}>{value}</label>
+      <label htmlFor={id} className={styles.radioLabel}>{label}</label>
     </div>
   );
 }

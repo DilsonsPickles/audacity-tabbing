@@ -17,7 +17,7 @@
 
 .clip_thumbnail_container {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 
 .clip_theme_input_group {
@@ -29,11 +29,17 @@
     border: none;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 }
 
 .accent_color_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.checkbox_group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }

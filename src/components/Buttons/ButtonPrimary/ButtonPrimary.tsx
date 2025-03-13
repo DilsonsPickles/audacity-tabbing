@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Button.module.css";
+import styles from "./ButtonPrimary.module.css";
 import Icon from "../../Icon";
 
-type ButtonProps = {
+type ButtonPrimaryProps = {
   value?: string;
   code?: string; // Unicode character for the icon
   tabIndex: number;
@@ -15,7 +15,7 @@ type ButtonProps = {
   fixedWidth?: boolean;
 };
 
-const Button = ({
+export default function ButtonPrimary({
   children,
   value,
   code,
@@ -26,7 +26,7 @@ const Button = ({
   id,
   onClick,
   fixedWidth,
-}: ButtonProps) => {
+}: ButtonPrimaryProps) {
   return (
     <button
       tabIndex={tabIndex}
@@ -42,6 +42,4 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-export default Button;
+}

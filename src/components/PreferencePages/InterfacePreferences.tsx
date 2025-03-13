@@ -26,6 +26,7 @@ export default function InterfacePreferences() {
         <div className={styles.clip_thumbnail_group}>
           <div className={styles.clip_thumbnail_container}>
             <InterfaceThumbnail
+              label="Light"
               theme="light"
               id="preference-interface-light-mode"
               name="theme"
@@ -34,6 +35,7 @@ export default function InterfacePreferences() {
               setThemePreference={() => setThemePreference("light")}
             />
             <InterfaceThumbnail
+              label="Dark"
               theme="dark"
               id="preference-interface-dark-mode"
               name="theme"
@@ -44,20 +46,22 @@ export default function InterfacePreferences() {
           </div>
         </div>
 
-        <Checkbox
-          id="preference-interface-system-theme"
-          name="theme"
-          value="system"
-        >
-          Follow system theme
-        </Checkbox>
-        <Checkbox
-          id="preference-interface-high-contrast"
-          name="theme"
-          value="high-contrast"
-        >
-          Enable high contrast
-        </Checkbox>
+        <div className={styles.checkbox_group}>
+          <Checkbox
+            id="preference-interface-system-theme"
+            name="theme"
+            value="system"
+          >
+            Follow system theme
+          </Checkbox>
+          <Checkbox
+            id="preference-interface-high-contrast"
+            name="theme"
+            value="high-contrast"
+          >
+            Enable high contrast
+          </Checkbox>
+        </div>
 
         <div className={styles.accent_color_container}>
           <label>Accent color:</label>

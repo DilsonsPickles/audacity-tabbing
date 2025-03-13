@@ -33,8 +33,9 @@ export default function Checkbox({id, name, value, children}:CheckboxProps) {
         name={name}
         value={value}
         onKeyDown={handleKeyDown}
+        className={styles.checkboxInput}
       />
-      <label htmlFor={id}>
+      <label htmlFor={id} className={styles.checkboxLabel}>
         {children}
       </label>
     </div>
