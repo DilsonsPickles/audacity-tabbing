@@ -1,4 +1,4 @@
-import React from "react";
+import React, { KeyboardEvent } from "react";
 import styles from './Radio.module.css'
 
 type RadioProps = {
@@ -16,6 +16,16 @@ function Radio({
   themePreference,
   setThemePreference,
 }: RadioProps) {
+  // Handle keydown events
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      // Trigger the same function as onChange
+      setThemePreference();
+      // Prevent default Enter behavior
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className={styles.container}>
       <input
@@ -23,10 +33,11 @@ function Radio({
         id={id}
         name={name}
         value={value}
-        checked={themePreference == value}
+        checked={themePreference === value}
         onChange={setThemePreference}
+        onKeyDown={handleKeyDown}
       />
-      <label>{value}</label>
+      <label htmlFor={id}>{value}</label>
     </div>
   );
 }

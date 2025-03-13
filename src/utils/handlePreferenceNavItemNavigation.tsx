@@ -17,9 +17,7 @@ export function handlePreferenceNavItemNavigation(
       preferencePage.focus();
     } else {
       console.warn(
-        `No valid preference page found for preference-nav-item-${
-          newIndex + 1
-        }`
+        `No valid preference page found for preference-nav-item-${newIndex + 1}`
       );
     }
   }
@@ -41,14 +39,12 @@ export function handlePreferenceNavItemNavigation(
   // Handle key events
   switch (event.key) {
     case "ArrowUp":
+    case "ArrowLeft":
       navigatePreferencePage(-1);
       break;
     case "ArrowDown":
-      navigatePreferencePage(1);
-      break;
-    case "ArrowLeft":
-      break;
     case "ArrowRight":
+      navigatePreferencePage(1);
       break;
     case "Tab":
       // Optional: handle tab navigation
@@ -56,6 +52,54 @@ export function handlePreferenceNavItemNavigation(
     case "Escape":
       closePreferencesPanel(); // Close the preferences panel
       break;
+    case "Enter": {
+      // Get all focusable elements
+      const focusableElements =
+        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      const elements = [...document.querySelectorAll(focusableElements)].filter(
+        (el) => {
+          // Type casting for HTMLElement which has offsetParent property
+          const htmlEl = el as HTMLElement;
+
+          // Check visibility (offsetParent is null for hidden elements)
+          const isVisible = htmlEl.offsetParent !== null;
+
+          // Check if disabled based on element type
+          let isDisabled = false;
+          if (
+            el instanceof HTMLButtonElement ||
+            el instanceof HTMLInputElement ||
+            el instanceof HTMLSelectElement ||
+            el instanceof HTMLTextAreaElement
+          ) {
+            isDisabled = el.disabled;
+          }
+
+          return isVisible && !isDisabled;
+        }
+      );
+
+      // Find current position (handle potential null activeElement)
+      const currentElement = document.activeElement;
+      const currentIndex = currentElement
+        ? elements.indexOf(currentElement)
+        : -1;
+
+      // Focus next element or first if at end
+      const nextIndex =
+        currentIndex >= 0 && currentIndex < elements.length - 1
+          ? currentIndex + 1
+          : 0;
+
+      // Make sure we have elements before trying to focus
+      if (elements.length > 0) {
+        (elements[nextIndex] as HTMLElement).focus();
+      }
+
+      // Prevent default Enter behavior
+      event.preventDefault();
+      break;
+    }
     default:
       break;
   }
