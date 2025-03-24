@@ -5,6 +5,10 @@
   /* Allow items to stack vertically */
   overflow-y: hidden;  /* No vertical scrolling */
   overflow-x: scroll;
+
+  &:focus {
+    background-color: aqua;
+  }
 }
 
 /* For WebKit browsers like Chrome and Safari */

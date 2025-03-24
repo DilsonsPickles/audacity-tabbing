@@ -22,7 +22,7 @@ const generateTicks = (max: number) => {
 
 export default function TimelineRuler() {
   return (
-    <div className={styles.ruler_container}>
+    <div id="ruler-timeline" className={styles.ruler_container}>
     {ticks.map((tick) => (
       <Tick key={tick} value={tick} isWholeNumber={Number.isInteger(tick)} /> ))}
     </div>

@@ -52,6 +52,11 @@ interface TrackContextType {
     index: number | ((prevIndex: number) => number)
   ) => void;
 
+  playbackTimecodeIndex: number;
+  setPlaybackTimecodeIndex: (
+    index: number | ((prevIndex: number) => number)
+  ) => void;
+
   mainToolbarIndex: number;
   setMainToolbarIndex: (
     index: number | ((prevIndex: number) => number)
@@ -75,6 +80,7 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     null
   );
   const [trackControlIndex, setTrackControlIndex] = useState<number>(0);
+  const [playbackTimecodeIndex, setPlaybackTimecodeIndex] = useState<number>(0);
   const [clipControlIndex, setClipControlIndex] = useState<number>(0);
   const [focusedClipPosition, setFocusedClipPosition] = useState<number>(0);
   const [mainToolbarIndex, setMainToolbarIndex] = useState<number>(0);
@@ -88,6 +94,9 @@ export function TrackProvider({ children }: { children: ReactNode }) {
       switch (true) {
         case event.target.id.includes("transport-"):
           setFocusedElementType("transport");
+          break;
+        case event.target.id.includes("timecode-index-"):
+          setFocusedElementType("playback-timecode");
           break;
         case event.target.id.includes("clip") &&
           event.target.id.includes("control"):
@@ -115,6 +124,15 @@ export function TrackProvider({ children }: { children: ReactNode }) {
           break;
         case event.target.id.includes("preference"):
           setFocusedElementType("preference");
+          break;
+        case event.target.id.includes("toolbar-project"):
+          setFocusedElementType("toolbar-project");
+          break;
+        case event.target.id.includes("toolbar-bottom"):
+          setFocusedElementType("toolbar-bottom");
+          break;
+        case event.target.id.includes("panel-realtime-effects"):
+          setFocusedElementType("panel-realtime-effects");
           break;
         default:
           setFocusedElementType(""); // Handle unknown cases
@@ -249,6 +267,8 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     setFocusedElementType,
     mainToolbarIndex,
     setMainToolbarIndex,
+    playbackTimecodeIndex,
+    setPlaybackTimecodeIndex,
   };
 
   return (

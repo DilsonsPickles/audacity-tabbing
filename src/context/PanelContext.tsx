@@ -54,7 +54,7 @@ export function PanelProvider({ children }: { children: ReactNode }) {
 
   function closePreferencesPanel() {
     setIsPreferencePanelOpenState(false);
-    focusElement("project-toolbar-audio-setup-button");
+    focusElement("toolbar-project-group-2-item-1");
   }
 
   function setActivePreferencePage(id: number) {

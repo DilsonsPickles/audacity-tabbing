@@ -8,7 +8,9 @@ export function handleClipControlNavigation(
   clipControlIndex: number,
   setClipControlIndex: (newIndex: number) => void,
   selectedClip: string[],
-  focusedElement: HTMLElement | null
+  focusedElement: HTMLElement | null,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
+
 ) {
   // Update totalClipControls based on whether there are any selected clips
   const totalClipControls = selectedClip.length > 0 ? 7 : 3;
@@ -50,6 +52,12 @@ export function handleClipControlNavigation(
   );
 
   switch (event.key) {
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
+      break;
     case "ArrowUp":
     case "ArrowLeft":
       console.log("Arrow up or left");

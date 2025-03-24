@@ -9,8 +9,9 @@ export function handleClipNavigation(
   focusedElement: HTMLElement | null,
   setFocusedClip: (id: string) => void,
   exitTabbing: () => void,
-  setFocusedTrack: (newTrack: number) => void,
+  setFocusedTrack: (newTrack: number) => void, 
   setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
+
 ) {
   // Helper to navigate to the adjacent track clip
   function navigateToAdjacentTrackClip(direction: -1 | 1) {
@@ -49,21 +50,27 @@ export function handleClipNavigation(
   };
 
   switch (event.key) {
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
+      break;
     case "ArrowUp":
     case "w":
       navigateToAdjacentTrackClip(-1); // Navigate up
       break;
     case "ArrowRight":
+      handleArrowNavigation(1); // Navigate right
       event.preventDefault(); // Prevent default to avoid other actions
-      setPlayheadPosition((prev) => prev + 1); // Move playhead to the right
       break;
     case "ArrowDown":
     case "s":
       navigateToAdjacentTrackClip(1); // Navigate down
       break;
     case "ArrowLeft":
+      handleArrowNavigation(-1); // Navigate left
       event.preventDefault(); // Prevent default to avoid other actions
-      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
       break;
     case "a":
       handleArrowNavigation(-1); // Navigate left
@@ -71,16 +78,16 @@ export function handleClipNavigation(
     case "d":
       handleArrowNavigation(1); // Navigate right
       break;
-      case "Enter":
-        if (focusedElement?.id.includes("clip") && currentClip) {
-          setFocusedClip(currentClip.id); // Set the focused clip
-          focusElement(`${currentClip.id}-control-0`)
-        }
-        break;
+    case "Enter":
+      if (focusedElement?.id.includes("clip") && currentClip) {
+        setFocusedClip(currentClip.id); // Set the focused clip
+        focusElement(`${currentClip.id}-control-0`);
+      }
+      break;
     case "Escape":
       exitTabbing(); // Exit tabbing mode
       break;
     default:
       break;
-}
+  }
 }

@@ -2,9 +2,8 @@
     display: flex;
     background-color: var(--timecode-bg-idle);
     height: 28px;
-    padding: 0px 4px;
     border-radius: 3px;
-
+    color: white;
 }
 
 .digit {
@@ -29,4 +28,16 @@
     padding: 2px;
     height: 100%;
     color: var(--timecode-type-color)
+}
+
+.digitGroup {
+    display: flex;
+    padding: 0px 4px;
+}
+
+.dropdownButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--bg-primary)
 }

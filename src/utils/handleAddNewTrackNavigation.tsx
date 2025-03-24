@@ -3,7 +3,8 @@ import { focusElement } from "@/helper/focusElement";
 export function handleAddNewTrackNavigation(
   focusedElement: HTMLElement | null,
   event: KeyboardEvent,
-  toggleIsAddNewTrackOpen: () => void
+  toggleIsAddNewTrackOpen: () => void,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
 ) {
   const totalElements = 4; // Total number of focusable elements
 
@@ -24,6 +25,12 @@ export function handleAddNewTrackNavigation(
 
   // Handle key events
   switch (event.key) {
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the right
+      break;
     case "ArrowUp":
     case "ArrowLeft":
       if (currentIndex >= 0) {

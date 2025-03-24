@@ -8,7 +8,8 @@ export function handleTrackNavigation(
   focusedTrack: number,
   focusedElement: HTMLElement | null,
   setFocusedTrack: (newTrack: number) => void,
-  exitTabbing: () => void
+  exitTabbing: () => void,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
 ) {
   function navigateInternalTrackHeader(
     event: KeyboardEvent,
@@ -106,6 +107,14 @@ export function handleTrackNavigation(
         console.log("Enter pressed on add new track button")
         focusElement("add-new-track-flyout-index-0");
       }
+      break;
+      case ",":
+        setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+        break;
+      case ".":
+        setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
+        break;
+      default: 
       break;
   }
 }

@@ -11,22 +11,38 @@ export default function ProjectToolbar({
 }: ProjectToolbarProps) {
   return (
     <div className={styles.container}>
-      <div className={styles.navGroup}>
-        <div>Home</div>
-        <div>Project</div>
-        <div>Share</div>
+      <div id="toolbar-project-group-1" className={styles.navGroup}>
+        <div tabIndex={1} id="toolbar-project-group-1-item-0">
+          Home
+        </div>
+        <div tabIndex={-1} id="toolbar-project-group-1-item-1">
+          Project
+        </div>
+        <div tabIndex={-1} id="toolbar-project-group-1-item-2">
+          Share
+        </div>
       </div>
-      <div className={styles.buttonGroup}>
-        <button id="project-toolbar-effects-button" tabIndex={1} onClick={onEffectButtonClick}>
+      <div id="toolbar-project-group-2" className={styles.buttonGroup}>
+        <button
+          tabIndex={1}
+          id="toolbar-project-group-2-item-0"
+          onClick={onEffectButtonClick}
+        >
           Effects
         </button>
-        <button id="project-toolbar-audio-setup-button" tabIndex={1} onClick={onAudioSetupButtonClick}>
+        <button
+        tabIndex={-1}
+          id="toolbar-project-group-2-item-1"
+          onClick={onAudioSetupButtonClick}
+        >
           Audio setup
         </button>
       </div>
-      <div className={styles.buttonGroup}>
-        <div>Workspaces</div>
-        <div>Undo</div>
+      <div className={styles.buttonGroup} id="toolbar-project-group-3">
+        <div tabIndex={1} id="toolbar-project-group-3-item-0">
+          Workspaces
+        </div>
+        <div id="toolbar-project-group-3-item-0">Undo</div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import PlayheadCursor from "@/components/Cursor/PlayheadCursor"
 
 export default function Viewport() {
   return (
-    <div className={styles.container}>
+    <div id="container-viewport" className={styles.container} tabIndex={5}>
       <PlayheadCursor />
       <TimelineRuler />
       <Canvas />

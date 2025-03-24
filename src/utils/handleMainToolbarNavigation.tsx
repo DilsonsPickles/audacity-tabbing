@@ -1,8 +1,12 @@
+import { focusElement } from "@/helper/focusElement";
+
 export function handleMainToolbarNavigation(
   event: KeyboardEvent,
   mainToolbarIndex: number,
   setMainToolbarIndex: (newIndex: number) => void,
-  exitTabbing: () => void
+  exitTabbing: () => void, 
+  focusedElement: HTMLElement | null,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
 ) {
   const totalMainToolbarControls = 18;
   // Helper function to navigate the toolbar
@@ -23,6 +27,12 @@ export function handleMainToolbarNavigation(
 
   // Handle key events
   switch (event.key) {
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the right
+      break;
     case "ArrowUp":
     case "ArrowLeft":
       navigateMainToolbar(-1); // Navigate left
@@ -38,6 +48,10 @@ export function handleMainToolbarNavigation(
       exitTabbing(); // Exit tabbing mode
       setMainToolbarIndex(0); // Reset toolbar index on Escape
       break;
+      case "Enter":
+        if(focusedElement?.id === "transport-button-17"){
+          focusElement("timecode-index-0");
+        }
     default:
       break;
   }

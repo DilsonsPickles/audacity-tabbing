@@ -5,6 +5,8 @@ export function handleClipContextMenuNavigation(
   event: KeyboardEvent,
   closeAllClipContextMenus: () => void,
   focusedClip: string,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
+
 ) {
   const totalElements = 13; // Total number of focusable elements
 
@@ -25,6 +27,12 @@ export function handleClipContextMenuNavigation(
 
   // Handle key events
   switch (event.key) {
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
+      break;
     case "ArrowUp":
     case "ArrowLeft":
       if (currentIndex >= 0) {

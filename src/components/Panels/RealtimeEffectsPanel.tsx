@@ -16,7 +16,7 @@ export default function RealtimeEffectsPanel() {
   } = useTrackContext();
 
   return (
-    <div tabIndex={1} className={styles.container}>
+    <div id="panel-realtime-effects" tabIndex={1} className={styles.container}>
       <div>
         Selected track: <strong>{selectedTrack}</strong>
       </div>

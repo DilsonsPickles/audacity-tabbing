@@ -8,7 +8,7 @@ export function handleDefaultNavigation(
   exitTabbing: () => void,
   setMainToolbarIndex: (index: number) => void,
   setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
-  focusedElement: HTMLElement | null,
+  focusedElement: HTMLElement | null
 ) {
   switch (event.key) {
     case "ArrowUp":
@@ -17,9 +17,10 @@ export function handleDefaultNavigation(
       }
       break;
     case "ArrowRight":
+    case ".":
       {
-        event.preventDefault();
         setPlayheadPosition((prev) => prev + 1); // Move playhead to the right
+        event.preventDefault();
       }
       break;
     case "ArrowDown":
@@ -28,9 +29,10 @@ export function handleDefaultNavigation(
       }
       break;
     case "ArrowLeft":
+    case ",":
       {
-        event.preventDefault();
         setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+        event.preventDefault();
       }
       break;
     case "Enter":
