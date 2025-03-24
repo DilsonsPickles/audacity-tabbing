@@ -199,7 +199,7 @@ export const KeyboardProvider = ({
           break;
         case "realtime-effects-panel":
           {
-            handleRealtimeEffectsPanelNavigation(focusedElement, event);
+            handleRealtimeEffectsPanelNavigation(event);
           }
           break;
         case "":
