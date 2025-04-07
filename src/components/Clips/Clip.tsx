@@ -59,6 +59,7 @@ export default function Clip({
     >
       <div
         className={`${styles.clip_header} ${isSelected ? styles.selected : ""}`}
+        onClick={(event) => onClipButtonSelect(event, clip.name, clip.parentId)}
       >
         <ClipNameInput
           tabIndex={isFocused ? 0 : -1}

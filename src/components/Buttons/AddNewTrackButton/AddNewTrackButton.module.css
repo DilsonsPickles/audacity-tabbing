@@ -4,18 +4,18 @@
     gap: 8px;
     padding: 6px 8px;
     justify-content: space-between;
-    background-color: var(--btn-on-secondary-idle);
+    background-color: var(--bg-add-new-track-button-idle);
     border-radius: 3px;
     border: none;
     color: var(--text-primary);
 
 
     &:hover {
-        background-color: var(--btn-on-secondary-hover);
+        background-color: var(--bg-add-new-track-button-hover);
     }
 
     &:active {
-        background-color: var(--btn-on-secondary-active);
+        background-color: var(--bg-add-new-track-button-active);
     }
 
 

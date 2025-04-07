@@ -46,11 +46,21 @@
   --color-clip-1: #7EB1FF;
   --color-clip-2: #9996FC;
   --color-clip-3: #DA8CCC;
+  --color-clip-4: #F08080;
 
   /* Semantic tokens - Light mode */
-  --bg-primary: var(--blue-1);
-  --bg-secondary: var(--gray-4);
+  --bg-primary: #F8F8FA;
+  --bg-secondary: #EAEBF0;
   --bg-tertiary: var(--gray-11_75);
+  --bg-track-header-button-idle: #DCDDE4;
+  --bg-track-header-button-hover: #D2D5DE;
+  --bg-track-header-button-active: #C6C9D4;
+  --bg-add-new-track-button-idle: #D2D4DD;
+  --bg-add-new-track-button-hover: #C7C8D4;
+  --bg-add-new-track-button-active: #BBBECA;
+  --bg-transport-button-idle: #DFE0E6;
+  --bg-transport-button-hover: #D2D3DC;
+  --bg-transport-button-active: #C6C8D2;
   --accent-1: var(--blue-9);
   --accent-2: var(--pink-1);
   --accent-3: var(--red-1);
@@ -64,9 +74,13 @@
   --stroke-primary: var(--gray-6);
   --stroke-secondary: var(--gray-7);
   --stroke-tertiary: var(--gray-9);
-  --track-header-default: var(--gray-2_5);
-  --track-header-hover: var(--gray-2);
-  --track-header-active: var(--gray-1);
+  --track-header-default: #F4F4F8;
+  --track-header-hover: #F8F9FC;
+  --track-header-active: #FBFBFD;
+  --stroke-track-header-idle: #D7D8DD;
+  --stroke-track-header-hover: #C5C5CA;
+  --stroke-track-header-focused: #7CC4FF;
+  --stroke-track-header-active: #BABCC8;
   --btn-on-primary-idle: var(--gray-5);
   --btn-on-primary-hover: var(--gray-6);
   --btn-on-primary-active: var(--gray-7);
@@ -83,6 +97,7 @@
   --clip-color-1: var(--color-clip-1);
   --clip-color-2: var(--color-clip-2);
   --clip-color-3: var(--color-clip-3);
+  --clip-color-4: var(--color-clip-4);
 }
 
 /* Dark mode colors */

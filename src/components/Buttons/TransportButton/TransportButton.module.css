@@ -5,16 +5,16 @@
     height: 32px;
     width: 32px;
     border-radius: 3px;
-    background-color: var(--btn-on-primary-idle);
+    background-color: var(--bg-transport-button-idle);
     cursor: pointer;
     border: none;
     color: var(--text-primary);
 
-    &:hover{
-        background-color: var(--btn-on-primary-hover);
+    &:hover {
+        background-color: var(--bg-transport-button-hover);
     }
 
     &:active {
-        background-color: var(--btn-on-primary-active);
+        background-color: var(--bg-transport-button-active);
     }
 }

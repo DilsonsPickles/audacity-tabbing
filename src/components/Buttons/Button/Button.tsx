@@ -5,7 +5,7 @@ import Icon from "../../Icon";
 type ButtonProps = {
   value?: string;
   code?: string; // Unicode character for the icon
-  tabIndex: number;
+  tabIndex?: number;
   ariaLabel?: string; // Optional accessibility label for the button
   fullWidth?: boolean;
   textCenter?: boolean;

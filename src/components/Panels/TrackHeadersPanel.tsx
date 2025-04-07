@@ -13,6 +13,7 @@ export default function TrackHeadersPanel() {
     setSelectedTrack,
     focusedTrack,
     setFocusedTrack,
+    setHoveredTrackHeader,
   } = useTrackContext();
 
   const { isAddNewTrackPanelOpen, toggleIsAddNewTrackPanelOpen } = usePanelContext();
@@ -26,6 +27,10 @@ export default function TrackHeadersPanel() {
   const handleTrackHeaderFocus = (id: number) => {
     setFocusedTrack(id);
   };
+
+  const handleTrackHeaderHover = (id: number) => {
+    setHoveredTrackHeader(id)
+  }
 
   return (
     <div className={styles.container}>
@@ -47,6 +52,8 @@ export default function TrackHeadersPanel() {
             focusedTrack={focusedTrack}
             setFocusedTrack={setFocusedTrack}
             onFocus={() => handleTrackHeaderFocus(track.id)}
+            onMouseEnter={() => handleTrackHeaderHover(track.id)}
+            onMouseLeave={() => handleTrackHeaderHover(0)}
           />
         ))}
       </div>

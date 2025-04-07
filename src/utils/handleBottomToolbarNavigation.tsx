@@ -3,8 +3,7 @@ import { focusElement } from "../helper/focusElement";
 export function handleBottomToolbarNavigation(
   focusedElement: HTMLElement | null,
   event: KeyboardEvent,
-  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
-
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
 ) {
   switch (event.key) {
     case ",":
@@ -39,7 +38,10 @@ export function handleBottomToolbarNavigation(
       }
       break;
     case "Tab":
-      if (focusedElement?.id === "toolbar-bottom") {
+      if (focusedElement?.id === "toolbar-bottom" && event.shiftKey) {
+        focusElement("clip-3-1");
+        event.preventDefault();
+      } else if (focusedElement?.id === "toolbar-bottom") {
         focusElement("toolbar-project-group-1-item-0");
       }
       break;

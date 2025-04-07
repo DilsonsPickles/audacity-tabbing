@@ -41,7 +41,7 @@ function HomeContent() {
           realtimeEffectsPanelIsOpen ? "with-effects-panel" : ""
         }`}
       >
-        {realtimeEffectsPanelIsOpen && <RealtimeEffectsPanel />}
+        {realtimeEffectsPanelIsOpen && <RealtimeEffectsPanel toggleRealtimeEffectsPanel={toggleRealtimeEffectsPanel} />}
         <TrackHeadersPanel />
         <Viewport />
       </div>

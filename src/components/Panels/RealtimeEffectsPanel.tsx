@@ -1,51 +1,54 @@
 import React from "react";
 import styles from "./RealtimeEffectsPanel.module.css";
-import { useTrackContext } from "@/context/TrackContext";
+import Button from "../Buttons/Button/Button";
+import PowerButton from "../Buttons/PowerButton/PowerButton";
+import EffectListItem from "../ListItems/EffectListItem";
+import GhostIconButton from "../Buttons/GhostIconButton/GhostIconButton";
 
-export default function RealtimeEffectsPanel() {
-  const {
-    selectedTrack,
-    focusedTrack,
-    selectedClip,
-    focusedClip,
-    focusedElement,
-    trackControlIndex,
-    clipControlIndex,
-    focusedElementType,
-    focusedClipPosition
-  } = useTrackContext();
+type RealtimeEffectsPanelProps = {
+  toggleRealtimeEffectsPanel: () => void;
+};
 
+export default function RealtimeEffectsPanel({
+  toggleRealtimeEffectsPanel,
+}: RealtimeEffectsPanelProps) {
   return (
     <div id="panel-realtime-effects" tabIndex={1} className={styles.container}>
-      <div>
-        Selected track: <strong>{selectedTrack}</strong>
+      <div className={styles.header}>
+        <div>Realtime effects</div>
+        <GhostIconButton
+          code="&#xEF14;"
+          size={14}
+          onClick={toggleRealtimeEffectsPanel}/>
       </div>
-      <div>
-        Focused track: <strong>{focusedTrack}</strong>
+      <div className={styles.effectsContainer}>
+        <div className={styles.effectsContainerHeader}>
+          <div
+            style={{
+              display: "flex",
+              alignContent: "center",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+            }}
+          >
+            <PowerButton /> Track name
+            </div>
+            <GhostIconButton
+              code="&#xEF13;"
+              size={16}
+            />
+        </div>
+        <div className={styles.effectList}>
+          <EffectListItem name="Reverb" />
+          <EffectListItem name="Distortion" />
+          <EffectListItem name="Delay" />
+        </div>
       </div>
-      <div>
-        Selected clip:
-        <strong>{selectedClip ? selectedClip : "No clip selected"}</strong>
-      </div>
-      <div>
-        Focused clip:
-        <strong>{focusedClip ? focusedClip : "No clip in focus"}</strong>
-      </div>
-      <div>
-        Focused clip position:
-        <strong>{focusedClipPosition ? focusedClipPosition : ""}</strong>
-      </div>
-      <div>
-        Focused element: <strong>{focusedElement?.id}</strong>
-      </div>
-      <div>
-        Focused element type: <strong>{focusedElementType}</strong>
-      </div>
-      <div>
-        Track control index: <strong>{trackControlIndex}</strong>
-      </div>
-      <div>
-        Clip control index: <strong>{clipControlIndex}</strong>
+      <div className={styles.buttonContainer}>
+        <Button textCenter fullWidth>
+          Add effect
+        </Button>
       </div>
     </div>
   );

@@ -9,9 +9,8 @@ export function handleClipNavigation(
   focusedElement: HTMLElement | null,
   setFocusedClip: (id: string) => void,
   exitTabbing: () => void,
-  setFocusedTrack: (newTrack: number) => void, 
-  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
-
+  setFocusedTrack: (newTrack: number) => void,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
 ) {
   // Helper to navigate to the adjacent track clip
   function navigateToAdjacentTrackClip(direction: -1 | 1) {
@@ -83,6 +82,20 @@ export function handleClipNavigation(
         setFocusedClip(currentClip.id); // Set the focused clip
         focusElement(`${currentClip.id}-control-0`);
       }
+      break;
+    case "Tab":
+      if (focusedElement?.id.includes("clip") && event.shiftKey) {
+        console.log(focusedTrack);
+        focusElement(`track-${focusedTrack}-control-0`);
+        event.preventDefault();
+      } else if (focusedElement?.id.includes("clip-3-")) {
+        focusElement("toolbar-bottom");
+        event.preventDefault();
+      } else if (focusedElement?.id.includes("clip")) {
+        focusElement(`track-${focusedTrack + 1}-control-0`);
+        event.preventDefault();
+      }
+
       break;
     case "Escape":
       exitTabbing(); // Exit tabbing mode

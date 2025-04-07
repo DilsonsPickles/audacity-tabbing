@@ -9,7 +9,7 @@ export function handleTrackNavigation(
   focusedElement: HTMLElement | null,
   setFocusedTrack: (newTrack: number) => void,
   exitTabbing: () => void,
-  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>,
+  setPlayheadPosition: React.Dispatch<React.SetStateAction<number>>
 ) {
   function navigateInternalTrackHeader(
     event: KeyboardEvent,
@@ -89,7 +89,14 @@ export function handleTrackNavigation(
         if (firstClip) {
           focusElement(firstClip.id);
         }
+      } else if (event.shiftKey) {
+        const firstClip = document.getElementById(`clip-${focusedTrack-1}-1`);
+        if (firstClip) {
+          focusElement(firstClip.id);
+          event.preventDefault();
+        }
       }
+     
       break;
     case "Escape":
       if (
@@ -104,17 +111,17 @@ export function handleTrackNavigation(
       break;
     case "Enter":
       if (focusedElement?.id === "add-new-track-button") {
-        console.log("Enter pressed on add new track button")
+        console.log("Enter pressed on add new track button");
         focusElement("add-new-track-flyout-index-0");
       }
       break;
-      case ",":
-        setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
-        break;
-      case ".":
-        setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
-        break;
-      default: 
+    case ",":
+      setPlayheadPosition((prev) => prev - 1); // Move playhead to the left
+      break;
+    case ".":
+      setPlayheadPosition((prev) => prev + 1); // Move playhead to the left
+      break;
+    default:
       break;
   }
 }

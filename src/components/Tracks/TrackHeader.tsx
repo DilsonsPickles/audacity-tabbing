@@ -17,6 +17,8 @@ type TrackHeaderProps = {
   setFocusedTrack: (id: number) => void;
   onFocus: () => void;
   id: number;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 };
 
 export default function TrackHeader({
@@ -27,6 +29,8 @@ export default function TrackHeader({
   onClick,
   onFocus,
   id,
+  onMouseEnter,
+  onMouseLeave,
 }: TrackHeaderProps) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -40,6 +44,9 @@ export default function TrackHeader({
         isSelected && styles.selected
       } ${inFocus && styles.focused}`}
       onFocus={onFocus}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       >
       <div
         id={`track-${id}-control-0`}

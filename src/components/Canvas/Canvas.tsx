@@ -6,7 +6,7 @@ import { useTrackContext } from "@/context/TrackContext";
 import { usePlayheadContext } from "@/context/PlayheadContext";
 
 function Canvas() {
-  const { tracks, focusedTrack } = useTrackContext();
+  const { tracks, focusedTrack, hoveredTrackHeader, setHoveredTrackHeader} = useTrackContext();
   const { setPlayheadPosition } = usePlayheadContext();
 
   function handleCanvasClick(e: React.MouseEvent) {
@@ -17,6 +17,12 @@ function Canvas() {
     setPlayheadPosition(newPlayheadPosition); // Set the playhead position
   }
 
+  const handleTrackHeaderHover = (id: number) => {
+    setHoveredTrackHeader(id)
+  }
+
+  
+
   return (
     <div className={styles.container} onClick={handleCanvasClick}>
       <div className={styles.trackContainer}>
@@ -26,6 +32,9 @@ function Canvas() {
             track={track} 
             tabIndex={track.id}
             inFocus={focusedTrack === track.id}
+            isParentTrackHeaderHovered={hoveredTrackHeader===track.id}
+            onMouseEnter={() => handleTrackHeaderHover(track.id)}
+            onMouseLeave={() => handleTrackHeaderHover(0)}
           />
         ))}
       </div>

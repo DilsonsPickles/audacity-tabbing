@@ -1,5 +1,5 @@
 .button{
-    background-color: var(--btn-on-primary-idle);
+    background-color: var(--bg-track-header-button-idle);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,11 +12,11 @@
 
 
     &:hover {
-        background-color: var(--btn-on-primary-hover);
+        background-color: var(--bg-track-header-button-hover);
     }
 
     &:active {
-        background-color: var(--btn-on-primary-active);
+        background-color: var(--bg-track-header-button-active);
     }
 
 }

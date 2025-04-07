@@ -67,6 +67,9 @@ interface TrackContextType {
 
   focusedElementType: string;
   setFocusedElementType: (type: string) => void;
+
+  hoveredTrackHeader: number;
+  setHoveredTrackHeader: (id: number) => void;
 }
 
 const TrackContext = createContext<TrackContextType | undefined>(undefined);
@@ -85,6 +88,7 @@ export function TrackProvider({ children }: { children: ReactNode }) {
   const [focusedClipPosition, setFocusedClipPosition] = useState<number>(0);
   const [mainToolbarIndex, setMainToolbarIndex] = useState<number>(0);
   const [focusedElementType, setFocusedElementType] = useState<string>("");
+  const [hoveredTrackHeader, setHoveredTrackHeaderState] = useState<number>(0);
 
   useEffect(() => {
     function handleFocus(event: FocusEvent) {
@@ -185,6 +189,22 @@ export function TrackProvider({ children }: { children: ReactNode }) {
             isFocused: focusedClip === "clip-2-1",
             parentId: 2,
           },
+          {
+            id: 2,
+            name: "clip-2-2",
+            position: 2,
+            isSelected: selectedClip.includes("clip-2-2"),
+            isFocused: focusedClip === "clip-2-2",
+            parentId: 2,
+          },
+          {
+            id: 3,
+            name: "clip-2-3",
+            position: 3,
+            isSelected: selectedClip.includes("clip-2-3"),
+            isFocused: focusedClip === "clip-2-3",
+            parentId: 2,
+          },
         ],
       },
       {
@@ -209,6 +229,56 @@ export function TrackProvider({ children }: { children: ReactNode }) {
             isSelected: selectedClip.includes("clip-3-2"),
             isFocused: focusedClip === "clip-3-2",
             parentId: 3,
+          },
+          {
+            id: 3,
+            name: "clip-3-3",
+            position: 3,
+            isSelected: selectedClip.includes("clip-3-3"),
+            isFocused: focusedClip === "clip-3-3",
+            parentId: 3,
+          },
+          {
+            id: 4,
+            name: "clip-3-4",
+            position: 4,
+            isSelected: selectedClip.includes("clip-3-4"),
+            isFocused: focusedClip === "clip-3-4",
+            parentId: 3,
+          },
+          {
+            id: 5,
+            name: "clip-3-5",
+            position: 5,
+            isSelected: selectedClip.includes("clip-3-5"),
+            isFocused: focusedClip === "clip-3-5",
+            parentId: 3,
+          },
+          
+        ],
+      },
+      {
+        id: 4,
+        name: "Mono track 4",
+        index: 0,
+        isSelected: selectedTrack.includes(4),
+        isFocused: focusedTrack === 4,
+        clips: [
+          {
+            id: 1,
+            name: "clip-4-1",
+            position: 1,
+            isSelected: selectedClip.includes("clip-4-1"), // Check if this clip is selected
+            isFocused: focusedClip === "clip-4-1",
+            parentId: 4,
+          },
+          {
+            id: 2,
+            name: "clip-4-2",
+            position: 2,
+            isSelected: selectedClip.includes("clip-4-2"), // Check if this clip is selected
+            isFocused: focusedClip === "clip-4-2",
+            parentId: 4,
           },
         ],
       },
@@ -244,6 +314,10 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     setFocusedElementState(element);
   }
 
+  function setHoveredTrackHeader(id: number){
+    setHoveredTrackHeaderState(id);
+  }
+
   const value = {
     tracks,
     setTracks,
@@ -269,6 +343,8 @@ export function TrackProvider({ children }: { children: ReactNode }) {
     setMainToolbarIndex,
     playbackTimecodeIndex,
     setPlaybackTimecodeIndex,
+    hoveredTrackHeader,
+    setHoveredTrackHeader,
   };
 
   return (

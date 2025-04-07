@@ -1,0 +1,10 @@
+.container {
+    height: 24px;
+    min-width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 2px;
+    border: 1px solid var(--stroke-primary);
+}

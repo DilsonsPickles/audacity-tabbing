@@ -1,15 +1,24 @@
 .track_container {
     display: flex;
     height: 112px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.04);
     padding-left: 12px;
     position: relative;
+    outline: 1px solid rgba(255, 255, 255, 0.10);
 
     &.selected {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.08);
+        outline: 1px solid rgba(255, 255, 255, 0.24);
     }
 
     &.focused {
-        box-shadow: 0px 0px 4px 2px #31aed8;
+        box-shadow: 0px 0px 4px 4px #31aed8;
+        outline: 1px solid hsla(207, 100%, 74%, 1);
+    }
+
+    &.parentHovered {
+        background-color: rgba(255, 255, 255, 0.08);
+        outline: 1px solid rgba(255, 255, 255, 0.16);
+
     }
 }

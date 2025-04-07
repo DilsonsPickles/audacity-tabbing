@@ -76,6 +76,11 @@
     /* Example color for track 3 */
 }
 
+.clip_track4 {
+    background-color: var(--clip-color-4);
+    /* Example color for track 3 */
+}
+
 .clip_handles_container {
     position: absolute;
     top: 20px;
