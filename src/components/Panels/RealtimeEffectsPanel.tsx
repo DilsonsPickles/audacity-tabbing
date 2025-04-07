@@ -4,6 +4,7 @@ import Button from "../Buttons/Button/Button";
 import PowerButton from "../Buttons/PowerButton/PowerButton";
 import EffectListItem from "../ListItems/EffectListItem";
 import GhostIconButton from "../Buttons/GhostIconButton/GhostIconButton";
+import { useTrackContext } from "@/context/TrackContext";
 
 type RealtimeEffectsPanelProps = {
   toggleRealtimeEffectsPanel: () => void;
@@ -12,6 +13,8 @@ type RealtimeEffectsPanelProps = {
 export default function RealtimeEffectsPanel({
   toggleRealtimeEffectsPanel,
 }: RealtimeEffectsPanelProps) {
+  const { tracks, selectedTrack } = useTrackContext();
+
   return (
     <div id="panel-realtime-effects" tabIndex={1} className={styles.container}>
       <div className={styles.header}>
@@ -19,7 +22,8 @@ export default function RealtimeEffectsPanel({
         <GhostIconButton
           code="&#xEF14;"
           size={14}
-          onClick={toggleRealtimeEffectsPanel}/>
+          onClick={toggleRealtimeEffectsPanel}
+        />
       </div>
       <div className={styles.effectsContainer}>
         <div className={styles.effectsContainerHeader}>
@@ -32,12 +36,9 @@ export default function RealtimeEffectsPanel({
               gap: "8px",
             }}
           >
-            <PowerButton /> Track name
-            </div>
-            <GhostIconButton
-              code="&#xEF13;"
-              size={16}
-            />
+            <PowerButton /> {tracks[Number(selectedTrack) - 1]?.name}
+          </div>
+          <GhostIconButton code="&#xEF13;" size={16} />
         </div>
         <div className={styles.effectList}>
           <EffectListItem name="Reverb" />
