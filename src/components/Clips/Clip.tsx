@@ -17,7 +17,7 @@ type ClipProps = {
   isSelected: boolean;
   isFocused: boolean;
   onClipButtonSelect: (
-    event: React.KeyboardEvent,
+    event: React.KeyboardEvent | React.MouseEvent,
     clipName: string,
     clipParentId: number
   ) => void;

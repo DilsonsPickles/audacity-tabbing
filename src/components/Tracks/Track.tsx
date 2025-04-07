@@ -34,7 +34,7 @@ const Track: React.FC<TrackProps> = ({
 
   // Handle clip selection with Shift key support
   function handleClipSelectionButton(
-    event: React.KeyboardEvent,
+    event: React.KeyboardEvent | React.MouseEvent,
     clipName: string,
     clipParentId: number
   ) {
