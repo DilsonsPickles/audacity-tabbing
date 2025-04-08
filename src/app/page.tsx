@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ProjectToolbar from "@/components/Toolbars/ProjectToolbar";
 import MainToolbar from "@/components/Toolbars/MainToolbar";
 import TrackHeadersPanel from "@/components/Panels/TrackHeadersPanel";
