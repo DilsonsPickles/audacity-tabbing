@@ -14,34 +14,27 @@ import { PanelProvider, usePanelContext } from "@/context/PanelContext";
 import Preferences from "@/components/Windows/Preferences";
 
 function HomeContent() {
-  const [realtimeEffectsPanelIsOpen, setRealtimeEffectsPanelIsOpen] =
-    useState(false);
-
-  function toggleRealtimeEffectsPanel() {
-    setRealtimeEffectsPanelIsOpen(!realtimeEffectsPanelIsOpen);
-  }
-
   const {
     isPreferencePanelOpen,
+    isEffectsPanelOpen,
+    openEffectsPanel,
+    closeEffectsPanel,  
     toggleIsPreferencePanelOpen,
   } = usePanelContext();
 
   return (
     <main>
       <div>
-        <ProjectToolbar
-          onEffectButtonClick={toggleRealtimeEffectsPanel}
-          onAudioSetupButtonClick={toggleIsPreferencePanelOpen}
-        />
+        <ProjectToolbar/>
         <MainToolbar />
       </div>
       {isPreferencePanelOpen && <Preferences />}
       <div
         className={`main-grid ${
-          realtimeEffectsPanelIsOpen ? "with-effects-panel" : ""
+          isEffectsPanelOpen ? "with-effects-panel" : ""
         }`}
       >
-        {realtimeEffectsPanelIsOpen && <RealtimeEffectsPanel toggleRealtimeEffectsPanel={toggleRealtimeEffectsPanel} />}
+        {isEffectsPanelOpen && <RealtimeEffectsPanel toggleEffectsPanel={closeEffectsPanel} />}
         <TrackHeadersPanel />
         <Viewport />
       </div>

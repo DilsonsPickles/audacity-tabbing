@@ -4,6 +4,9 @@ import { focusElement } from "@/helper/focusElement";
 interface PanelContextType {
   isPreferencePanelOpen: boolean;
   toggleIsPreferencePanelOpen: () => void;
+  openEffectsPanel: () => void;
+  closeEffectsPanel: () => void;
+  isEffectsPanelOpen: boolean;
   closePreferencesPanel: () => void;
   activePreferencePage: number;
   setActivePreferencePage: (id: number) => void;
@@ -19,6 +22,8 @@ interface PanelContextType {
 const PanelContext = createContext<PanelContextType | undefined>(undefined);
 
 export function PanelProvider({ children }: { children: ReactNode }) {
+  const [isEffectsPanelOpen, setIsEffectsPanelOpenState] =
+    useState<boolean>(false);
   const [isPreferencePanelOpen, setIsPreferencePanelOpenState] =
     useState<boolean>(false);
   const [activePreferencePage, setActivePreferencePageState] =
@@ -52,6 +57,14 @@ export function PanelProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  function openEffectsPanel() {
+    setIsEffectsPanelOpenState(true);
+  }
+
+  function closeEffectsPanel() {
+    setIsEffectsPanelOpenState(false);
+  }   
+
   function closePreferencesPanel() {
     setIsPreferencePanelOpenState(false);
     focusElement("toolbar-project-group-2-item-1");
@@ -67,6 +80,9 @@ export function PanelProvider({ children }: { children: ReactNode }) {
   }
 
   const value = {
+    isEffectsPanelOpen,
+    openEffectsPanel,
+    closeEffectsPanel,
     isPreferencePanelOpen,
     toggleIsPreferencePanelOpen,
     closePreferencesPanel,

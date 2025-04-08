@@ -5,6 +5,7 @@ import IconButton from "../Buttons/IconButton/IconButton";
 import Knob from "../Controls/Knob";
 import Slider from "../Controls/Slider";
 import TrackNameInput from "../InputFields/TrackNameInput";
+import { usePanelContext } from "@/context/PanelContext";
 
 type TrackHeaderProps = {
   name: string;
@@ -31,6 +32,7 @@ export default function TrackHeader({
   onMouseEnter,
   onMouseLeave,
 }: TrackHeaderProps) {
+  const { openEffectsPanel } = usePanelContext();
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       onClick();
@@ -39,8 +41,8 @@ export default function TrackHeader({
 
   return (
     <div
-    id={`track-${id}-control-0`}
-    tabIndex={tabIndex}
+      id={`track-${id}-control-0`}
+      tabIndex={tabIndex}
       className={`${styles.track_header_container} ${
         isSelected && styles.selected
       } ${inFocus && styles.focused}`}
@@ -50,8 +52,6 @@ export default function TrackHeader({
       onMouseLeave={onMouseLeave}
       onKeyDown={handleKeyDown}
     >
-      
-
       <div className={styles.track_content_container}>
         <div className={styles.track_header_info}>
           <div style={{ display: "flex", gap: "4px" }}>
@@ -101,6 +101,7 @@ export default function TrackHeader({
           tabIndex={-1}
           value="Effects"
           id={`track-${id}-control-8`}
+          onClick={openEffectsPanel}
         />
       </div>
       <div className={styles.track_header_playback_meter_container}>
