@@ -23,7 +23,7 @@
 .track_headers_list{
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     width: 100%;
     padding: 0px 0px 0px 12px;
 }

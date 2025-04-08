@@ -5,7 +5,6 @@ import IconButton from "../Buttons/IconButton/IconButton";
 import Knob from "../Controls/Knob";
 import Slider from "../Controls/Slider";
 import TrackNameInput from "../InputFields/TrackNameInput";
-import Icon from "../Icon";
 
 type TrackHeaderProps = {
   name: string;
@@ -40,6 +39,8 @@ export default function TrackHeader({
 
   return (
     <div
+    id={`track-${id}-control-0`}
+    tabIndex={tabIndex}
       className={`${styles.track_header_container} ${
         isSelected && styles.selected
       } ${inFocus && styles.focused}`}
@@ -47,24 +48,9 @@ export default function TrackHeader({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      >
-      <div
-        id={`track-${id}-control-0`}
-        tabIndex={tabIndex}
-        className={`${styles.track_header_handle} ${
-          isSelected && styles.selected
-        }`}
-        onKeyDown={handleKeyDown}
-        aria-label={`mono track ${id} grab handle`}
-        role="button"
-      >
-        <div
-          className={`${styles.track_header_handle_background} ${
-            isSelected && styles.selected
-          }`}
-        ></div>
-        <Icon code="&#xF3A2;" size={16} />
-      </div>
+      onKeyDown={handleKeyDown}
+    >
+      
 
       <div className={styles.track_content_container}>
         <div className={styles.track_header_info}>
@@ -90,7 +76,11 @@ export default function TrackHeader({
         </div>
         <div className={styles.track_header_controls}>
           <Knob tabIndex={-1} id={`track-${id}-control-4`} />
-          <Slider tabIndex={-1} id={`track-${id}-control-5`} isSelected={isSelected}/>
+          <Slider
+            tabIndex={-1}
+            id={`track-${id}-control-5`}
+            isSelected={isSelected}
+          />
           <div style={{ display: "flex", gap: "4px" }}>
             <IconButton
               tabIndex={-1}
@@ -112,6 +102,9 @@ export default function TrackHeader({
           value="Effects"
           id={`track-${id}-control-8`}
         />
+      </div>
+      <div className={styles.track_header_playback_meter_container}>
+        <div className={styles.track_header_playback_meter}></div>
       </div>
     </div>
   );
