@@ -17,9 +17,7 @@ function HomeContent() {
   const {
     isPreferencePanelOpen,
     isEffectsPanelOpen,
-    openEffectsPanel,
     closeEffectsPanel,  
-    toggleIsPreferencePanelOpen,
   } = usePanelContext();
 
   return (
