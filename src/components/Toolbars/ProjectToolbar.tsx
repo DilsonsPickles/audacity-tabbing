@@ -1,11 +1,13 @@
 import { usePanelContext } from "@/context/PanelContext";
 import styles from "./ProjectToolbar.module.css";
+import { useTrackContext } from "@/context/TrackContext";
 
 
 
 export default function ProjectToolbar() {
 
 const {toggleIsPreferencePanelOpen, openEffectsPanel, closeEffectsPanel, isEffectsPanelOpen} = usePanelContext();
+const {focusedElement} = useTrackContext();
 
   return (
     <div className={styles.container}>
@@ -20,6 +22,7 @@ const {toggleIsPreferencePanelOpen, openEffectsPanel, closeEffectsPanel, isEffec
           Share
         </div>
       </div>
+      <div>{focusedElement?.id}</div>
       <div id="toolbar-project-group-2" className={styles.buttonGroup}>
         <button
           tabIndex={1}

@@ -197,9 +197,9 @@ export const KeyboardProvider = ({
             );
           }
           break;
-        case "realtime-effects-panel":
+        case "panel-realtime-effects":
           {
-            handleRealtimeEffectsPanelNavigation(event);
+            handleRealtimeEffectsPanelNavigation(event, focusedElement);
           }
           break;
         case "":

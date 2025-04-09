@@ -6,6 +6,7 @@
     background-color: var(--bg-primary);
     border-right: 1px solid var(--stroke-primary);
     color: var(--text-primary);
+    z-index: 999;
 }
 
 .header {
@@ -15,6 +16,7 @@
     height: 32px;
     padding: 0 8px;
     border-bottom: 1px solid var(--stroke-primary);
+    
 }
 
 .effectsContainerHeader {

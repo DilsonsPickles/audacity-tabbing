@@ -10,7 +10,7 @@ type EffectListItemProps = {
 
 export default function EffectListItem({ name }: EffectListItemProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} tabIndex={1}>
       <Icon code="&#xF3A2;" size={16} />
       <PowerButton />
       <input

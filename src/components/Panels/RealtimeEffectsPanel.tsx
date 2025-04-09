@@ -17,7 +17,7 @@ export default function RealtimeEffectsPanel({
 
   return (
     <div id="panel-realtime-effects" tabIndex={1} className={styles.container}>
-      <div className={styles.header}>
+      <div id="panel-realtime-effects-header" className={styles.header} tabIndex={-1}>
         <div>Realtime effects</div>
         <GhostIconButton
           code="&#xEF14;"
@@ -26,7 +26,7 @@ export default function RealtimeEffectsPanel({
         />
       </div>
       <div className={styles.effectsContainer}>
-        <div className={styles.effectsContainerHeader}>
+        <div id="panel-realtime-effects-list-header" className={styles.effectsContainerHeader} tabIndex={1}>
           <div
             style={{
               display: "flex",
@@ -40,14 +40,14 @@ export default function RealtimeEffectsPanel({
           </div>
           <GhostIconButton code="&#xEF13;" size={16} />
         </div>
-        <div className={styles.effectList}>
-          <EffectListItem name="Reverb" />
+        <div id="panel-realtime-effects-list" className={styles.effectList}>
+          <EffectListItem name="Reverb"/>
           <EffectListItem name="Distortion" />
           <EffectListItem name="Delay" />
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <Button textCenter fullWidth>
+        <Button textCenter fullWidth tabIndex={1} id="panel-realtime-effects-add-effect-button">
           Add effect
         </Button>
       </div>
