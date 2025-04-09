@@ -4,21 +4,19 @@
     background-color: rgba(255, 255, 255, 0.04);
     padding-left: 12px;
     position: relative;
-    outline: 1px solid rgba(255, 255, 255, 0.10);
+    box-sizing: border-box;
 
     &.selected {
         background-color: rgba(255, 255, 255, 0.08);
-        outline: 1px solid rgba(255, 255, 255, 0.24);
     }
 
     &.focused {
-        box-shadow: 0px 0px 4px 4px #31aed8;
-        outline: 1px solid hsla(207, 100%, 74%, 1);
+        outline: 2px solid hsla(207, 100%, 74%, 1);
+        border-left: none;
+        border-right: none;
     }
 
     &.parentHovered {
         background-color: rgba(255, 255, 255, 0.08);
-        outline: 1px solid rgba(255, 255, 255, 0.16);
-
     }
 }

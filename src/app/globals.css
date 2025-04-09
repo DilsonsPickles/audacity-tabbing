@@ -61,6 +61,7 @@
   --bg-transport-button-idle: #DFE0E6;
   --bg-transport-button-hover: #D2D3DC;
   --bg-transport-button-active: #C6C8D2;
+  --bg-meter: #CECFD8;
   --accent-1: var(--blue-9);
   --accent-2: var(--pink-1);
   --accent-3: var(--red-1);

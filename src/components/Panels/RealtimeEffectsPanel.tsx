@@ -7,11 +7,11 @@ import GhostIconButton from "../Buttons/GhostIconButton/GhostIconButton";
 import { useTrackContext } from "@/context/TrackContext";
 
 type RealtimeEffectsPanelProps = {
-  toggleRealtimeEffectsPanel: () => void;
+  toggleEffectsPanel: () => void;
 };
 
 export default function RealtimeEffectsPanel({
-  toggleRealtimeEffectsPanel,
+  toggleEffectsPanel,
 }: RealtimeEffectsPanelProps) {
   const { tracks, selectedTrack } = useTrackContext();
 
@@ -22,7 +22,7 @@ export default function RealtimeEffectsPanel({
         <GhostIconButton
           code="&#xEF14;"
           size={14}
-          onClick={toggleRealtimeEffectsPanel}
+          onClick={toggleEffectsPanel}
         />
       </div>
       <div className={styles.effectsContainer}>

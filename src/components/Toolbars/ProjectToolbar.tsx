@@ -1,14 +1,12 @@
+import { usePanelContext } from "@/context/PanelContext";
 import styles from "./ProjectToolbar.module.css";
 
-type ProjectToolbarProps = {
-  onEffectButtonClick: () => void;
-  onAudioSetupButtonClick: () => void;
-};
 
-export default function ProjectToolbar({
-  onEffectButtonClick,
-  onAudioSetupButtonClick,
-}: ProjectToolbarProps) {
+
+export default function ProjectToolbar() {
+
+const {toggleIsPreferencePanelOpen, openEffectsPanel, closeEffectsPanel, isEffectsPanelOpen} = usePanelContext();
+
   return (
     <div className={styles.container}>
       <div id="toolbar-project-group-1" className={styles.navGroup}>
@@ -26,14 +24,14 @@ export default function ProjectToolbar({
         <button
           tabIndex={1}
           id="toolbar-project-group-2-item-0"
-          onClick={onEffectButtonClick}
+          onClick={isEffectsPanelOpen ? closeEffectsPanel : openEffectsPanel}
         >
           Effects
         </button>
         <button
         tabIndex={-1}
           id="toolbar-project-group-2-item-1"
-          onClick={onAudioSetupButtonClick}
+          onClick={toggleIsPreferencePanelOpen}
         >
           Audio setup
         </button>
