@@ -22,7 +22,7 @@
     width: 18px;
     height: 18px;
     border-radius: 2px;
-    background: var(--btn-on-secondary-hover);
+    background: var(--bg-checkbox);
 }
 
 .checkboxInput:checked+.checkboxLabel:after {

@@ -2,7 +2,7 @@
     display: flex;
     height: 112px;
     background-color: rgba(255, 255, 255, 0.04);
-    padding-left: 12px;
+    padding-left: 16px;
     position: relative;
     box-sizing: border-box;
 
@@ -11,7 +11,7 @@
     }
 
     &.focused {
-        outline: 2px solid hsla(207, 100%, 74%, 1);
+        outline: 2px solid var(--stroke-focused-state);
         border-left: none;
         border-right: none;
     }

@@ -1,20 +1,28 @@
-.button{
+.button {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
     height: 32px;
     width: 32px;
     border-radius: 3px;
-    background-color: var(--bg-transport-button-idle);
+    background-color: var(--btn-solid-on-primary-idle);
     cursor: pointer;
     border: none;
     color: var(--text-primary);
 
     &:hover {
-        background-color: var(--bg-transport-button-hover);
+        background-color: var(--btn-solid-on-primary-hover);
     }
 
     &:active {
-        background-color: var(--bg-transport-button-active);
+        background-color: var(--btn-solid-on-primary-pressed);
     }
+}
+
+.play {
+    color: var(--icon-play)
+}
+
+.record {
+    color: var(--icon-record)
 }

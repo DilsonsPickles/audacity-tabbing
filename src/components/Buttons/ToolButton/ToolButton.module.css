@@ -1,20 +1,20 @@
-.button{
+.button {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
     height: 28px;
     width: 28px;
     border-radius: 3px;
-    background-color: var(--btn-on-primary-idle);
+    background-color: var(--btn-solid-on-primary-idle);
     cursor: pointer;
     border: none;
     color: var(--text-primary);
 
-    &:hover{
-        background-color: var(--btn-on-primary-hover);
+    &:hover {
+        background-color: var(--btn-solid-on-primary-hover);
     }
 
     &:active {
-        background-color: var(--btn-on-primary-active);
+        background-color: var(--btn-solid-on-primary-pressed);
     }
 }

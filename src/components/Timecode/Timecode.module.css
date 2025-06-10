@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    background-color: var(--timecode-bg-idle);
+    background-color: var(--bg-timecode-idle);
     height: 28px;
     border-radius: 3px;
     color: white;
@@ -16,7 +16,7 @@
     color: var(--timecode-digit-color);
 
     &:hover{
-        background-color: var(--timecode-bg-hover);
+        background-color: var(--bg-timecode-hover);
     }
 }
 

@@ -20,9 +20,9 @@
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    border: 1px solid var(--stroke-tertiary);
+    border: 1px solid var(--stroke-radio);
     border-radius: 50%;
-    background: var(--bg-primary);
+    background: var(--bg-radio);
 }
 
 .radioInput:checked+.radioLabel:after {
@@ -34,7 +34,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--accent-1);
+    background: var(--accent-blue-idle);
 }
 
 .radioInput:focus+.radioLabel:before {

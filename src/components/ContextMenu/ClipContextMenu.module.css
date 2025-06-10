@@ -5,7 +5,7 @@
     width: 160px;
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-surface-primary);
     z-index: 50;
     padding: 4px 0px;
     height: auto; /* Explicitly tell the container to size based on content */

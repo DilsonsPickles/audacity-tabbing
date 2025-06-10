@@ -1,10 +1,10 @@
 .ruler_container {
     display: flex;
-    padding-left: 12px;
+    padding-left: 16px;
     height: 40px;
     width: fit-content;
-    border-bottom: 1px solid var(--stroke-secondary);
-    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--stroke-on-secondary);
+    background-color: var(--bg-surface-secondary);
     user-select: none;
 
     &:focus {

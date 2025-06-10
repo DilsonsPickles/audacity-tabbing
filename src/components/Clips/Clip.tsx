@@ -7,7 +7,7 @@ import SelectClipButton from "../Buttons/SelectClipButton/SelectClipButton";
 import { ClipData } from "@/context/TrackContext";
 import waveform from "@/../public/waveform.svg";
 import ClipHandles from "@/components/Clips/ClipHandles";
-import ClipContextMenu from '@/components/ContextMenu/ClipContextMenu'
+import ClipContextMenu from "@/components/ContextMenu/ClipContextMenu";
 import { usePanelContext } from "@/context/PanelContext";
 
 type ClipProps = {
@@ -39,7 +39,7 @@ export default function Clip({
 
   // Create a unique ID for this clip
   const clipId = `clip-${clip.parentId}-${clip.id}`;
-  
+
   // Check if this specific clip's menu should be shown
   const showContextMenu = openContextMenuClipId === clipId;
 
@@ -50,7 +50,7 @@ export default function Clip({
   return (
     <div
       id={clipId}
-      className={`${styles.clip} ${styles[`clip_track${clip.parentId}`]} ${
+      className={`${styles.clip} ${styles[`clip_track_${clip.parentId}`]} ${
         isSelected && styles.selected
       } ${isFocused && styles.focused}`}
       role="cell"
@@ -58,7 +58,9 @@ export default function Clip({
       onFocus={() => onFocus(clip.position, clip.parentId)}
     >
       <div
-        className={`${styles.clip_header} ${isSelected ? styles.selected : ""}`}
+        className={`${styles.clip_header} ${
+          styles[`clip_header_${clip.parentId}`]
+        } ${isSelected ? styles.selected : ""}`}
         onClick={(event) => onClipButtonSelect(event, clip.name, clip.parentId)}
       >
         <ClipNameInput
@@ -77,7 +79,9 @@ export default function Clip({
             isSelected ? `4` : `2`
           }`}
         />
-        {showContextMenu && <ClipContextMenu handleToggleContextMenu={handleToggleContextMenu}/>}
+        {showContextMenu && (
+          <ClipContextMenu handleToggleContextMenu={handleToggleContextMenu} />
+        )}
       </div>
 
       {isSelected && (

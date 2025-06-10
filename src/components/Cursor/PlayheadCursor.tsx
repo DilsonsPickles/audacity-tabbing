@@ -10,7 +10,7 @@ export default function PlayheadCursor() {
   const initialPlayheadPosition = useRef(playheadPosition);
 
   // Start at 12px and move in 14px increments for each playhead position
-  const position = 12 + playheadPosition * 14;
+  const position = 15.5 + playheadPosition * 14;
 
   // Option 1: Use useCallback to memoize the function
   const handleMouseMove = useCallback((e: MouseEvent) => {

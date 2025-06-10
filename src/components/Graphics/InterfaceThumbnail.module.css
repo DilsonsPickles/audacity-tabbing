@@ -8,14 +8,14 @@
     display:flex;
     width: 144px;
     height: 96px;
-    border: 1px solid var(--stroke-secondary);
+    border: 1px solid var(--stroke-on-secondary);
     border-radius: 4px;
 
     &.light {
-        background-color: var(--gray-2);
+        background-color: var(--bg-surface-primary);
     }
     &.dark {
-        background-color: var(--gray-12);
+        background-color: var(--bg-surface-primary);
     }
 }
 

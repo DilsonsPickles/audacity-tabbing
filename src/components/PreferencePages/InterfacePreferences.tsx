@@ -10,13 +10,15 @@ export default function InterfacePreferences() {
 
   // Define accent colors array
   const accentColors = [
-    "accent_1",
-    "accent_2",
-    "accent_3",
-    "accent_4",
-    "accent_5",
-    "accent_6",
-    "accent_7",
+    "accent_blue",
+    "accent_violet",
+    "accent_magenta",
+    "accent_red",
+    "accent_orange",
+    "accent_yellow",
+    "accent_green",
+    "accent_teal",
+    "accent_cyan",
   ];
 
   return (

@@ -13,6 +13,6 @@ type TransportButtonProps = {
 export default function TransportButton({ code, label, tabIndex, id }: TransportButtonProps) {
 
   return (
-    <button id={id} tabIndex={tabIndex} aria-label={label} className={styles.button}><Icon code={code} size={16} /></button>
+    <button id={id} tabIndex={tabIndex} aria-label={label} className={`${styles.button} ${label === 'Play' ? styles.play : ''} ${label === 'Record' ? styles.record : ''}`}><Icon code={code} size={16} /></button>
   )
 }

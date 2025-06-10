@@ -27,6 +27,7 @@
     height: 20px;
     cursor: pointer;
     user-select: none;
+    color: var(--text-primary);
 
 }
 

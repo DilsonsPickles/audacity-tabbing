@@ -2,7 +2,7 @@
     position: relative;
     height: 112px;
     width: 226px;
-    border: 1px solid black;
+    border: 1px solid var(--stroke-clip-outer);
     border-radius: 4px;
     margin-left: -1px;
     display: flex;
@@ -11,7 +11,7 @@
     /* Ensures borders are included in the width/height */
 
     &.selected {
-        outline: 1px solid white;
+        outline: 1px solid var(--stroke-clip-inner);
         outline-offset: -2px;
     }
 
@@ -35,14 +35,6 @@
     align-items: flex-end;
     flex-shrink: 0;
     cursor: pointer;
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    &.selected {
-        background-color: rgba(255, 255, 255, 0.7);
-    }
 }
 
 .clip_body {
@@ -53,33 +45,110 @@
     padding-bottom: 8px;
     flex: 1;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
-
-    &.selected {
-        background-color: rgba(255, 255, 255, 0.4);
-    }
 }
 
 /* Custom class for each track's clip */
-.clip_track1 {
-    background-color: var(--clip-color-1);
+.clip_track_1 {
+    background-color: var(--clip-bg-body-blue-default);
     /* Example color for track 1 */
+
+    &.selected {
+        background-color: var(--clip-bg-body-blue-selected);
+    }
 }
 
-.clip_track2 {
-    background-color: var(--clip-color-2);
-    /* Example color for track 2 */
+.clip_header_1 {
+    background-color: var(--clip-bg-header-blue-default-idle);
+
+    &:hover {
+        background-color: var(--clip-bg-header-blue-default-hover);
+    }
+
+    &.selected {
+        background-color: var(--clip-bg-header-blue-selected-idle);
+
+        &:hover {
+            background-color: var(--clip-bg-header-blue-selected-hover);
+        }
+    }
 }
 
-.clip_track3 {
-    background-color: var(--clip-color-3);
-    /* Example color for track 3 */
+.clip_track_2 {
+    background-color: var(--clip-bg-body-violet-default);
+    /* Example color for track 1 */
+
+    &.selected {
+        background-color: var(--clip-bg-body-violet-selected);
+    }
 }
 
-.clip_track4 {
-    background-color: var(--clip-color-4);
-    /* Example color for track 3 */
+.clip_header_2 {
+    background-color: var(--clip-bg-header-violet-default-idle);
+
+    &:hover {
+        background-color: var(--clip-bg-header-violet-default-hover);
+    }
+
+    &.selected {
+        background-color: var(--clip-bg-header-violet-selected-idle);
+
+        &:hover {
+            background-color: var(--clip-bg-header-violet-selected-hover);
+        }
+    }
 }
+
+.clip_track_3 {
+    background-color: var(--clip-bg-body-magenta-default);
+    /* Example color for track 1 */
+
+    &.selected {
+        background-color: var(--clip-bg-body-magenta-selected);
+    }
+}
+
+.clip_header_3 {
+    background-color: var(--clip-bg-header-magenta-default-idle);
+
+    &:hover {
+        background-color: var(--clip-bg-header-magenta-default-hover);
+    }
+
+    &.selected {
+        background-color: var(--clip-bg-header-magenta-selected-idle);
+
+        &:hover {
+            background-color: var(--clip-bg-header-magenta-selected-hover);
+        }
+    }
+}
+
+.clip_track_4 {
+    background-color: var(--clip-bg-body-red-default);
+    /* Example color for track 1 */
+
+    &.selected {
+        background-color: var(--clip-bg-body-red-selected);
+    }
+}
+
+.clip_header_4 {
+    background-color: var(--clip-bg-header-red-default-idle);
+
+    &:hover {
+        background-color: var(--clip-bg-header-red-default-hover);
+    }
+
+    &.selected {
+        background-color: var(--clip-bg-header-red-selected-idle);
+
+        &:hover {
+            background-color: var(--clip-bg-header-red-selected-hover);
+        }
+    }
+}
+
+
 
 .clip_handles_container {
     position: absolute;

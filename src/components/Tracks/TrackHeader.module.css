@@ -4,23 +4,21 @@
     width: 100%;
     display: flex;
     border-radius: 4px 0px 0px 4px;
-    background-color: var(--track-header-default);
-    border: 1px solid var(--stroke-track-header-idle);
+    background-color: var(--bg-track-header-idle);
     border-right: none;
 
     &:hover {
-        background-color: var(--track-header-hover);
+        background-color: var(--bg-track-header-hover);
         border: 1px solid var(--stroke-track-header-hover);
         border-right: none;
     }
 
     &.focused {
-        background-color: var(--track-header-hover);
-        outline: 2px solid var(--stroke-track-header-focused);
+        outline: 2px solid var(--stroke-focused-state);
     }
 
     &.selected {
-        background-color: var(--track-header-active);
+        background-color: var(--bg-track-header-active);
         border: 1px solid var(--stroke-track-header-active);
         border-right: none;
     }
@@ -62,36 +60,10 @@
     gap: 12px
 }
 
-.track_header_handle {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    color: var(--text-primary);
-    z-index: 10;
-    cursor: grab;
-}
-
-.track_header_handle_background {
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-
-    &.selected {
-        background-color: var(--track-header-active);
-    }
-
-}
-
 .track_header_playback_meter_container {
     width: 24px;
     padding: 6px 8px;
-    border-left: 1px solid var(--stroke-track-header-idle);
+    border-left: 2px solid var(--stroke-track-header);
 }
 
 .track_header_playback_meter {
@@ -99,6 +71,5 @@
     width: 100%;
     height: 100%;
     border-radius: 1px;
-
 
 }

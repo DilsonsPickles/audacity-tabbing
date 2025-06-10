@@ -2,7 +2,7 @@
     width: 56px;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid var(--stroke-secondary);
+    border-left: 1px solid var(--stroke-on-secondary);
     user-select: none;
     color: var(--text-primary);
   }
@@ -10,7 +10,7 @@
   .tick_container_upper {
     height: 20px;
     display: flex;
-    border-bottom: 1px solid var(--stroke-secondary);
+    border-bottom: 1px solid var(--stroke-on-secondary);
     align-items: center; /* Ensures the text is vertically centered */
     justify-content: start; /* Centers the text horizontally */
     user-select: none;

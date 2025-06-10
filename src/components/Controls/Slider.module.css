@@ -22,8 +22,8 @@
     top: 0;
     width: 16px;
     height: 16px;
-    border: 1px solid var(--stroke-slider-handle);
-    background-color: var(--bg-slider-handle);
+    border: 1px solid var(--stroke-handle);
+    background-color: var(--bg-handle);
     border-radius: 50%;
 }
 
@@ -33,10 +33,10 @@
     right: 50%;
     top: 0;
     bottom: 0;
-    background-color: var(--bg-slider-fill-idle);
+    background-color: var(--bg-control-value-idle);
     
     &.selected {
-        background-color: var(--accent-1);
+        background-color: var(--bg-control-value-active);
     }
    
 }
