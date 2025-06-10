@@ -88,7 +88,7 @@ export function handleClipNavigation(
         console.log(focusedTrack);
         focusElement(`track-${focusedTrack}-control-0`);
         event.preventDefault();
-      } else if (focusedElement?.id.includes("clip-3-")) {
+      } else if (focusedElement?.id.includes("clip-4-")) {
         focusElement("toolbar-bottom");
         event.preventDefault();
       } else if (focusedElement?.id.includes("clip")) {

@@ -39,7 +39,7 @@ export function handleBottomToolbarNavigation(
       break;
     case "Tab":
       if (focusedElement?.id === "toolbar-bottom" && event.shiftKey) {
-        focusElement("clip-3-1");
+        focusElement("clip-4-1");
         event.preventDefault();
       } else if (focusedElement?.id === "toolbar-bottom") {
         focusElement("toolbar-project-group-1-item-0");
