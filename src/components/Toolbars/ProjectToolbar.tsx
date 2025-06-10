@@ -1,6 +1,7 @@
 import { usePanelContext } from "@/context/PanelContext";
 import styles from "./ProjectToolbar.module.css";
 import { useTrackContext } from "@/context/TrackContext";
+import GhostButton from '@/components/Buttons/GhostButton/GhostButton'
 
 
 
@@ -12,32 +13,21 @@ const {focusedElement} = useTrackContext();
   return (
     <div className={styles.container}>
       <div id="toolbar-project-group-1" className={styles.navGroup}>
-        <div tabIndex={1} id="toolbar-project-group-1-item-0">
+        <div className={styles.navItem} tabIndex={1} id="toolbar-project-group-1-item-0">
           Home
         </div>
-        <div tabIndex={-1} id="toolbar-project-group-1-item-1">
+        <div className={`${styles.navItem} ${styles.selected}`} tabIndex={-1} id="toolbar-project-group-1-item-1">
           Project
         </div>
-        <div tabIndex={-1} id="toolbar-project-group-1-item-2">
+        <div className={styles.navItem} tabIndex={-1} id="toolbar-project-group-1-item-2">
           Share
         </div>
       </div>
-      <div>{focusedElement?.id}</div>
+      
       <div id="toolbar-project-group-2" className={styles.buttonGroup}>
-        <button
-          tabIndex={1}
-          id="toolbar-project-group-2-item-0"
-          onClick={isEffectsPanelOpen ? closeEffectsPanel : openEffectsPanel}
-        >
-          Effects
-        </button>
-        <button
-        tabIndex={-1}
-          id="toolbar-project-group-2-item-1"
-          onClick={toggleIsPreferencePanelOpen}
-        >
-          Audio setup
-        </button>
+        <GhostButton tabIndex={1} id="toolbar-project-group-2-item-0" code="&#xEF27;" size={16} onClick={isEffectsPanelOpen ? closeEffectsPanel : openEffectsPanel}>Mixer</GhostButton>
+        <GhostButton tabIndex={-1} id="toolbar-project-group-2-item-1" code="&#xEF51;" size={16}  onClick={toggleIsPreferencePanelOpen}>Audio setup</GhostButton>
+
       </div>
       <div className={styles.buttonGroup} id="toolbar-project-group-3">
         <div tabIndex={1} id="toolbar-project-group-3-item-0">

@@ -15,9 +15,9 @@
   --slate-800: #9499AB;
   --slate-900: #7E849A;
 
-  --midnight-100: #171A24;
-  --midnight-200: #252833;
-  --midnight-300: #343741;
+  --midnight-100: #191B22;
+  --midnight-200: #262932;
+  --midnight-300: #30323C;
   --midnight-400: #41444F;
   --midnight-500: #4D515C;
   --midnight-600: #5A5E69;
@@ -118,6 +118,8 @@
   /* NEW light mode tokens */
 
   --text-primary: var(--midnight-100);
+  --text-secondary: var(--midnight-500);
+
 
   --icon-primary: var(--text-primary);
   --icon-record: var(--red-700);
@@ -128,7 +130,9 @@
   --accent-blue-pressed: var(--blue-700);
 
   --bg-surface-primary: var(--slate-50);
+  --bg-surface-primary-accent: #E7EBF8;
   --bg-surface-primary-hover: var(--slate-300);
+  --bg-surface-primary-pressed: var(--slate-400);
   --bg-surface-secondary: var(--slate-300);
   --bg-surface-canvas: var(--midnight-300);
 
@@ -166,6 +170,12 @@
   --btn-solid-track-header-hover: var(--slate-500);
   --btn-solid-track-header-pressed: var(--slate-600);
 
+  --btn-ghost-on-primary-hover: var(--slate-400);
+  --btn-ghost-on-primary-pressed: var(--slate-500);
+
+  --btn-icon-ghost-track-header-hover: var(--slate-400);
+  --btn-icon-ghost-track-header-pressed: var(--slate-500);
+
 
   --stroke-on-primary: var(--slate-300);
   --stroke-on-secondary: var(--slate-500);
@@ -177,6 +187,7 @@
   --stroke-radio: var(--slate-900);
   --stroke-focused-state: var(--blue-500);
   --stroke-track-header: var(--bg-surface-secondary);
+  --stroke-timeline-rule: var(--slate-500);
 
 
   --clip-bg-body-blue-default: var(--blue-400);
@@ -214,6 +225,7 @@
 [data-theme="dark"] {
 
   --text-primary: var(--slate-100);
+  --text-secondary: var(--slate-500);
 
   --icon-primary: var(--text-primary);
   --icon-record: var(--red-600);
@@ -224,6 +236,7 @@
   --accent-blue-pressed: var(--blue-600);
 
   --bg-surface-primary: var(--midnight-300);
+  --bg-surface-primary-accent: #343B4F;
   --bg-surface-primary-hover: var(--midnight-300);
   --bg-surface-secondary: var(--midnight-200);
   --bg-surface-canvas: var(--midnight-100);
@@ -232,7 +245,7 @@
   --bg-track-header-hover: var(--midnight-400);
   --bg-track-header-active: var(--midnight-400);
 
-  --bg-timecode-idle: var(--midnight-100);
+  --bg-timecode-idle: var(--midnight-200);
   --bg-timecode-hover: var(--midnight-200);
 
   --bg-slider: var(--midnight-200);
@@ -260,9 +273,15 @@
   --btn-solid-track-header-hover: var(--midnight-700);
   --btn-solid-track-header-pressed: var(--midnight-800);
 
+  --btn-ghost-on-primary-hover: var(--midnight-500);
+  --btn-ghost-on-primary-pressed: var(--midnight-600);
 
-  --stroke-on-primary: var(--midnight-400);
-  --stroke-on-secondary: var(--midnight-500);
+  --btn-icon-ghost-track-header-hover: var(--midnight-500);
+  --btn-icon-ghost-track-header-pressed: var(--midnight-600);
+
+
+  --stroke-on-primary: var(--midnight-200);
+  --stroke-on-secondary: var(--midnight-100);
   --stroke-handle: var(--midnight-900);
   --stroke-knob: var(--slate-900);
   --stroke-knob-indicator: var(--slate-100);
@@ -270,7 +289,7 @@
   --stroke-clip-outer: var(--shade-900);
   --stroke-focused-state: var(--blue-500);
   --stroke-track-header: var(--bg-surface-secondary);
-
+  --stroke-timeline-rule: var(--midnight-100);
 
 }
 

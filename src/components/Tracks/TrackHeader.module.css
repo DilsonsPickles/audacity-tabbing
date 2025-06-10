@@ -15,6 +15,7 @@
 
     &.focused {
         outline: 2px solid var(--stroke-focused-state);
+        clip-path: inset(-2 0 -2 -2);
     }
 
     &.selected {
@@ -24,19 +25,18 @@
     }
 }
 
-.track_header_container:focus {
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 4px 0px 0px 4px;
-        outline: 2px solid #4373FC;
-    }
+.track_header_container:focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px inset var(--stroke-focused-state);
+  border-radius: 4px 0 0 4px;
+  pointer-events: none;
+  z-index: 1;
 }
-
 
 .track_content_container {
     display: flex;

@@ -8,6 +8,7 @@
     border-radius: 3px;
     border: none;
     color: var(--text-primary);
+    height: 24px;
 
 
     &:hover {
@@ -15,9 +16,8 @@
     }
 
     &:active {
-        background-color: var(--btn-solid-track-header-active);
+        background-color: var(--btn-solid-track-header-pressed);
     }
-
 
     &.full_width {
         width: 100%;

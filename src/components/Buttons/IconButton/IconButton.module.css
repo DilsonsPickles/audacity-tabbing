@@ -16,7 +16,7 @@
     }
 
     &:active {
-        background-color: var(--btn-solid-track-header-active);
+        background-color: var(--btn-solid-track-header-pressed);
     }
 
 }

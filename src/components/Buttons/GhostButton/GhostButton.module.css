@@ -2,19 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20px;
-    width: 20px;
+    height: 28px;
     border-radius: 3px;
     cursor: pointer;
     border: none;
     background-color: transparent;
     color: var(--text-primary);
+    gap: 8px;
+    padding: 0 16px;
 
     &:hover {
-        background-color: var(--btn-icon-ghost-track-header-hover);
+        background-color: var(--btn-ghost-on-primary-hover);
     }
 
     &:active {
-        background-color: var(--btn-icon-ghost-track-header-pressed);
+        background-color: var(--btn-ghost-on-primary-pressed);
     }
 }
