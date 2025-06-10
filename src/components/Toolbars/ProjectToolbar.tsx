@@ -1,14 +1,10 @@
 import { usePanelContext } from "@/context/PanelContext";
 import styles from "./ProjectToolbar.module.css";
-import { useTrackContext } from "@/context/TrackContext";
 import GhostButton from '@/components/Buttons/GhostButton/GhostButton'
-
-
 
 export default function ProjectToolbar() {
 
 const {toggleIsPreferencePanelOpen, openEffectsPanel, closeEffectsPanel, isEffectsPanelOpen} = usePanelContext();
-const {focusedElement} = useTrackContext();
 
   return (
     <div className={styles.container}>
