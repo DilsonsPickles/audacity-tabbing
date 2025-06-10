@@ -1,16 +1,26 @@
-.tick_container {
+.major_tick_container {
+    min-width: 56px;
+    width: 56px;
+    flex: 1;
+    display: flex;
+    border-left: 1px solid var(--stroke-timeline-rule);
+    flex-direction: column;
+    user-select: none;
+    color: var(--text-primary);
+    font-weight: bold;
+
+    p {margin-left: 2px;}
+  }
+
+.minor_tick_container {
     width: 56px;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid var(--stroke-timeline-rule);
     user-select: none;
     color: var(--text-secondary);
+
   }
 
-  .tick_container:nth-of-type(4n-3) {
-    color: var(--text-primary);
-  }
-  
   .tick_container_upper {
     height: 20px;
     display: flex;

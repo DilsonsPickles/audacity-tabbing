@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./TimelineRuler.module.css";
-import Tick from "./Ticks/Tick";
+import MajorTick from "./Ticks/MajorTick";
+import MinorTick from "./Ticks/MinorTick";
 
 const generateTicks = (max: number) => {
     const ticks: number[] = [];
@@ -23,8 +24,13 @@ const generateTicks = (max: number) => {
 export default function TimelineRuler() {
   return (
     <div id="ruler-timeline" className={styles.ruler_container}>
-    {ticks.map((tick) => (
-      <Tick key={tick} value={tick} isWholeNumber={Number.isInteger(tick)} /> ))}
+    {ticks.map((tick) =>
+      Number.isInteger(tick) ? (
+        <MajorTick key={tick} value={tick} />
+      ) : (
+        <MinorTick key={tick} value={tick} />
+      )
+    )}
     </div>
   );
 }

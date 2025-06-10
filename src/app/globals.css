@@ -7,7 +7,7 @@
   --slate-50: #FBFBFD;
   --slate-100: #F9FAFC;
   --slate-200: #F6F7F9;
-  --slate-300: #E8E9EE;
+  --slate-300: #E1E3EA;
   --slate-400: #DDDFE6;
   --slate-500: #CBCED7;
   --slate-600: #B6B9C7;
@@ -145,7 +145,7 @@
 
   --bg-slider: var(--slate-400);
   --bg-handle: var(--slate-100);
-  --bg-control-value-idle: var(--slate-700);
+  --bg-control-value-idle: var(--slate-900);
   --bg-control-value-active: var(--accent-blue-idle);
   --bg-knob: var(--slate-50);
   --bg-guage: var(--slate-400);
@@ -265,13 +265,13 @@
   --btn-solid-on-primary-hover: var(--midnight-600);
   --btn-solid-on-primary-pressed: var(--midnight-700);
 
-  --btn-solid-on-secondary-idle: var(--midnight-500);
-  --btn-solid-on-secondary-hover: var(--midnight-600);
-  --btn-solid-on-secondary-pressed: var(--midnight-700);
+  --btn-solid-on-secondary-idle: var(--midnight-400);
+  --btn-solid-on-secondary-hover: var(--midnight-500);
+  --btn-solid-on-secondary-pressed: var(--midnight-600);
 
-  --btn-solid-track-header-idle: var(--midnight-600);
-  --btn-solid-track-header-hover: var(--midnight-700);
-  --btn-solid-track-header-pressed: var(--midnight-800);
+  --btn-solid-track-header-idle: var(--midnight-500);
+  --btn-solid-track-header-hover: var(--midnight-600);
+  --btn-solid-track-header-pressed: var(--midnight-700);
 
   --btn-ghost-on-primary-hover: var(--midnight-500);
   --btn-ghost-on-primary-pressed: var(--midnight-600);
