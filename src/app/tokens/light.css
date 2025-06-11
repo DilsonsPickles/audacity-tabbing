@@ -27,8 +27,9 @@
   --bg-track-idle: var(--opacity-5-slate-50);
   --bg-track-selected: var(--opacity-10-slate-50);
 
+   /* TRACK HEADER */
   --bg-track-header-idle: var(--slate-200);
-  --bg-track-header-hover: var(--slate-100);
+  --bg-track-header-hover: var(--slate-50);
   --bg-track-header-active: var(--shade-100);
 
   --bg-timecode-idle: var(--midnight-300);
@@ -80,8 +81,9 @@
   --stroke-focused-state: var(--blue-500);
   --stroke-track-header: var(--bg-surface-secondary);
   --stroke-timeline-rule: var(--slate-500);
-  --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 88%, var(--slate-50) 12%);
+  --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
   --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
+  --stroke-timeline-tick: var(--midnight-900);
 
   /* CLIP */
   --clip-bg-body-blue-default: var(--blue-400);

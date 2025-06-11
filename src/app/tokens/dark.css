@@ -27,12 +27,13 @@
     --bg-track-idle: var(--opacity-5-slate-50);
     --bg-track-selected: var(--opacity-10-slate-50);
 
+    /* TRACK HEADER */
     --bg-track-header-idle: var(--midnight-300);
     --bg-track-header-hover: var(--midnight-400);
     --bg-track-header-active: var(--midnight-400);
 
-    --bg-timecode-idle: var(--midnight-200);
-    --bg-timecode-hover: var(--midnight-200);
+    --bg-timecode-idle: var(--midnight-100);
+    --bg-timecode-hover: var(--midnight-400);
 
     /* CONTROLS */
     --bg-slider: var(--midnight-200);
@@ -69,8 +70,8 @@
 
 
     /* STROKE */
-    --stroke-on-primary: var(--midnight-200);
-    --stroke-on-secondary: var(--midnight-100);
+    --stroke-on-primary: var(--midnight-400);
+    --stroke-on-secondary: var(--midnight-500);
     --stroke-handle: var(--midnight-900);
     --stroke-knob: var(--slate-900);
     --stroke-knob-indicator: var(--slate-100);
@@ -78,8 +79,37 @@
     --stroke-clip-outer: var(--shade-900);
     --stroke-focused-state: var(--blue-500);
     --stroke-track-header: var(--bg-surface-secondary);
-    --stroke-timeline-rule: var(--midnight-100);
-    --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 88%, var(--slate-50) 12%);
+    --stroke-timeline-rule: var(--midnight-500);
+    --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
+    --stroke-timeline-tick: var(--midnight-900);
 
+    /* CLIP */
+    --clip-bg-body-blue-default: var(--blue-400);
+    --clip-bg-body-blue-selected: var(--blue-300);
+    --clip-bg-header-blue-default-idle: var(--blue-500);
+    --clip-bg-header-blue-default-hover: var(--blue-600);
+    --clip-bg-header-blue-selected-idle: var(--blue-200);
+    --clip-bg-header-blue-selected-hover: var(--blue-100);
+
+    --clip-bg-body-violet-default: var(--violet-400);
+    --clip-bg-body-violet-selected: var(--violet-300);
+    --clip-bg-header-violet-default-idle: var(--violet-500);
+    --clip-bg-header-violet-default-hover: var(--violet-600);
+    --clip-bg-header-violet-selected-idle: var(--violet-200);
+    --clip-bg-header-violet-selected-hover: var(--violet-100);
+
+    --clip-bg-body-magenta-default: var(--magenta-400);
+    --clip-bg-body-magenta-selected: var(--magenta-300);
+    --clip-bg-header-magenta-default-idle: var(--magenta-500);
+    --clip-bg-header-magenta-default-hover: var(--magenta-600);
+    --clip-bg-header-magenta-selected-idle: var(--magenta-200);
+    --clip-bg-header-magenta-selected-hover: var(--magenta-100);
+
+    --clip-bg-body-red-default: var(--red-400);
+    --clip-bg-body-red-selected: var(--red-300);
+    --clip-bg-header-red-default-idle: var(--red-500);
+    --clip-bg-header-red-default-hover: var(--red-600);
+    --clip-bg-header-red-selected-idle: var(--red-200);
+    --clip-bg-header-red-selected-hover: var(--red-100);
 }

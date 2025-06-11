@@ -13,7 +13,10 @@ export default function MinorTick({ value, isWholeNumber = false }: MinorTickPro
       <div className={styles.tick_container_upper}>
         <p className={isWholeNumber ? styles.bold : ""}>{value}</p>
       </div>
-      <div className={styles.tick_container_lower}></div>
+      <div className={styles.tick_container_lower}>
+        <span className={styles.tick_rule}></span>
+        <span className={styles.tick_rule}></span>
+      </div>
     </div>
   );
 }
