@@ -63,7 +63,7 @@
 .track_header_playback_meter_container {
     width: 24px;
     padding: 6px 8px;
-    border-left: 2px solid var(--stroke-track-header);
+    border-left: 1px solid var(--stroke-track-header);
 }
 
 .track_header_playback_meter {
