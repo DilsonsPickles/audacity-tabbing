@@ -9,9 +9,11 @@
   color: var(--text-primary);
   font-weight: bold;
 
-  p {
-    margin-left: 2px;
-  }
+  
+}
+
+.major_tick_container .p {
+  margin-left: 2px;
 }
 
 .minor_tick_container {
