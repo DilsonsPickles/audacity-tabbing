@@ -1,21 +1,32 @@
 .measure {
     display: flex;
     height: 100%;
-    border-left: 1px solid rgba(0,0,0,0.2);
+    border-left: 1px solid var(--stroke-grid-measure);
     width: calc(56px * 4);
     justify-content: space-between;
 }
 
-.beat {
+.quarterNote {
     width: 56px;
     height: 100%;
+    display: flex;
+}
+
+.eigthNote {
+    height: 100%;
+    width: 100%;
 }
 
 /* Add a border to the first 3 beats */
-.beat:nth-child(n+2) {
-    border-left: solid 1px rgba(0,0,0,0.1);
+.quarterNote:nth-child(n+2) {
+    border-left: solid 1px var(--stroke-grid-beat);
 }
 
-.measure:nth-child(2n + 2) {
-   background-color: rgba(255,255,255, 0.010)
+/* Add a border to the first 3 beats */
+.eigthNote:nth-child(n+2) {
+    border-left: solid 1px var(--stroke-grid-beat);
+}
+
+.quarterNote:nth-child(2n + 1) {
+   background-color: var(--bg-surface-grid-emphasis);
 }

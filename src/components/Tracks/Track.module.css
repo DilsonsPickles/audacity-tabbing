@@ -1,22 +1,18 @@
 .track_container {
     display: flex;
     height: 112px;
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: var(--bg-track-idle);
     padding-left: 16px;
     position: relative;
     box-sizing: border-box;
 
     &.selected {
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: var(--bg-track-selected);
     }
 
     &.focused {
         outline: 2px solid var(--stroke-focused-state);
         border-left: none;
         border-right: none;
-    }
-
-    &.parentHovered {
-        background-color: rgba(255, 255, 255, 0.08);
     }
 }

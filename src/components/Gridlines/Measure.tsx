@@ -4,10 +4,22 @@ import styles from "./Measure.module.css";
 export default function Measure() {
   return (
     <div className={styles.measure}>
-      <span className={styles.beat} />
-      <span className={styles.beat} />
-      <span className={styles.beat} />
-      <span className={styles.beat} />
+      <div className={styles.quarterNote}>
+        <span className={styles.eigthNote} />
+        <span className={styles.eigthNote} />
+      </div>
+      <div className={styles.quarterNote}>
+        <span className={styles.eigthNote} />
+        <span className={styles.eigthNote} />
+      </div>
+      <div className={styles.quarterNote}>
+        <span className={styles.eigthNote} />
+        <span className={styles.eigthNote} />
+      </div>
+      <div className={styles.quarterNote}>
+        <span className={styles.eigthNote} />
+        <span className={styles.eigthNote} />
+      </div>
     </div>
   );
 }
