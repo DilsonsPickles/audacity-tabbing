@@ -17,7 +17,7 @@
     --accent-blue-pressed: var(--blue-700);
 
     /* BACKGROUND */
-    --bg-surface-primary: var(--slate-50);
+    --bg-surface-primary: var(--slate-100);
     --bg-surface-primary-accent: #E7EBF8;
     --bg-surface-primary-hover: var(--slate-300);
     --bg-surface-primary-pressed: var(--slate-400);
@@ -29,8 +29,8 @@
 
     /* TRACK HEADER */
     --bg-track-header-idle: var(--slate-200);
-    --bg-track-header-hover: var(--slate-50);
-    --bg-track-header-active: var(--shade-100);
+    --bg-track-header-hover: var(--slate-100);
+    --bg-track-header-active: var(--slate-50);
 
     --bg-timecode-idle: var(--midnight-300);
     --bg-timecode-hover: var(--midnight-600);
@@ -45,7 +45,7 @@
     --bg-checkbox: var(--slate-300);
     --bg-radio: var(--slate-200);
     --bg-meter: var(--slate-400);
-    --bg-meter-clipping: var(--slate-500);
+    --bg-meter-clipping: var(--slate-600);
 
     /* BUTTON */
     --btn-primary-idle: var(--accent-blue-idle);
@@ -64,11 +64,11 @@
     --btn-solid-track-header-hover: var(--slate-500);
     --btn-solid-track-header-pressed: var(--slate-600);
 
-    --btn-ghost-on-primary-hover: var(--slate-400);
-    --btn-ghost-on-primary-pressed: var(--slate-500);
+    --btn-ghost-on-primary-hover: var(--slate-300);
+    --btn-ghost-on-primary-pressed: var(--slate-400);
 
-    --btn-icon-ghost-track-header-hover: var(--slate-400);
-    --btn-icon-ghost-track-header-pressed: var(--slate-500);
+    --btn-icon-ghost-track-header-hover: var(--slate-300);
+    --btn-icon-ghost-track-header-pressed: var(--slate-400);
 
     /* STROKE */
     --stroke-on-primary: var(--slate-300);
@@ -84,7 +84,7 @@
     --stroke-timeline-rule: var(--slate-500);
     --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
-    --stroke-timeline-tick: var(--midnight-900);
+    --stroke-timeline-tick: var(--midnight-100);
 
     /* CLIP */
     --clip-bg-body-blue-default: var(--blue-400);
