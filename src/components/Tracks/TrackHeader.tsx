@@ -105,7 +105,9 @@ export default function TrackHeader({
         />
       </div>
       <div className={styles.track_header_playback_meter_container}>
-        <div className={styles.track_header_playback_meter}></div>
+        <div className={styles.track_header_playback_meter}>
+          <div className={styles.playback_meter_clipping_zone}/>
+        </div>
       </div>
     </div>
   );

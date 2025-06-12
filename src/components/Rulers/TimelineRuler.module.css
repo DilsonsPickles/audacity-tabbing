@@ -5,5 +5,5 @@
     width: fit-content;
     background-color: var(--bg-surface-secondary);
     user-select: none;
-
+    border-bottom: 1px solid var(--stroke-timeline-rule);
 }

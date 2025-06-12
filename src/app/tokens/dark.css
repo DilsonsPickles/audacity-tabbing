@@ -12,61 +12,62 @@
     --icon-play: var(--green-600);
 
     /* ACCENT */
-    --accent-blue-idle: var(--blue-800);
-    --accent-blue-hover: var(--blue-700);
-    --accent-blue-pressed: var(--blue-600);
+    --accent-idle: var(--blue-700);
+    --accent-hover: var(--blue-600);
+    --accent-pressed: var(--blue-500);
 
     /* BACKGROUND */
     --bg-surface-primary: var(--midnight-300);
-    --bg-surface-primary-accent: #343B4F;
+    --bg-surface-primary-accent: color-mix(in srgb, var(--bg-surface-primary) 90%, var(--accent-blue-idle) 10%);
     --bg-surface-primary-hover: var(--midnight-300);
     --bg-surface-primary-pressed: var(--midnight-400);
     --bg-surface-secondary: var(--midnight-200);
-    --bg-surface-canvas: var(--midnight-100);
-    --bg-surface-grid-emphasis: color-mix(in srgb, var(--bg-surface-canvas) 97%, var(--slate-50) 3%);
-    --bg-track-idle: var(--opacity-5-slate-50);
-    --bg-track-selected: var(--opacity-10-slate-50);
+    --bg-surface-canvas: var(--midnight-50);
+    --bg-surface-grid-emphasis: color-mix(in srgb, var(--bg-surface-canvas) 98%, var(--slate-50) 2%);
+    --bg-track-idle: var(--opacity-4-slate-50);
+    --bg-track-selected: var(--opacity-8-slate-50);
 
     /* TRACK HEADER */
     --bg-track-header-idle: var(--midnight-300);
     --bg-track-header-hover: var(--midnight-400);
-    --bg-track-header-active: var(--midnight-400);
+    --bg-track-header-active: var(--midnight-500);
 
+    
+    /* CONTROLS */
     --bg-timecode-idle: var(--midnight-100);
     --bg-timecode-hover: var(--midnight-400);
-
-    /* CONTROLS */
     --bg-slider: var(--midnight-200);
     --bg-handle: var(--midnight-300);
     --bg-control-value-idle: var(--midnight-600);
-    --bg-control-value-active: var(--accent-blue-idle);
+    --bg-control-value-active: var(--accent-hover);
     --bg-knob: var(--midnight-300);
     --bg-guage: var(--midnight-200);
     --bg-checkbox: var(--midnight-400);
     --bg-meter: var(--midnight-200);
+    --bg-meter-clipping: var(--midnight-50);
 
     /* BUTTON */
-    --btn-primary-idle: var(--accent-blue-idle);
-    --btn-primary-hover: var(--accent-blue-hover);
-    --btn-primary-pressed: var(--accent-blue-pressed);
+    --btn-primary-idle: var(--accent-idle);
+    --btn-primary-hover: var(--accent-hover);
+    --btn-primary-pressed: var(--accent-pressed);
 
-    --btn-solid-on-primary-idle: var(--midnight-500);
-    --btn-solid-on-primary-hover: var(--midnight-600);
-    --btn-solid-on-primary-pressed: var(--midnight-700);
+    --btn-solid-on-primary-idle: var(--midnight-600);
+    --btn-solid-on-primary-hover: var(--midnight-700);
+    --btn-solid-on-primary-pressed: var(--midnight-800);
 
-    --btn-solid-on-secondary-idle: var(--midnight-400);
-    --btn-solid-on-secondary-hover: var(--midnight-500);
-    --btn-solid-on-secondary-pressed: var(--midnight-600);
+    --btn-solid-on-secondary-idle: var(--midnight-500);
+    --btn-solid-on-secondary-hover: var(--midnight-600);
+    --btn-solid-on-secondary-pressed: var(--midnight-700);
 
-    --btn-solid-track-header-idle: var(--midnight-500);
-    --btn-solid-track-header-hover: var(--midnight-600);
-    --btn-solid-track-header-pressed: var(--midnight-700);
+    --btn-solid-track-header-idle: var(--midnight-600);
+    --btn-solid-track-header-hover: var(--midnight-700);
+    --btn-solid-track-header-pressed: var(--midnight-800);
 
     --btn-ghost-on-primary-hover: var(--midnight-500);
     --btn-ghost-on-primary-pressed: var(--midnight-600);
 
-    --btn-icon-ghost-track-header-hover: var(--midnight-500);
-    --btn-icon-ghost-track-header-pressed: var(--midnight-600);
+    --btn-icon-ghost-track-header-hover: var(--midnight-600);
+    --btn-icon-ghost-track-header-pressed: var(--midnight-700);
 
 
     /* STROKE */
@@ -79,7 +80,7 @@
     --stroke-clip-outer: var(--shade-900);
     --stroke-focused-state: var(--blue-500);
     --stroke-track-header: var(--bg-surface-secondary);
-    --stroke-timeline-rule: var(--midnight-500);
+    --stroke-timeline-rule: var(--midnight-400);
     --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
     --stroke-timeline-tick: var(--midnight-900);
