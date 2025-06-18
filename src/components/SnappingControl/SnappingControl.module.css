@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    height: 28px;
+    align-items: center;
+    gap: 8px;
+}
+
+.container p {
+    color: var(--text-primary);
+}

@@ -3,6 +3,7 @@
     align-items: center;
     padding-left: 12px;
     height: 32px;
+    color: var(--text-primary);
 
     &:hover {
         background-color: var(--bg-surface-primary-hover);

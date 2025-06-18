@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./AddNewTrackFlyout.module.css";
 import AddNewTrackTypeButton from "@/components/Buttons/AddNewTrackButton/AddNewTrackTypeButton";
-import Checkbox from "../Controls/Checkbox";
 import { usePanelContext } from "@/context/PanelContext";
 
 export default function AddNewTrackFlyout() {
@@ -57,13 +56,6 @@ export default function AddNewTrackFlyout() {
         />
       </div>
       <div className={styles.footer}>
-        <Checkbox
-          name="master"
-          id="add-new-track-flyout-index-3"
-          value="master"
-        >
-          Show master track
-        </Checkbox>
       </div>
     </div>
   );

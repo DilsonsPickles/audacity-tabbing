@@ -19,7 +19,7 @@
     /* BACKGROUND */
     --bg-surface-primary: var(--midnight-300);
     --bg-surface-primary-accent: color-mix(in srgb, var(--bg-surface-primary) 90%, var(--accent-blue-idle) 10%);
-    --bg-surface-primary-hover: var(--midnight-300);
+    --bg-surface-primary-hover: var(--midnight-400);
     --bg-surface-primary-pressed: var(--midnight-400);
     --bg-surface-secondary: var(--midnight-200);
     --bg-surface-canvas: var(--midnight-50);
@@ -42,7 +42,7 @@
     --bg-control-value-active: var(--accent-hover);
     --bg-knob: var(--midnight-300);
     --bg-guage: var(--midnight-200);
-    --bg-checkbox: var(--midnight-400);
+    --bg-checkbox: var(--midnight-600);
     --bg-meter: var(--midnight-200);
     --bg-meter-clipping: var(--midnight-50);
 
@@ -84,6 +84,8 @@
     --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
     --stroke-timeline-tick: var(--slate-300);
+    --stroke-input-idle: var(--midnight-600);
+    --stroke-input-hover: var(--midnight-700);
 
     /* CLIP */
     --clip-bg-body-blue-default: var(--blue-400);

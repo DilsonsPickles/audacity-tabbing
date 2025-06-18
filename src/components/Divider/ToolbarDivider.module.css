@@ -1,0 +1,12 @@
+.container {
+    width: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px;
+}
+
+.divider {
+    height: 28px;
+    border-right: 1px solid var(--stroke-input-idle);
+}

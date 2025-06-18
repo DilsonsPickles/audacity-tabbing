@@ -3,7 +3,6 @@ import styles from "./PreferencePage.module.css";
 import { useTheme } from "@/context/ThemeContext";
 import AccentColorCircle from "@/components/InputFields/AccentColorCircle";
 import InterfaceThumbnail from "@/components/Graphics/InterfaceThumbnail";
-import Checkbox from "@/components/Controls/Checkbox";
 
 export default function InterfacePreferences() {
   const { themePreference, setThemePreference } = useTheme();
@@ -48,22 +47,7 @@ export default function InterfacePreferences() {
           </div>
         </div>
 
-        <div className={styles.checkbox_group}>
-          <Checkbox
-            id="preference-interface-system-theme"
-            name="theme"
-            value="system"
-          >
-            Follow system theme
-          </Checkbox>
-          <Checkbox
-            id="preference-interface-high-contrast"
-            name="theme"
-            value="high-contrast"
-          >
-            Enable high contrast
-          </Checkbox>
-        </div>
+
 
         <div className={styles.accent_color_container}>
           <label>Accent color:</label>

@@ -1,0 +1,45 @@
+.trigger {
+  border: 1px solid var(--stroke-input-idle);
+  background: var(--bg-surface-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 80px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 4px 0px 8px;
+
+  &:hover {
+    border: 1px solid var(--stroke-input-hover);
+  }
+}
+
+.dropdown button {
+    color: var(--text-primary);
+}
+
+.list {
+  position: absolute;
+  margin-top: 4px;
+  width: 80px;
+  background: var(--bg-surface-primary);
+  border: 1px solid var(--stroke-input-idle);
+  border-radius: 4px;
+  z-index: 10;
+  list-style: none;
+  padding: 0;
+}
+
+.option {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.option:hover {
+    background-color:var(--bg-surface-primary-hover);
+}
+
+.option[aria-selected="true"] {
+  background-color: var(--accent-idle);
+}

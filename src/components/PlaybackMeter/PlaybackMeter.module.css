@@ -1,0 +1,54 @@
+.wrapper {
+    display: flex;
+    margin-left: 8px;
+}
+
+.leftMeter {
+    height: 6px;
+    background-color: var(--bg-meter);
+}
+.rightMeter {
+    height: 6px;
+    background-color:var(--bg-meter);
+}
+
+.container {
+    width: 160px;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 0px 8px 0px 8px;
+}
+
+.meterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.meterRuler {
+    display: flex;
+    justify-content: space-between;
+    height: 6px;
+    align-items: center;
+}
+
+.meterRuler p {
+    font-size: 10px;
+    color: var(--text-primary);
+}
+
+.resizeGripper {
+    width: 16px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--icon-primary);
+
+    &:hover {
+        background-color: var(--btn-ghost-on-primary-hover);
+    }
+}

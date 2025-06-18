@@ -4,9 +4,9 @@ import styles from './ToolButton.module.css';
 
 type ToolButtonProps = {
     code: string; // Unicode character for the icon
-    label: string;
-    tabIndex: number;
-    id: string;
+    label?: string;
+    tabIndex?: number;
+    id?: string;
   };
   
 

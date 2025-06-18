@@ -42,10 +42,10 @@
     --bg-control-value-active: var(--accent-hover);
     --bg-knob: var(--slate-50);
     --bg-guage: var(--slate-400);
-    --bg-checkbox: var(--slate-300);
+    --bg-checkbox: var(--slate-400);
     --bg-radio: var(--slate-200);
     --bg-meter: var(--slate-400);
-    --bg-meter-clipping: var(--slate-600);
+    --bg-meter-clipping: var(--slate-500);
 
     /* BUTTON */
     --btn-primary-idle: var(--accent-idle);
@@ -72,7 +72,7 @@
 
     /* STROKE */
     --stroke-on-primary: var(--slate-300);
-    --stroke-on-secondary: var(--slate-500);
+    --stroke-on-secondary: var(--slate-400);
     --stroke-handle: var(--slate-900);
     --stroke-knob: var(--slate-900);
     --stroke-knob-indicator: var(--midnight-100);
@@ -85,6 +85,8 @@
     --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
     --stroke-timeline-tick: var(--midnight-100);
+    --stroke-input-idle: var(--slate-400);
+    --stroke-input-hover: var(--slate-500);
 
     /* CLIP */
     --clip-bg-body-blue-default: var(--blue-400);
