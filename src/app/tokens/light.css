@@ -38,7 +38,7 @@
     /* CONTROLS */
     --bg-slider: var(--slate-400);
     --bg-handle: var(--slate-100);
-    --bg-control-value-idle: var(--slate-900);
+    --bg-control-value-idle: var(--slate-700);
     --bg-control-value-active: var(--accent-hover);
     --bg-knob: var(--slate-50);
     --bg-guage: var(--slate-400);

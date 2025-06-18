@@ -83,7 +83,7 @@
     --stroke-timeline-rule: var(--midnight-400);
     --stroke-grid-measure: color-mix(in srgb, var(--bg-surface-canvas) 84%, var(--slate-50) 16%);
     --stroke-grid-beat: color-mix(in srgb, var(--bg-surface-canvas) 92%, var(--slate-50) 8%);
-    --stroke-timeline-tick: var(--midnight-900);
+    --stroke-timeline-tick: var(--slate-300);
 
     /* CLIP */
     --clip-bg-body-blue-default: var(--blue-400);

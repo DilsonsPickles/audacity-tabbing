@@ -6,16 +6,16 @@
     --shade-900: #000;
 
     /* Slate */
---slate-50:  #FBFBFD;  
---slate-100: #F7F9FB;  
---slate-200: #EFF1F5;
---slate-300: #DEE0E5;
---slate-400: #D5D7DF;
---slate-500: #C5C8D1;
---slate-600: #BCC0CD;
---slate-700: #A4A8B9;  
---slate-800: #9499AB;  
---slate-900: #7E849A; 
+    --slate-50: #F9F9FA;
+    --slate-100: #F2F4F7;
+    --slate-200: #EEF0F2;
+    --slate-300: #DFE2E7;
+    --slate-400: #D2D6DD;
+    --slate-500: #C0C5CE;
+    --slate-600: #A9B0BD;
+    --slate-700: #949CAC;
+    --slate-800: #838B9D;
+    --slate-900: #6F788F;
 
     /* Midnight */
     --midnight-50: #141516;
